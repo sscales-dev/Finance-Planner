@@ -1,0 +1,25 @@
+/* <weight>: Use a value from 300 to 700
+/* <uniquifier>: Use a unique and descriptive class name 
+
+.space-grotesk-<uniquifier> {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+*/
+
+/* <weight>: Use a value from 100 to 800
+/* <uniquifier>: Use a unique and descriptive class name
+
+.martian-mono-<uniquifier> {
+  font-family: "Martian Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+*/
