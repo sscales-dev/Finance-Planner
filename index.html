@@ -17,16 +17,16 @@
 
 </head>
 <body>
-    <header class="container">
+    <header class="container my-3">
         <nav class="row d-flex flex-row align-items-center">
-            <div class="col-5">
+            <div class="col-5 fs-1">
                 <a class="navbar-brand mx-1" href="#">
                     <img src="/assets/images/brand-icon.png" alt="Financial Planner" width="37.5" height="40">
                 </a>
                 <h1 class="martian-mono-semi-bold d-inline-block">Financial Planner</h1>
             </div>
             <div class="col-7">
-                <div class="row d-flex">
+                <div class="row d-flex align-items-end">
                     <div class="col">
                         <button type="button" class="btn">Overview</button>                        
                     </div>
@@ -49,36 +49,119 @@
         </nav>
     </header>
     <section class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="scrollable-table">
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-1-w text-end">2026</th>
+                        <th scope="col" class="budget-col">date-1</th>
+                        <th scope="col" class="budget-col">date-2</th>
+                        <th scope="col" class="budget-col">date-3</th>
+                        <th scope="col" class="budget-col">date-4</th>
+                        <th scope="col" class="budget-col">date-5</th>
+                        <th scope="col" class="budget-col">date-6</th>
+                        <th scope="col" class="budget-col">date-7</th>
+                        <th scope="col" class="budget-col">date-8</th>
+                        <th scope="col" class="budget-col">date-9</th>
+                        <th scope="col" class="budget-col">date-10</th>
+                        <th scope="col" class="budget-col">date-11</th>
+                        <th scope="col" class="budget-col">date-12</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="col-1-w text-end table-header-column-bg-color">Available Balance</th>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="col-1-w text-end table-header-column-bg-color">Income</th>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="col-1-w text-end table-header-column-bg-color">Overheads</th>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="col-1-w text-end table-header-column-bg-color">Essential</th>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="col-1-w text-end table-header-column-bg-color">Discretionary</th>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="col-1-w text-end table-header-column-bg-color">Lending & Borrowing</th>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                        <td class="budget-col">£0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
     <section class="container d-none">
         <table class="table">
@@ -177,7 +260,7 @@
         </table>
     </section>
     <footer class="container">
-        <p>Developer Contact Details: scales.samantha@outlook.com</p>
+        <p>Contact Details: scales.samantha@outlook.com</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
