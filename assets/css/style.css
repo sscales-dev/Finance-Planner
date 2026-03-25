@@ -91,8 +91,9 @@ body {
   font-style: italic;
 }
 
+/* ------------------------------------------------------- NAVBAR */
+
 .btn {
-    font-size: 0.85rem;
     font-weight: 500;
 }
 
@@ -101,6 +102,32 @@ body {
 }
 
 .navbar-brand > img {
-    margin-bottom: .75rem;
     padding-bottom: .55rem;
+}
+
+/* ------------------------------------------------------- Overview Table */
+
+.scrollable-table {
+    overflow-x: scroll;
+}
+
+table {
+    table-layout: fixed !important;
+}
+
+th, td {
+    width: 7.5%;
+}
+
+th.col-1-w {
+    width: 12.5% !important;
+}
+
+.budget-col {
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.table-header-column-bg-color {
+    background-color: #dedbd2 !important;
 }
