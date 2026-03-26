@@ -75,7 +75,7 @@
         </nav>-->
     </header>
     <!-- OVERVIEW SECTION -->
-    <section class="container" id="overview-section">
+    <section class="container d-none" id="overview-section">
         <div class="scrollable-table">
             <table class="table table-responsive table-hover">
                 <thead>
@@ -191,34 +191,63 @@
         </div>
     </section>
     <!-- INCOME SECTION -->
-    <section class="container d-none" id="income-section">
-        <table class="table">
+    <section class="container" id="income-section">
+        <table class="table table-responsive">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col" class="col-end-w text-end">
+                    <i class="fa-regular fa-eye-slash"></i>
+                </th>
+                <th scope="col" class="item-col">Name</th>
+                <th scope="col" class="item-col">Am.</th>
+                <th scope="col" class="item-col">Freq.</th>
+                <th scope="col" class="item-col"><i class="fa-regular fa-calendar"></i></th>
+                <th scope="col" class="item-col col-end-w">
+                    <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </button>
+                </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                    <th scope="row" class="col-end-w text-end">
+                        <i class="fa-regular fa-square"></i>
+                        <i class="d-none fa-solid fa-square-check"></i>
+                    </th>
+                    <td class="item-col">Eg. UC</td>
+                    <td class="item-col">£0.00</td>
+                    <td class="item-col">Monthly</td>
+                    <td class="item-col">13-3-26</td>
+                    <td class="item-col col-end-w text-center">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </td>
                 </tr>
                 <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                    <th scope="row" class="col-end-w text-end">
+                        <i class="fa-regular fa-square"></i>
+                        <i class="d-none fa-solid fa-square-check"></i>
+                    </th>
+                    <td class="item-col">Eg. PIP</td>
+                    <td class="item-col">£0.00</td>
+                    <td class="item-col">28 Days</td>
+                    <td class="item-col">7-3-26</td>
+                    <td class="item-col col-end-w text-center">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </td>
                 </tr>
                 <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
+                    <th scope="row" class="col-end-w text-end">
+                        <i class="fa-regular fa-square"></i>
+                        <i class="d-none fa-solid fa-square-check"></i>
+                    </th>
+                    <td class="item-col">Eg. Pay</td>
+                    <td class="item-col">£0.00</td>
+                    <td class="item-col">Weekly</td>
+                    <td class="item-col">10-3-26</td>
+                    <td class="item-col col-end-w text-center">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -126,7 +126,7 @@ body {
     color: #b3679b !important;
 }
 
-/* ------------------------------------------------------- Overview Table */
+/* ------------------------------------------------------- Tables */
 
 .scrollable-table {
     overflow-x: scroll;
@@ -144,6 +144,10 @@ th.col-1-w {
     width: 30vw !important;
 }
 
+th.col-end-w {
+    width: 10vw !important;
+}
+
 .budget-col {
     text-align: center;
     text-wrap: nowrap;
@@ -151,4 +155,8 @@ th.col-1-w {
 
 .table-header-column-bg-color {
     background-color: #dedbd2 !important;
+}
+
+#income-section > table > tbody > tr  {
+    font-size: 0.9rem;
 }
