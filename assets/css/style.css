@@ -319,7 +319,7 @@ th, td {
 
 /* ------------------------------------------------------- Overview Section */
 
-#overview-section > table > tbody > tr {
+#overview > table > tbody > tr {
     height: 10vh;
 }
 
@@ -343,7 +343,7 @@ th.col-1-width {
 
 /* ------------------------------------------------------- Income Section */
 
-#income-section > table > tbody > tr  {
+#income > table > tbody > tr  {
     font-size: 0.9rem;
 }
 

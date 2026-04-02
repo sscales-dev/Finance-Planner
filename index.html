@@ -27,16 +27,16 @@
                 </a>
                 <ul class="nav nav-tabs"><!-- add justify content end to larger devices-->
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium active" data-bs-toggle="tab" data-bs-target="#overview-section" aria-current="true" href="#overview-section">Overview</a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" aria-current="true" type="button" role="tab" aria-controls="overview" aria-selected="true" href="#overview">Overview</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium" data-bs-toggle="tab" data-bs-target="#income-section" href="#income-section">Income</a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium" id="income-tab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false" href="#income">Income</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium" data-bs-toggle="tab" data-bs-target="#recurring-section" href="#recurring-section">Recurring</a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium" id="recurring-tab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium" data-bs-toggle="tab" data-bs-target="#onetime-section" href="#onetime-section">One-time</a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium" id="onetime-tab" data-bs-toggle="tab" data-bs-target="#onetime" type="button" role="tab" aria-controls="onetime" aria-selected="false" href="#onetime">One-time</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ibm-plex-sans-condensed-medium" href="#settings-modal"><i class="fa-solid fa-gear"></i></a>
@@ -74,250 +74,252 @@
             </div>
         </nav>-->
     </header>
-    <!-- OVERVIEW SECTION -->
-    <section class="container" id="overview-section">
-        <div class="scrollable-table">
-            <table class="table table-responsive table-hover">
+    <div class="tab-content">
+        <!-- OVERVIEW SECTION -->
+        <section class="container tab-pane active" id="overview" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+            <div class="scrollable-table">
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-1-width text-end">2026</th>
+                            <th scope="col" class="budget-col">date-1</th>
+                            <th scope="col" class="budget-col">date-2</th>
+                            <th scope="col" class="budget-col">date-3</th>
+                            <th scope="col" class="budget-col">date-4</th>
+                            <th scope="col" class="budget-col">date-5</th>
+                            <th scope="col" class="budget-col">date-6</th>
+                            <th scope="col" class="budget-col">date-7</th>
+                            <th scope="col" class="budget-col">date-8</th>
+                            <th scope="col" class="budget-col">date-9</th>
+                            <th scope="col" class="budget-col">date-10</th>
+                            <th scope="col" class="budget-col">date-11</th>
+                            <th scope="col" class="budget-col">date-12</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Available Balance</th>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Income</th>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Overheads</th>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Essential</th>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Discretionary</th>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Lending & Borrowing</th>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col">£0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- INCOME SECTION -->
+        <section class="container tab-pane" id="income" role="tabpanel" aria-labelledby="income-tab" tabindex="0">
+            <table class="table table-responsive">
                 <thead>
                     <tr>
-                        <th scope="col" class="col-1-width text-end">2026</th>
-                        <th scope="col" class="budget-col">date-1</th>
-                        <th scope="col" class="budget-col">date-2</th>
-                        <th scope="col" class="budget-col">date-3</th>
-                        <th scope="col" class="budget-col">date-4</th>
-                        <th scope="col" class="budget-col">date-5</th>
-                        <th scope="col" class="budget-col">date-6</th>
-                        <th scope="col" class="budget-col">date-7</th>
-                        <th scope="col" class="budget-col">date-8</th>
-                        <th scope="col" class="budget-col">date-9</th>
-                        <th scope="col" class="budget-col">date-10</th>
-                        <th scope="col" class="budget-col">date-11</th>
-                        <th scope="col" class="budget-col">date-12</th>
+                    <th scope="col" class="col-end-width text-end">
+                        <i class="fa-regular fa-eye-slash"></i>
+                    </th>
+                    <th scope="col" class="item-col">Name</th>
+                    <th scope="col" class="item-col">Am.</th>
+                    <th scope="col" class="item-col">Freq.</th>
+                    <th scope="col" class="item-col"><i class="fa-regular fa-calendar"></i></th>
+                    <th scope="col" class="item-col col-end-width">
+                        <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </button>
+                    </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Available Balance</th>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
+                        <th scope="row" class="col-end-width text-end">
+                            <i class="fa-regular fa-square"></i>
+                            <i class="d-none fa-solid fa-square-check"></i>
+                        </th>
+                        <td class="item-col">Eg. UC</td>
+                        <td class="item-col">£0.00</td>
+                        <td class="item-col">Monthly</td>
+                        <td class="item-col">13-3-26</td>
+                        <td class="item-col col-end-width text-center">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Income</th>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
+                        <th scope="row" class="col-end-width text-end">
+                            <i class="fa-regular fa-square"></i>
+                            <i class="d-none fa-solid fa-square-check"></i>
+                        </th>
+                        <td class="item-col">Eg. PIP</td>
+                        <td class="item-col">£0.00</td>
+                        <td class="item-col">28 Days</td>
+                        <td class="item-col">7-3-26</td>
+                        <td class="item-col col-end-width text-center">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Overheads</th>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Essential</th>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Discretionary</th>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="col-1-width text-end table-header-column-border table-header-font">Lending & Borrowing</th>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
-                        <td class="budget-col">£0.00</td>
+                        <th scope="row" class="col-end-width text-end">
+                            <i class="fa-regular fa-square"></i>
+                            <i class="d-none fa-solid fa-square-check"></i>
+                        </th>
+                        <td class="item-col">Eg. Pay</td>
+                        <td class="item-col">£0.00</td>
+                        <td class="item-col">Weekly</td>
+                        <td class="item-col">10-3-26</td>
+                        <td class="item-col col-end-width text-center">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </section>
-    <!-- INCOME SECTION -->
-    <section class="container d-none" id="income-section">
-        <table class="table table-responsive">
-            <thead>
-                <tr>
-                <th scope="col" class="col-end-width text-end">
-                    <i class="fa-regular fa-eye-slash"></i>
-                </th>
-                <th scope="col" class="item-col">Name</th>
-                <th scope="col" class="item-col">Am.</th>
-                <th scope="col" class="item-col">Freq.</th>
-                <th scope="col" class="item-col"><i class="fa-regular fa-calendar"></i></th>
-                <th scope="col" class="item-col col-end-width">
-                    <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0">
-                        <i class="fa-solid fa-circle-plus"></i>
-                    </button>
-                </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="col-end-width text-end">
-                        <i class="fa-regular fa-square"></i>
-                        <i class="d-none fa-solid fa-square-check"></i>
-                    </th>
-                    <td class="item-col">Eg. UC</td>
-                    <td class="item-col">£0.00</td>
-                    <td class="item-col">Monthly</td>
-                    <td class="item-col">13-3-26</td>
-                    <td class="item-col col-end-width text-center">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" class="col-end-width text-end">
-                        <i class="fa-regular fa-square"></i>
-                        <i class="d-none fa-solid fa-square-check"></i>
-                    </th>
-                    <td class="item-col">Eg. PIP</td>
-                    <td class="item-col">£0.00</td>
-                    <td class="item-col">28 Days</td>
-                    <td class="item-col">7-3-26</td>
-                    <td class="item-col col-end-width text-center">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" class="col-end-width text-end">
-                        <i class="fa-regular fa-square"></i>
-                        <i class="d-none fa-solid fa-square-check"></i>
-                    </th>
-                    <td class="item-col">Eg. Pay</td>
-                    <td class="item-col">£0.00</td>
-                    <td class="item-col">Weekly</td>
-                    <td class="item-col">10-3-26</td>
-                    <td class="item-col col-end-width text-center">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!-- RECURRING SECTION -->
-    <section class="container d-none" id="recurring-section">
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!-- ONE-TIME SECTION -->
-    <section class="container d-none" id="onetime-section">
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        </section>
+        <!-- RECURRING SECTION -->
+        <section class="container tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>@social</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- ONE-TIME SECTION -->
+        <section class="container tab-pane" id="onetime" role="tabpanel" aria-labelledby="onetime-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>@social</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
     <footer class="container my-4">
         <p>Contact Details: scales.samantha@outlook.com</p>
     </footer>
