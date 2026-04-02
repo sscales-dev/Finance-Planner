@@ -327,10 +327,6 @@ body {
     padding-right: 0.5rem !important;
 }
 
-.nav-link:hover, .fa-gear:hover {
-    color: var(--velvet-orchid) !important;
-}
-
 .nav-tabs .nav-link.active {
     background-color: white !important;
     border-color:  var(--alabaster-grey) !important;
@@ -338,8 +334,10 @@ body {
     color: var(--velvet-orchid) !important;
 }
 
-.nav-tabs .nav-link.active:hover {
-  color: var(--velvet-orchid) !important;
+.nav-link:hover,
+.fa-gear:hover,
+.nav-link.active:hover {
+    color: var(--velvet-orchid) !important;
 }
 
 /* ------------------------------------------------------- Tables */
@@ -370,17 +368,11 @@ th, td {
   height: 10vh;
 }
 
-th.col-1-width {
-  width: 30vw !important;
-}
-
-.table-header-column-border {
+.category-column {
   border-right: 2px solid var(--parchment) !important;
-}
-
-.table-header-font {
   font-size: 0.95rem;
   font-weight: 600;
+  width: 28vw;
 }
 
 .budget-col {
@@ -388,14 +380,31 @@ th.col-1-width {
   text-wrap: nowrap;
 }
 
-/* ------------------------------------------------------- Income Section */
+/* ------------------------------------------------------- Itemised sections */
 
-#income > table > tbody > tr  {
+section:not(#overview) > table > thead > tr,
+section:not(#overview) > table > tbody > tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 0.9rem;
 }
 
-th.col-end-width {
-  width: 10vw !important;
+.col-end-width {
+  width: 10vw;
+}
+
+.recurring-item-col {
+  width: 38vw;
+}
+
+.recurring-amount-col {
+  width: 16vw;
+}
+
+.recurring-freq-col,
+.recurring-date-col {
+  width: 18vw;
 }
 
 #add-income-btn {
@@ -413,6 +422,18 @@ th.col-end-width {
   border-color: var(--velvet-orchid);
 }
 
-#add-income-btn > .fa-solid:hover {
-  
+.col-header-sortable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.fa-sort {
+  font-size: 0.5rem;
+}
+
+.fa-sort:hover {
+  color: var(--velvet-orchid);
+}
+
