@@ -319,7 +319,7 @@ th, td {
 
 /* ------------------------------------------------------- Overview Section */
 
-#overview > table > tbody > tr {
+#overview > div > table > tbody > tr {
     height: 10vh;
 }
 
