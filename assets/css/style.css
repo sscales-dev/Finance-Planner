@@ -11,13 +11,14 @@
     --platinum: #F2F3F7;
     --white-smoke: #F5F6F4;
     --parchment: #EDECE8;
+    --alabaster-grey: #DEE2E6;
 
     /* plant colours */
     --faded-copper: #A07E63;
     --lime-moss: #7FB241;
     --cherry-rose: #AB1861;
     --olive-leaf: #175E0C;
-    --alabaster-grey: #E1E1E3;
+    
     --celadon: #9AD6B8;
     --ocford-navy: #0F375E;
     --vintage-greape: #523E57;
@@ -331,9 +332,9 @@ body {
 
 .nav-tabs .nav-link.active {
     background-color: white !important;
-    border-color:  #DEE2E6 !important;
+    border-color:  var(--alabaster-grey) !important;
     border-bottom: white 1px solid !important;
-    color: var(--stormy-teal) !important;
+    color: var(--velvet-orchid) !important;
 }
 
 .nav-tabs .nav-link.active:hover {
@@ -344,51 +345,54 @@ body {
 
 .scrollable-table {
     overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 table {
-    table-layout: fixed !important;
+  border-left: 1px solid var(--alabaster-grey) !important;
+  border-right: 1px solid var(--alabaster-grey) !important;
+  table-layout: fixed !important;
 }
 
 tr, td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 th, td {
-    color: var(--jet-black) !important;
-    width: 16vw;
+  color: var(--jet-black) !important;
+  width: 16vw;
 }
 
 /* ------------------------------------------------------- Overview Section */
 
 #overview > div > table > tbody > tr {
-    height: 10vh;
+  height: 10vh;
 }
 
 th.col-1-width {
-    width: 30vw !important;
+  width: 30vw !important;
 }
 
 .table-header-column-border {
-    border-right: 2px solid var(--parchment) !important;
+  border-right: 2px solid var(--parchment) !important;
 }
 
 .table-header-font {
-    font-size: 0.95rem;
-    font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .budget-col {
-    text-align: center;
-    text-wrap: nowrap;
+  text-align: center;
+  text-wrap: nowrap;
 }
 
 /* ------------------------------------------------------- Income Section */
 
 #income > table > tbody > tr  {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 th.col-end-width {
-    width: 10vw !important;
+  width: 10vw !important;
 }
