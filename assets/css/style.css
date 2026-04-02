@@ -33,6 +33,7 @@
     --velvet-orchid: #803181;
     --stormy-teal: #1C6269;
     --dark-teal: #154C51;
+
     --emerald-depths: #00593A;
     --frosted-mint: #DAEDD5;
 
@@ -395,4 +396,23 @@ th.col-1-width {
 
 th.col-end-width {
   width: 10vw !important;
+}
+
+#add-income-btn {
+  background-color: var(--green);
+  border-color: var(--green);
+  outline-color:  var(--green);;
+  /*border-radius: 1rem;*/
+  padding-left: .15rem !important;
+  width: 1.5rem;
+}
+
+#add-income-btn:hover {
+  background-color: white;
+  color: var(--velvet-orchid);
+  border-color: var(--velvet-orchid);
+}
+
+#add-income-btn > .fa-solid:hover {
+  
 }
