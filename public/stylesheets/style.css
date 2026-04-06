@@ -526,3 +526,18 @@ section:not(#overview) > table > tbody > tr {
     width: 44vw;
   }
 }
+
+/* ------------------------------------------------------- Settings Modal */
+
+.modal-header,
+.modal-footer {
+  background-color: var(--white-smoke);
+}
+
+.modal-title {
+  color: var(--jet-black);
+}
+
+select {
+  width: 140px !important;
+}

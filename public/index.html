@@ -39,7 +39,7 @@
                         <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="onetime-tab" data-bs-toggle="tab" data-bs-target="#onetime" type="button" role="tab" aria-controls="onetime" aria-selected="false" href="#onetime">One-time</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium" href="#settings-modal"><i class="fa-solid fa-gear hvr-grow"></i></a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium" id="settings-modal-button" href="#settings-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-gear hvr-grow"></i></a>
                     </li>
                 </ul>
             </div>
@@ -48,6 +48,7 @@
     <div class="tab-content">
         <!-- OVERVIEW SECTION -->
         <section class="container px-lg-3 tab-pane active" id="overview" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+            <h2 class="visually-hidden">Overview</h2>
             <div class="scrollable-table">
                 <table class="table table-responsive table-hover">
                     <thead>
@@ -164,6 +165,7 @@
         </section>
         <!-- INCOME SECTION -->
         <section class="container px-lg-2 px-xl-3 tab-pane" id="income" role="tabpanel" aria-labelledby="income-tab" tabindex="0">
+            <h2 class="visually-hidden">Income</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -226,6 +228,7 @@
         </section>
         <!-- RECURRING SECTION -->
         <section class="container px-lg-2 px-xl-3 tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab" tabindex="0">
+            <h2 class="visually-hidden">Recurring</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -288,6 +291,7 @@
         </section>
         <!-- ONE-TIME SECTION -->
         <section class="container px-lg-2 px-xl-3 tab-pane" id="onetime" role="tabpanel" aria-labelledby="onetime-tab" tabindex="0">
+            <h2 class="visually-hidden">One-time</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -349,11 +353,99 @@
             </table>
         </section>
     </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Paydate Settings</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="container position-relative p-3" id="dateInputForm" no-validation> <!-- -->
+
+                        <!-- form date input group -->
+                        <div class="d-flex flex-row justify-content-between align-items-start mb-4 mt-2">
+                            <label for="dateInput1" class="form-label" required>1st Paydate:</label> 
+                            <div class="d-flex flex-column" id="input-group1">
+                                <select class="form-select form-select-sm mb-3" id="frequencyChoiceD1" aria-label="frequencyChoiceD1">
+                                    <option value="monthly" selected>Monthly</option>
+                                    <option value="28d">28 days</option>
+                                    <option value="weekly" selected>Weekly</option>
+                                </select>
+                                <div id="validationServerfrequencyChoiceD1Feedback" class="invalid-feedback">
+                                    Please choose a frequency
+                                </div>
+                                <input type="date" class="form-control form-control-sm mb-3" id="dateInput1">
+                                <div id="validationServerdateInput1Feedback" class="invalid-feedback">
+                                    Please enter a date
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- form date input group -->
+                        <div class="d-flex flex-row justify-content-between align-items-start mb-4">
+                            <label for="dateInput2" class="form-label">2nd Paydate:</label>
+                            <div class="d-flex flex-column" id="input-group2">
+                                <select class="form-select form-select-sm mb-3" id="frequencyChoiceD2" aria-label="frequencyChoiceD2">
+                                    <option value="monthly">Monthly</option>
+                                    <option value="28d" selected>28 days</option>
+                                    <option value="weekly" selected>Weekly</option>
+                                </select>
+                                <div id="validationServerfrequencyChoiceD2Feedback" class="invalid-feedback">
+                                    Please choose a frequency
+                                </div>
+                                <input type="date" class="form-control form-control-sm mb-3" id="dateInput2">
+                                <div id="validationServerdateInput2Feedback" class="invalid-feedback">
+                                    Please enter a date
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <hr class="my-3"> -->
+
+                        <!-- duration input group -->
+                        <div class="d-flex flex-row justify-content-between mb-3" id="input-group3">
+                            <label for="overview-duration" class="form-label">Duration:</label>
+                            <select class="form-select form-select-sm" id="overview-duration" aria-label="duration" disabled>
+                                <option value="6">6 months</option>
+                                <option value="12" selected>12 months</option>
+                                <option value="18">18 months</option>
+                            </select>
+                        </div>
+
+                        <!--<div class="w-100 position-absolute bottom-0 start-0 px-4">
+                            <hr class="my-0">
+                            <button type="submit" class="btn btn-light text-secondary float-start my-3" onclick="google.script.host.close()">Cancel</button>
+                            <button type="submit" class="btn btn-primary float-end my-3" onclick="processDates()">Submit</button>
+                        </div>-->
+                    </form>
+                    <div class="d-none justify-content-center align-items-center status-page" id="spinner-page">
+                        <span class="d-flex justify-content-center align-items-center status-page" id="spinner-content">
+                            <h3 class="me-4 pt-2">Processing dates...</h3>
+                            <i class="fa-solid fa-spinner fa-2xl fa-spin"></i>
+                        </span>
+                    </div>
+
+                    <div class="d-none flex-column justify-content-center align-items-center mt-5 status-page" id="error-page">
+                        <h3 class="text-danger text-center mb-4" id="error-text">Error!</h3>
+                    </div>
+
+                    <div class="d-none flex-column justify-content-center align-items-center mt-5 status-page" id="success-page">
+                        <h3 class="text-success text-center mb-4">Successfully updated dates on spreadsheet!</h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="container my-4">
         <p>Contact Details: scales.samantha@outlook.com</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <script src="javascripts/script.js"></script>
 </body>
 </html>
