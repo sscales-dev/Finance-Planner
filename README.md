@@ -149,7 +149,7 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 - README template used, taken from [Code Institute Solutions on GitHub](https://github.com/Code-Institute-Solutions/SampleREADME)
 
-- 
+- [Argon2 in NodeJS](https://mojoauth.com/hashing/argon2-in-nodejs#implementing-argon2-in-nodejs)
 
 **GIT**
 
