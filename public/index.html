@@ -20,7 +20,7 @@
     <!-- HEADER -->
     <header class="mt-3">
         <nav class="navbar pb-0">
-            <div class="container-fluid">
+            <div class="container-fluid mx-lg-4">
                 <a class="navbar-brand" href="#">
                     <img src="images/brand-icon.png" alt="Financial Planner" width="42.5" height="55" class="d-inline-block fs-1align-text-top">
                     <h1 class="d-inline-block ibm-plex-sans-condensed-regular fs-1">Financial Planner</h1>
@@ -47,7 +47,7 @@
     </header>
     <div class="tab-content">
         <!-- OVERVIEW SECTION -->
-        <section class="container tab-pane active" id="overview" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+        <section class="container px-lg-3 tab-pane active" id="overview" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
             <div class="scrollable-table">
                 <table class="table table-responsive table-hover">
                     <thead>
@@ -163,7 +163,7 @@
             </div>
         </section>
         <!-- INCOME SECTION -->
-        <section class="container tab-pane" id="income" role="tabpanel" aria-labelledby="income-tab" tabindex="0">
+        <section class="container px-lg-2 px-xl-3 tab-pane" id="income" role="tabpanel" aria-labelledby="income-tab" tabindex="0">
             <table class="table">
                 <thead>
                     <tr>
@@ -173,6 +173,7 @@
                         <th scope="col" class="col-header-sortable recurring-item-col"><span>Item</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-header-sortable recurring-amount-col"><span>Am.</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-header-sortable recurring-freq-col"><span>Freq.</span><i class="fa-solid fa-sort"></i></th>
+                        <th scope="col" class="d-none d-lg-flex col-header-sortable recurring-cat-col"><span>Cat.</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-end-width text-center">
                             <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="add-income-btn">
                                 <i class="fa-solid fa-circle-plus"></i>
@@ -186,9 +187,10 @@
                         <i class="fa-regular fa-circle"></i></i>
                         <i class="fa-solid fa-circle-xmark unchecked d-none"></i></i>
                     </th>
-                    <td class="recurring-item-col">UC</td>
+                    <td class="recurring-item-col">Universal Credit</td>
                     <td class="recurring-amount-col">£800</td>
                     <td class="recurring-freq-col">Monthly</td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Benefits</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -201,6 +203,7 @@
                     <td class="recurring-item-col">PIP</td>
                     <td class="recurring-amount-col">£120</td>
                     <td class="recurring-freq-col">28 days</td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Benefits</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -213,6 +216,7 @@
                     <td class="recurring-item-col">Pay</td>
                     <td class="recurring-amount-col">£100</td>
                     <td class="recurring-freq-col">Weekly</td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Benefits</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -221,7 +225,7 @@
             </table>
         </section>
         <!-- RECURRING SECTION -->
-        <section class="container tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab" tabindex="0">
+        <section class="container px-lg-2 px-xl-3 tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab" tabindex="0">
             <table class="table">
                 <thead>
                     <tr>
@@ -231,6 +235,7 @@
                         <th scope="col" class="col-header-sortable recurring-item-col"><span>Item</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-header-sortable recurring-amount-col"><span>Am.</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-header-sortable recurring-freq-col"><span>Freq.</span><i class="fa-solid fa-sort"></i></th>
+                        <th scope="col" class="d-none d-lg-flex col-header-sortable recurring-cat-col"><span>Cat.</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-end-width text-center">
                             <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="add-income-btn">
                                 <i class="fa-solid fa-circle-plus"></i>
@@ -247,6 +252,7 @@
                     <td class="recurring-item-col">Rent</td>
                     <td class="recurring-amount-col">£1200</td>
                     <td class="recurring-freq-col">Monthly</td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Overheads</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -259,6 +265,7 @@
                     <td class="recurring-item-col">Council Tax</td>
                     <td class="recurring-amount-col">£120</td>
                     <td class="recurring-freq-col">Monthly</td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Overheads</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -271,6 +278,7 @@
                     <td class="recurring-item-col">Groceries</td>
                     <td class="recurring-amount-col">£240</td>
                     <td class="recurring-freq-col">28 days</td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Essential</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -279,7 +287,7 @@
             </table>
         </section>
         <!-- ONE-TIME SECTION -->
-        <section class="container tab-pane" id="onetime" role="tabpanel" aria-labelledby="onetime-tab" tabindex="0">
+        <section class="container px-lg-2 px-xl-3 tab-pane" id="onetime" role="tabpanel" aria-labelledby="onetime-tab" tabindex="0">
             <table class="table">
                 <thead>
                     <tr>
@@ -289,6 +297,7 @@
                         <th scope="col" class="col-header-sortable recurring-item-col"><span>Item</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-header-sortable recurring-amount-col"><span>Am.</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-header-sortable recurring-date-col"><span>Date</span><i class="fa-solid fa-sort"></i></th>
+                        <th scope="col" class="d-none d-lg-flex col-header-sortable recurring-cat-col"><span>Cat.</span><i class="fa-solid fa-sort"></i></th>
                         <th scope="col" class="col-end-width text-center">
                             <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="add-income-btn">
                                 <i class="fa-solid fa-circle-plus"></i>
@@ -305,6 +314,7 @@
                     <td class="recurring-item-col">Debt repayment</td>
                     <td class="recurring-amount-col">£50</td>
                     <td class="recurring-date-col"></td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Lending and Borrowing</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -317,6 +327,7 @@
                     <td class="recurring-item-col">Tattoo</td>
                     <td class="recurring-amount-col">£120</td>
                     <td class="recurring-date-col"></td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Discretionary</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>
@@ -329,6 +340,7 @@
                     <td class="recurring-item-col">Unpaid bill</td>
                     <td class="recurring-amount-col">£30</td>
                     <td class="recurring-date-col"></td>
+                    <td class="d-none d-lg-flex recurring-cat-col">Overheads</td>
                     <td class="col-end-width text-center">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </td>

@@ -1,64 +1,63 @@
 /* ------------------------------------------------------- COLOURS */
 
 :root {
-    --brown-red: #9F1D1D;
-    --green: #2E7D32;
+  --brown-red: #9f1d1d;
+  --green: #2e7d32;
 
-    --success-green: #4CAF50;
-    --spicy-paprika: #EC4E20;
+  --success-green: #4caf50;
+  --spicy-paprika: #ec4e20;
 
-    --jet-black: #2D3142;
-    --platinum: #F2F3F7;
-    --white-smoke: #F5F6F4;
-    --parchment: #EDECE8;
-    --alabaster-grey: #DEE2E6;
+  --jet-black: #2d3142;
+  --platinum: #f2f3f7;
+  --white-smoke: #f5f6f4;
+  --parchment: #edece8;
+  --alabaster-grey: #dee2e6;
 
-    /* plant colours */
-    --faded-copper: #A07E63;
-    --lime-moss: #7FB241;
-    --cherry-rose: #AB1861;
-    --olive-leaf: #175E0C;
-    
-    --celadon: #9AD6B8;
-    --ocford-navy: #0F375E;
-    --vintage-greape: #523E57;
-    --baltic-blue: #255D7D;
-    --charcoal: #525669;
-    --dusty-grape: #525C87;
-    --frosted-blue: #B1E3E3;
-    --baltic-blue: #305E85;
-    --frozen-water: #BFE3D1;
-    --ash-grey: #96ABA1;
-    
-    --velvet-orchid: #803181;
-    --stormy-teal: #1C6269;
-    --dark-teal: #154C51;
+  /* plant colours */
+  --faded-copper: #a07e63;
+  --lime-moss: #7fb241;
+  --cherry-rose: #ab1861;
+  --olive-leaf: #175e0c;
 
-    --emerald-depths: #00593A;
-    --frosted-mint: #DAEDD5;
+  --celadon: #9ad6b8;
+  --ocford-navy: #0f375e;
+  --vintage-greape: #523e57;
+  --baltic-blue: #255d7d;
+  --charcoal: #525669;
+  --dusty-grape: #525c87;
+  --frosted-blue: #b1e3e3;
+  --baltic-blue: #305e85;
+  --frozen-water: #bfe3d1;
+  --ash-grey: #96aba1;
 
-    --dark-slate-grey: #356160;
-    --dust-grey: #D9D0D4;
+  --velvet-orchid: #803181;
+  --stormy-teal: #1c6269;
+  --dark-teal: #154c51;
 
-    --sage-green: #87A667;
-    --steel-blue: #7EA0C2;
-    --pearl-aqua: #7ED6D5;
-    --slate-grey: #677C91;
-    --pine-blue: #407372;
-    --tea-green: #C6ED9F;
-    --orange: #FAAD1E;
-    --charcoal-blue: #484D63;
-    --baby-blue-ice: #92C5F7;
-    --silver: #B9BBBD;
-    --light-blue: #97C4C4;
-    --camel: #BA9D82;
-    --brown: #615449;
+  --emerald-depths: #00593a;
+  --frosted-mint: #daedd5;
 
+  --dark-slate-grey: #356160;
+  --dust-grey: #d9d0d4;
+
+  --sage-green: #87a667;
+  --steel-blue: #7ea0c2;
+  --pearl-aqua: #7ed6d5;
+  --slate-grey: #677c91;
+  --pine-blue: #407372;
+  --tea-green: #c6ed9f;
+  --orange: #faad1e;
+  --charcoal-blue: #484d63;
+  --baby-blue-ice: #92c5f7;
+  --silver: #b9bbbd;
+  --light-blue: #97c4c4;
+  --camel: #ba9d82;
+  --brown: #615449;
 }
 
 /* ------------------------------------------------------- BOOTSTRAP COLOURS */
 :root,
-[data-bs-theme=light] {
+[data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -124,9 +123,18 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-font-sans-serif:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+    "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace:
+    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -270,20 +278,20 @@
 
 /* Grow */
 .hvr-grow {
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition-duration: 0.3s;
-    transition-property: transform;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
 }
 
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Fade */
@@ -299,52 +307,54 @@
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
-.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+.hvr-fade:hover,
+.hvr-fade:focus,
+.hvr-fade:active {
   background-color: white;
 }
 
 /* ------------------------------------------------------- General */
 
 body {
-    background-color: var(--white-smoke);
-    color: var(--jet-black);
+  background-color: var(--white-smoke);
+  color: var(--jet-black);
 }
 
 /* ------------------------------------------------------- NAVBAR */
 
 .navbar-brand > img {
-    padding-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .nav-tabs {
-    background-color: var(--parchment) !important;
-    border-radius: 0.5rem 0.5rem 0 0;
+  background-color: var(--parchment) !important;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .nav-link {
-    color: var(--dark-teal) !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+  color: var(--dark-teal) !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: white !important;
-    border-color:  var(--alabaster-grey) !important;
-    border-bottom: white 1px solid !important;
-    color: var(--velvet-orchid) !important;
+  background-color: white !important;
+  border-color: var(--alabaster-grey) !important;
+  border-bottom: white 1px solid !important;
+  color: var(--velvet-orchid) !important;
 }
 
 .nav-link:hover,
 .fa-gear:hover,
 .nav-link.active:hover {
-    color: var(--velvet-orchid) !important;
+  color: var(--velvet-orchid) !important;
 }
 
 /* ------------------------------------------------------- Tables */
 
 .scrollable-table {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
@@ -353,13 +363,49 @@ table {
   table-layout: fixed !important;
 }
 
-tr, td {
+tr,
+td {
   vertical-align: middle;
 }
 
-th, td {
+th,
+td {
   color: var(--jet-black) !important;
   width: 16vw;
+}
+
+@media (min-width: 992px) {
+  .tab-content {
+    margin-top: -0.95rem;
+  }
+
+  .container {
+    max-width: 975px;
+  }
+
+  .table {
+    border-top: 1px solid var(--alabaster-grey) !important;
+  }
+
+  th,
+  td {
+    width: 7vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 97%;
+  }
+
+  .table {
+    border-top: 1px solid var(--alabaster-grey) !important;
+  }
+
+  th,
+  td {
+    width: 7vw;
+  }
 }
 
 /* ------------------------------------------------------- Overview Section */
@@ -378,6 +424,18 @@ th, td {
 .budget-col {
   text-align: center;
   text-wrap: nowrap;
+}
+
+@media (min-width: 992px) {
+  .category-column {
+    width: 17vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .category-column {
+    width: 15vw;
+  }
 }
 
 /* ------------------------------------------------------- Itemised sections */
@@ -410,9 +468,9 @@ section:not(#overview) > table > tbody > tr {
 #add-income-btn {
   background-color: var(--green);
   border-color: var(--green);
-  outline-color:  var(--green);;
+  outline-color: var(--green);
   /*border-radius: 1rem;*/
-  padding-left: .15rem !important;
+  padding-left: 0.15rem !important;
   width: 1.5rem;
 }
 
@@ -437,3 +495,27 @@ section:not(#overview) > table > tbody > tr {
   color: var(--velvet-orchid);
 }
 
+@media (min-width: 992px) {
+  .col-end-width {
+    width: 5vw;
+  }
+  .recurring-item-col {
+    width: 42.5vw;
+  }
+
+  .recurring-freq-col,
+  .recurring-amount-col,
+  .recurring-date-col {
+    width: 10vw;
+  }
+
+  .recurring-cat-col {
+    width: 20vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .recurring-item-col {
+    width: 44vw;
+  }
+}
