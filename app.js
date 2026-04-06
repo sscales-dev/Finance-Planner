@@ -11,7 +11,15 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
+app.set('title', 'Financial Planner')
+
+
+//If you don't want to use layouts you can disable them globally: http://expressjs.com/guide.html#view-rendering
+
+/*app.set('view options', {
+  layout: false
+});*/
 
 app.use(logger('dev'));
 app.use(express.json());
