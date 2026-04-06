@@ -475,10 +475,10 @@ section:not(#overview) > table > tbody > tr {
 }
 
 #add-income-btn:hover {
-  background-color: var(--green);
-  border-color: var(--green);
+  background-color: var(--bs-orange);
+  border-color: var(--bs-orange);
   color: white;
-  outline-color: var(--green);
+  outline-color: var(--bs-orange);
 }
 
 .col-header-sortable {
@@ -492,8 +492,10 @@ section:not(#overview) > table > tbody > tr {
   font-size: 0.5rem;
 }
 
-.fa-sort:hover {
-  color: var(--velvet-orchid);
+.fa-sort:hover,
+.fa-circle:hover,
+.fa-pen-to-square:hover {
+  color: var(--bs-orange);
 }
 
 @media (min-width: 992px) {
