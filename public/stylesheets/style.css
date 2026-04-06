@@ -466,18 +466,19 @@ section:not(#overview) > table > tbody > tr {
 }
 
 #add-income-btn {
-  background-color: var(--green);
-  border-color: var(--green);
-  outline-color: var(--green);
+  background-color: white;
+  color: var(--velvet-orchid);
+  border-color: var(--velvet-orchid);
   /*border-radius: 1rem;*/
   padding-left: 0.15rem !important;
   width: 1.5rem;
 }
 
 #add-income-btn:hover {
-  background-color: white;
-  color: var(--velvet-orchid);
-  border-color: var(--velvet-orchid);
+  background-color: var(--green);
+  border-color: var(--green);
+  color: white;
+  outline-color: var(--green);
 }
 
 .col-header-sortable {
