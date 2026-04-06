@@ -6,20 +6,21 @@ function toggleVisibility(el) {
 
     let i = 0
 
-    while (i < classList.length) {
+    for (i = 0; i < classList.length; i++)  {
         className = classList[i]
         if (className === 'fa-circle-xmark') {
+            clickedElement.previousElementSibling.classList.remove('d-none')
             clickedElement.classList.add('d-none')
-            //clickedElement.previousSibling.classList.remove('d-none')
+            
 
         } else if (className === 'fa-circle') {
+            clickedElement.nextElementSibling.classList.remove('d-none')
             clickedElement.classList.add('d-none')
-            //clickedElement.nextSibling.classList.remove('d-none')
+            
 
         } else {
             continue;
         }
-        i++
     }
 
     return console.log(el)

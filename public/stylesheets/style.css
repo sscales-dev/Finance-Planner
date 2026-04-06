@@ -492,6 +492,10 @@ section:not(#overview) > table > tbody > tr {
   font-size: 0.5rem;
 }
 
+.fa-circle-xmark {
+  color: var(--bs-orange);
+}
+
 .fa-sort:hover,
 .fa-circle:hover,
 .fa-pen-to-square:hover {
