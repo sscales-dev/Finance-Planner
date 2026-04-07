@@ -16,4 +16,5 @@
 - [ ] Add Javascript interface controls
 
 - [ ] Finish adding CRUD operations for MongoDb
+- [ ] Add classes for documents in MongoDb
 - [ ] Add scripts in scripts.js to interact with DB
