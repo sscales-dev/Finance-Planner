@@ -157,7 +157,9 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 ### Code
 
-- 
+- https://www.w3schools.com/cssref/sel_not.php
+- https://www.w3schools.com/js/js_classes.asp
+
 **Accessibility**
 
 - 
@@ -165,7 +167,10 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 **Bootstrap**
 
-- 
+- https://stackoverflow.com/questions/19870743/horizontal-scroll-table-in-bootstrap-css
+- https://stackoverflow.com/questions/20828224/how-do-i-change-column-width-of-bootstrap-tables
+- https://css-tricks.com/fixing-tables-long-strings/
+
 
 **W3 Schools**
 
@@ -174,6 +179,29 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 **Font Awesome**
 
 - 
+
+**MongoDB**
+
+- https://www.mongodb.com/docs/drivers/node/current/#introduction
+- https://www.mongodb.com/docs/drivers/node/current/crud/insert/
+
+**JavaScript**
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#introducing_an_example
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+
+**Express/ Node**
+
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment
+- https://nodejs.org/api/packages.html#determining-module-system
+- https://expressjs.com/en/starter/installing.html
+
+**ESLint**
+
+- https://eslint.org/
+- https://eslint.org/docs/latest/use/getting-started
+- https://eslint.org/docs/latest/use/configure/configuration-files
 
 ### Content
 
