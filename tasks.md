@@ -5,26 +5,25 @@
 - [x] Add styling for tablet and desktop screens
 - [x] Add hover for icons and clickable items
 - [ ] Add small (576px) medium (768px) styling for layout
-- [ ] Add Javascript interface controls
+- [ ] Add Nested Tables in Overview section with categories
 - [ ] Tidy HTML classes (unified order)
-
-## Settings modal and form
-
-- [ ] Add date updated to forms
-- [ ] Add save function to script.js
-- [ ] Add progress spinner, error and complete functionality
+- [ ] Add Javascript interface controls
 
 ## Modals
 
 - [x] Add Income 'add-item' modal
-- [ ] Add Recurring 'add-item' modal
-- [ ] Add One-time 'add-item' modal
-- [ ] Add Nested Tables in Overview section with categories
+- [ ] Amend Recurring 'add-item' modal
+- [ ] Amend One-time 'add-item' modal
+- [ ] Add date updated to forms
+- [ ] Add next modal to save in forms (progress modal)
+- [ ] Add save function to script.js
+- [ ] Add progress spinner, error and complete functionality
 
 ## Database controls
 
-- [ ] Move credentials to cred folder and add to git.ignore
-- [ ] create encryption process for credentials
+- [ ] !!create encryption process for credentials
+- [ ] !!Move credentials to cred folder and add to git.ignore
+
 - [ ] Finish adding CRUD operations for MongoDb
 - [ ] Add classes for documents in MongoDb
 - [ ] Add scripts in scripts.js to interact with DB
