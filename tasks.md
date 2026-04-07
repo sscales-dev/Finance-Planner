@@ -6,16 +6,17 @@
 - [x] Add hover for icons and clickable items
 - [ ] Add small (576px) medium (768px) styling for layout
 - [ ] Add Javascript interface controls
+- [ ] Tidy HTML classes (unified order)
 
 ## Settings modal and form
 
-- [ ] Add date updated to settings form
+- [ ] Add date updated to forms
 - [ ] Add save function to script.js
 - [ ] Add progress spinner, error and complete functionality
 
 ## Modals
 
-- [ ] Add Income 'add-item' modal
+- [x] Add Income 'add-item' modal
 - [ ] Add Recurring 'add-item' modal
 - [ ] Add One-time 'add-item' modal
 - [ ] Add Nested Tables in Overview section with categories
@@ -32,3 +33,4 @@
 
 - [ ] Sorting of itemised lists
 - [ ] Manual Sorting of itemised lists (drag and drop)
+- [ ] Review async js scripts?? (for database.js)
