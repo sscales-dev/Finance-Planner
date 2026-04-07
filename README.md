@@ -177,7 +177,7 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 ### Content
 
-- 
+- [Brand Icon](https://www.iconpacks.net/free-icon/plant-1573.html)
 
 ### Media
 
