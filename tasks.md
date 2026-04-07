@@ -5,6 +5,7 @@
 - [ ] Add small (576px) medium (768px) styling for layout
 
 - [x] Add settings modal and form
+- [ ] Add date updated to settings form
 - [ ] Add save function to form
 - [ ] Add progress spinner, error and complete functionality
 
