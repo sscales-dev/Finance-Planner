@@ -541,3 +541,9 @@ section:not(#overview) > table > tbody > tr {
 select {
   width: 140px !important;
 }
+
+@media (min-width: 1200px) {
+    .modal-dialog {
+        max-width: 400px;
+    }
+}
