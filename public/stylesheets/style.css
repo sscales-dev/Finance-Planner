@@ -539,11 +539,19 @@ section:not(#overview) > table > tbody > tr {
 }
 
 select {
-  width: 140px !important;
+  width: 150px !important;
+}
+
+.direction-select {
+  width: 40px !important;
+}
+
+.form-text {
+  padding-left: 0.5rem;
 }
 
 @media (min-width: 1200px) {
-    .modal-dialog {
+    #settingsModal.modal-dialog {
         max-width: 400px;
     }
 }

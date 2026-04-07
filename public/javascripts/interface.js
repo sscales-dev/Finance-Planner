@@ -23,11 +23,20 @@
 
 // Modal focus function for the settings modal. Focuses on the first input field when the modal is opened.
 
-const settingsModal = document.getElementById("settingsModalStaticBackdrop");
-const settingsModalBtn = document.getElementById("settingsModalBtn");
+const settingsModal = document.getElementById("settingsModal");
+const addIncomeModal = document.getElementById("addIncomeModal");
+// Add other Modals here and add event listeners for them as well.
+
+// Add the id of the first input field in the modal here.
+const settingsModalFirstInput = document.getElementById("frequencyChoiceD1");
+const addIncomeModalFirstInput = document.getElementById("incomeNameInput");
 
 settingsModal.addEventListener("shown.bs.modal", () => {
-  settingsModalBtn.focus();
+  settingsModalFirstInput.focus();
+});
+
+addIncomeModal.addEventListener("shown.bs.modal", () => {
+  addIncomeModalFirstInput.focus();
 });
 
 function toggleItemVisibility(el) {
