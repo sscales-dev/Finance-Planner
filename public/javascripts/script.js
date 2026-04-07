@@ -23,11 +23,11 @@
 
 // Modal focus function for the settings modal. Focuses on the first input field when the modal is opened.
 
-const myModal = document.getElementById("staticBackdrop");
-const myInput = document.getElementById("settings-modal-button");
+const settingsModal = document.getElementById("settingsModalStaticBackdrop");
+const settingsModalBtn = document.getElementById("settingsModalBtn");
 
-myModal.addEventListener("shown.bs.modal", () => {
-  myInput.focus();
+settingsModal.addEventListener("shown.bs.modal", () => {
+  settingsModalBtn.focus();
 });
 
 function toggleItemVisibility(el) {
