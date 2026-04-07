@@ -1,3 +1,5 @@
+// Date classes for database documents
+
 class BudgetSpan {
     constructor(startDate, duration, date_created) {
         this.status = "active";

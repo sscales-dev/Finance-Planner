@@ -1,10 +1,13 @@
 const { MongoClient } = require('mongodb');
 
+// ---------------------------------------------------------------------------- LOGIN DETAILS
+
 const username = 'scalessamantha_db_user';
 const password = 'UdyQG9cBeS4f0Tdc';
 
-// Replace the uri string with your connection string
 const uri = `mongodb+srv://${username}:${password}@financial-planner-app.vvbstzd.mongodb.net/?appName=financial-planner-app`;
+
+// ---------------------------------------------------------------------------- COLLECTIONS
 
 async function createCollection(name) {
   const client = new MongoClient(uri);
@@ -23,31 +26,7 @@ async function createCollection(name) {
   }
 }
 
-module.exports = createCollection;
-
-async function getCurrentBudget() {
-  const client = new MongoClient(uri);
-
-  try {
-    const database = client.db('transactions');
-    const budgets = database.collection('budgets');
-
-    // Queries for a movie that has a title value of 'Back to the Future'
-    const query = { status: 'active', label: 'current' };
-    const currentBudget = await budgets.findOne(query);
-    
-    console.log(currentBudget);
-    return currentBudget;
-
-  } finally {
-    await client.close();
-
-  }
-}
-
-getCurrentBudget().catch(console.dir);
-
-module.exports = getCurrentBudget;
+// ---------------------------------------------------------------------------- INSERTS
 
 async function insertSingleDocument(dbName, collectionName, document) {
     const client = new MongoClient(uri);
@@ -103,3 +82,29 @@ async function insertMultipleDocuments(dbName, collectionName, documents) {
 
   }
 }
+
+// ---------------------------------------------------------------------------- QUERIES
+
+async function getCurrentBudget() {
+  const client = new MongoClient(uri);
+
+  try {
+    const database = client.db('transactions');
+    const budgets = database.collection('budgets');
+
+    // Queries for a movie that has a title value of 'Back to the Future'
+    const query = { status: 'active', label: 'current' };
+    const currentBudget = await budgets.findOne(query);
+    
+    console.log(currentBudget);
+    return currentBudget;
+
+  } finally {
+    await client.close();
+
+  }
+}
+
+// getCurrentBudget().catch(console.dir);
+
+module.exports = { getCurrentBudget, createCollection, insertSingleDocument, insertMultipleDocuments };
