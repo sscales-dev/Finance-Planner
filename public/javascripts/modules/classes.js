@@ -60,8 +60,9 @@ class OnetimeDateInfo {
 };
 
 class Transaction {
-    constructor(name, amount, direction, frequency, category, dateInfoObject, include) {
+    constructor(name, link, amount, direction, frequency, category, dateInfoObject, include) {
         this.label = name;
+        this.url = link;
         this.amount = {
             "$numberDecimal": amount
         };
