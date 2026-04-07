@@ -569,11 +569,131 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form class="d-flex flex-column justify-content-end needs-validation" id="addIncomeForm">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">Name/ Label</span>
+                        <input type="text" class="form-control" id="incomeNameInput" placeholder="e.g. Universal Credit" aria-label="IncomeName" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="form-text mb-3" id="basic-addon2">Who pays this? Or what is it for?</div>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">Amount (£)</span>
+                        <input type="text" class="form-control" id="incomeAmountInput" aria-label="IncomeAmount" placeholder="0.00" aria-describedby="basic-addon3">
+                        <select class="form-select direction-select" aria-label="DirectionSelect">
+                            <option selected>In/ Out</option>
+                            <option value="+">In (+)</option>
+                            <option value="-">Out (-)</option>
+                        </select>
+                    </div>
+                    <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative?</div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" aria-label="CategorySelect">
+                            <option selected>Category</option>
+                            <option value="benefits">benefits</option>
+                            <option value="advance-repayment">advance repayment</option>
+                            <option value="additional-income">additional income</option>
+                        </select>
+                        <select class="form-select" aria-label="FrequencySelect">
+                            <option selected>Frequency</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="28-days">28 Days</option>
+                            <option value="weekly">Weekly</option>
+                        </select>
+                    </div>
+                    <div class="accordion mb-3" id="incomeAdditionalInfoAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Additional info (optional)
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#incomeAdditionalInfoAccordion">
+                                <div class="accordion-body">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon6">Start Date</span>
+                                        <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Start Date" aria-describedby="basic-addon6">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon7">Duration (months)</span>
+                                        <input type="number" class="form-control" placeholder="e.g. 12" aria-label="Duration" aria-describedby="basic-addon7">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon8">Renewal Date</span>
+                                        <select class="form-select" aria-label="DateSelect" aria-describedby="basic-addon8">
+                                            <option selected>Select Date</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-text mb-3" id="basic-addon5">Select the billing/payment date (if applicable)</div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon9">Renewal Month</span>
+                                        <select class="form-select" aria-label="monthSelect" aria-describedby="basic-addon9">
+                                            <option selected>Select Month</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-text mb-3" id="basic-addon9">Select the renewal month (if applicable)</div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon10">Next Review Date</span>
+                                        <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Income Review Date" aria-describedby="basic-addon10">
+                                    </div>
+                                    <div class="form-text mb-3" id="basic-addon11">Select the next review date (if applicable)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="includeInOverviewCheck" checked>
+                            <label class="form-check-label" for="includeInOverviewCheck">
+                                Include in overview calculations
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="submit" onclick="addIncomeItem()">Save</button>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
             </div>
             </div>
         </div>
@@ -587,11 +707,131 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form class="d-flex flex-column justify-content-end needs-validation" id="addIncomeForm">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">Name/ Label</span>
+                        <input type="text" class="form-control" id="incomeNameInput" placeholder="e.g. Universal Credit" aria-label="IncomeName" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="form-text mb-3" id="basic-addon2">Who pays this? Or what is it for?</div>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">Amount (£)</span>
+                        <input type="text" class="form-control" id="incomeAmountInput" aria-label="IncomeAmount" placeholder="0.00" aria-describedby="basic-addon3">
+                        <select class="form-select direction-select" aria-label="DirectionSelect">
+                            <option selected>In/ Out</option>
+                            <option value="+">In (+)</option>
+                            <option value="-">Out (-)</option>
+                        </select>
+                    </div>
+                    <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative?</div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" aria-label="CategorySelect">
+                            <option selected>Category</option>
+                            <option value="benefits">benefits</option>
+                            <option value="advance-repayment">advance repayment</option>
+                            <option value="additional-income">additional income</option>
+                        </select>
+                        <select class="form-select" aria-label="FrequencySelect">
+                            <option selected>Frequency</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="28-days">28 Days</option>
+                            <option value="weekly">Weekly</option>
+                        </select>
+                    </div>
+                    <div class="accordion mb-3" id="incomeAdditionalInfoAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Additional info (optional)
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#incomeAdditionalInfoAccordion">
+                                <div class="accordion-body">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon6">Start Date</span>
+                                        <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Start Date" aria-describedby="basic-addon6">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon7">Duration (months)</span>
+                                        <input type="number" class="form-control" placeholder="e.g. 12" aria-label="Duration" aria-describedby="basic-addon7">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon8">Renewal Date</span>
+                                        <select class="form-select" aria-label="DateSelect" aria-describedby="basic-addon8">
+                                            <option selected>Select Date</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-text mb-3" id="basic-addon5">Select the billing/payment date (if applicable)</div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon9">Renewal Month</span>
+                                        <select class="form-select" aria-label="monthSelect" aria-describedby="basic-addon9">
+                                            <option selected>Select Month</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-text mb-3" id="basic-addon9">Select the renewal month (if applicable)</div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon10">Next Review Date</span>
+                                        <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Income Review Date" aria-describedby="basic-addon10">
+                                    </div>
+                                    <div class="form-text mb-3" id="basic-addon11">Select the next review date (if applicable)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="includeInOverviewCheck" checked>
+                            <label class="form-check-label" for="includeInOverviewCheck">
+                                Include in overview calculations
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="submit" onclick="addIncomeItem()">Save</button>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
             </div>
             </div>
         </div>
@@ -624,6 +864,6 @@
     <script type="module" src="./javascripts/modules/classes.js"></script>
     <script type="module" src="./javascripts/modules/database.js"></script>
     <script type="module" src="./javascripts/modules/forms.js"></script>
-    <script src="javascripts/interface.js"></script>
+    <script src="./javascripts/interface.js"></script>
 </body>
 </html>
