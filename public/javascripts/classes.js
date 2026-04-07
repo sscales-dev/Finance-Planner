@@ -1,28 +1,38 @@
-class Budget {
-  constructor(position, value, frequency, parent, date_created) {
+class BudgetSpan {
+    constructor(startDate, duration, date_created) {
+        this.status = "active";
+        this.label = "current";
+        this.start = {
+            "$date": startDate
+        };
+        this.duration = {
+            "$numberDecimal": duration
+        };
+        this.last_updated = {
+            "$date": Date.now()
+        };
+        this.date_created = {
+            "$date": Date.now()
+        }
+    }
+};
+
+class Paydate {
+  constructor(parentBudgetSpanUUID, position, value, frequency, dayCount) {
+    this.parent = parentBudgetSpanUUID;
     this.position = position;
     this.value = {
         "$date": value
     };
     this.frequency = {
         "value": frequency,
-        "day_count": this.day_count()
-    },
-    this.parent = parent,
+        "day_count": dayCount
+    };
+    this.date_updated = {
+        "$date": Date.now()
+    }
     this.date_created = {
-        "$date": date_created
+        "$date": Date.now()
     }
   }
-  day_count() {
-        switch (this.frequency) {
-            case 'weekly':
-                return 7;
-            case '28-day':
-                return 28;
-            case 'monthly':
-                return 30; //insert function to calculate number of days in month
-            default:
-                return 0;
-        }
-    }
-}
+};
