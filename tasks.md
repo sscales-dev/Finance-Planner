@@ -27,3 +27,8 @@
 - [ ] Finish adding CRUD operations for MongoDb
 - [ ] Add classes for documents in MongoDb
 - [ ] Add scripts in scripts.js to interact with DB
+
+## Functionality
+
+- [ ] Sorting of itemised lists
+- [ ] Manual Sorting of itemised lists (drag and drop)
