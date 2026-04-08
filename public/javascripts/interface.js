@@ -25,11 +25,13 @@
 
 const settingsModal = document.getElementById("settingsModal");
 const addIncomeModal = document.getElementById("addIncomeModal");
+const addRecurringModal = document.getElementById("addRecurringModal");
 // Add other Modals here and add event listeners for them as well.
 
 // Add the id of the first input field in the modal here.
 const settingsModalFirstInput = document.getElementById("frequencyChoiceD1");
 const addIncomeModalFirstInput = document.getElementById("incomeNameInput");
+const addRecurringModalFirstInput = document.getElementById("recurringNameInput");
 
 settingsModal.addEventListener("shown.bs.modal", () => {
   settingsModalFirstInput.focus();
@@ -37,6 +39,10 @@ settingsModal.addEventListener("shown.bs.modal", () => {
 
 addIncomeModal.addEventListener("shown.bs.modal", () => {
   addIncomeModalFirstInput.focus();
+});
+
+addRecurringModal.addEventListener("shown.bs.modal", () => {
+  addRecurringModalFirstInput.focus();
 });
 
 function toggleItemVisibility(element) {

@@ -702,8 +702,18 @@ table:not(#oneoff) > tbody > td.item-date {
   padding-left: 0.5rem;
 }
 
-@media (min-width: 1200px) {
-    #settingsModal.modal-dialog {
-        max-width: 400px;
+@media (min-width: 576px) {
+    .modal {
+        max-width: 400px !important;
     }
+}
+
+/* ------------------------------------------------------- Add Forms */
+
+.add-form-btns {
+  width: 5.5rem;
+}
+
+#categorySelect > option {
+  font-size: 0.75rem;
 }
