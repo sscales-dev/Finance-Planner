@@ -348,7 +348,7 @@ body {
 .nav-link:hover,
 .fa-gear:hover,
 .nav-link.active:hover {
-  color: var(--velvet-orchid) !important;
+  color: var(--bs-orange) !important;
 }
 
 @media (min-width: 768px) {
@@ -489,16 +489,15 @@ section:not(#overview) > table > tbody > tr {
   padding: 0.45rem 0.25rem !important;
 }
 
-#add-income-btn {
-  background-color: white;
-  color: var(--velvet-orchid);
-  border-color: var(--velvet-orchid);
-  /*border-radius: 1rem;*/
+.add-btn {
+  background-color: var(--dark-teal);
+  border-color: var(--dark-teal);
   padding-left: 0.15rem !important;
+  padding-right: 0.15rem !important;
   width: 1.5rem;
 }
 
-#add-income-btn:hover {
+.add-btn:hover {
   background-color: var(--bs-orange);
   border-color: var(--bs-orange);
   color: white;
@@ -512,15 +511,21 @@ section:not(#overview) > table > tbody > tr {
   justify-content: space-between;
 }
 
+th > .fa-solid:not(.fa-sort),
+th > .fa-regular,
+td > .fa-regular {
+  padding-bottom: 0.2rem;
+}
+
 .fa-sort {
   font-size: 0.5rem;
   padding-top: 0.1rem;
 }
 
-th > .fa-solid:not(.fa-sort),
-th > .fa-regular,
-td > .fa-regular {
-  padding-bottom: 0.2rem;
+.fa-sort,
+.fa-circle,
+.fa-pen-to-square {
+  color: var(--dark-teal);
 }
 
 .fa-circle-xmark {
