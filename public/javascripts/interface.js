@@ -39,8 +39,8 @@ addIncomeModal.addEventListener("shown.bs.modal", () => {
   addIncomeModalFirstInput.focus();
 });
 
-function toggleItemVisibility(el) {
-  const clickedElement = el;
+function toggleItemVisibility(element) {
+  const clickedElement = element;
   const classList = clickedElement.classList;
 
   let className;
@@ -69,4 +69,14 @@ function toggleItemVisibility(el) {
   }
 
   return;
+}
+
+function toggleDate(element) {
+    const clickedElement = element;
+    const checkIcon = clickedElement.querySelector("i");
+
+    clickedElement.classList.toggle("active");
+    checkIcon.classList.toggle("d-none");
+
+    return;
 }
