@@ -8,6 +8,7 @@
 - [ ] Add Nested Tables in Overview section with categories
 - [ ] Tidy HTML classes (unified order)
 - [ ] Add Javascript interface controls
+- [ ] tr hover color: parchment
 
 ## Modals
 
