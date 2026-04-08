@@ -919,50 +919,28 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="container p-3 px-xl-4 needs-validation" id="dateInputForm">
-
-                        <!-- form date input group -->
-                        <div class="d-flex flex-row justify-content-between align-items-start mb-4 mt-2">
-                            <label for="dateInput1" class="form-label" required>1st Paydate:</label> 
-                            <div class="d-flex flex-column" id="input-group1">
-                                <select class="form-select form-select-sm mb-3" id="frequencyChoiceD1" type="select" aria-label="frequencyChoiceD1">
-                                    <option value="monthly" selected>Monthly</option>
-                                    <option value="28d">28 days</option>
-                                    <option value="weekly">Weekly</option>
-                                </select>
-                                <div id="validationServerfrequencyChoiceD1Feedback" class="invalid-feedback">
-                                    Please choose a frequency
-                                </div>
-                                <input type="date" class="form-control form-control-sm mb-3" id="dateInput1" type="date" required>
-                                <div id="validationServerdateInput1Feedback" class="invalid-feedback">
-                                    Please enter a date
-                                </div>
-                            </div>
+                    <form class="container pt-3 pb-2 needs-validation" id="paydateInputForm">
+                        <div class="input-group paydate-input-group mb-3">
+                            <span class="input-group-text" id="paydateText1">1st</span>
+                            <input type="date" class="form-control" placeholder="2025-01-01" aria-label="firstPaydate" aria-describedby="paydateText1">
+                            <select class="form-select" id="frequencyChoiceD1" type="select" aria-label="frequencyChoiceD1">
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="28d">28 days</option>
+                                <option value="weekly">Weekly</option>
+                            </select>
                         </div>
-
-                        <!-- form date input group -->
-                        <div class="d-flex flex-row justify-content-between align-items-start mb-4">
-                            <label for="dateInput2" class="form-label">2nd Paydate:</label>
-                            <div class="d-flex flex-column" id="input-group2">
-                                <select class="form-select form-select-sm mb-3" id="frequencyChoiceD2" type="select" aria-label="frequencyChoiceD2">
-                                    <option value="monthly">Monthly</option>
-                                    <option value="28d" selected>28 days</option>
-                                    <option value="weekly">Weekly</option>
-                                </select>
-                                <div id="validationServerfrequencyChoiceD2Feedback" class="invalid-feedback">
-                                    Please choose a frequency
-                                </div>
-                                <input class="form-control form-control-sm mb-3" id="dateInput2" type="date" required>
-                                <div id="validationServerdateInput2Feedback" class="invalid-feedback">
-                                    Please enter a date
-                                </div>
-                            </div>
+                        <div class="input-group paydate-input-group mb-3">
+                            <span class="input-group-text" id="paydateText2">2nd</span>
+                            <input type="date" class="form-control" placeholder="2025-01-01" aria-label="firstPaydate" aria-describedby="paydateText2">
+                            <select class="form-select" id="frequencyChoiceD2" type="select" aria-label="frequencyChoiceD2">
+                                <option value="monthly">Monthly</option>
+                                <option value="28d" selected>28 days</option>
+                                <option value="weekly">Weekly</option>
+                            </select>
                         </div>
-
-                        <!-- duration input group -->
-                        <div class="d-flex flex-row justify-content-between mb-3 mb-xl-5" id="input-group3">
-                            <label for="overview-duration" class="form-label">Duration:</label>
-                            <select class="form-select form-select-sm" id="overview-duration" aria-label="duration" disabled>
+                        <div class="input-group paydate-input-group my-4">
+                            <span class="input-group-text" id="budgetDuration">Budget Duration</span>
+                            <select class="form-select" id="budgetDuration" type="select" aria-label="budgetDuration">
                                 <option value="6">6 months</option>
                                 <option value="12" selected>12 months</option>
                                 <option value="18">18 months</option>
