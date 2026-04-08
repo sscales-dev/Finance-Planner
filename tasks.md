@@ -4,23 +4,28 @@
 
 - [x] Add styling for tablet and desktop screens
 - [x] Add hover for icons and clickable items
-- [ ] Add small (576px) medium (768px) styling for layout
+- [ ] Add small (576px) 
+- [x] Add medium (768px) styling for layout
+- [ ] tr hover color: parchment
 - [ ] Add Nested Tables in Overview section with categories
 - [ ] Tidy HTML classes (unified order)
 - [ ] Add Javascript interface controls
-- [ ] tr hover color: parchment
+
 
 ## Modals
 
 - [x] Add Income 'add-item' modal
 - [x] Amend Recurring 'add-item' modal
 - [ ] Amend One-off 'add-item' modal
-- [ ] Add date updated to forms
-- [ ] Add next modal to save in forms (progress modal)
-- [ ] Add save function to script.js
 - [ ] Add progress spinner, error and complete functionality
-- [ ] Add skip position and payment type (bill, subscription, pot allocation,  adn sort)
 - [ ] Correct form ids and attributes
+
+- [ ] Add save function to script.js
+
+- [ ] Create 'edit' forms
+- [ ] Add date updated
+- [ ] Add skip position and payment type (bill, subscription, pot allocation,  adn sort)
+
 
 ## Database controls
 
