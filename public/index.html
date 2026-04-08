@@ -33,10 +33,10 @@
                         <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="income-tab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false" href="#income">Income</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="recurring-tab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="tab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="onetime-tab" data-bs-toggle="tab" data-bs-target="#onetime" type="button" role="tab" aria-controls="onetime" aria-selected="false" href="#onetime">One-time</a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="oneoff-tab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ibm-plex-sans-condensed-medium" id="settingsModalBtn" href="#settings-modal" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="fa-solid fa-gear hvr-grow"></i></a>
@@ -172,10 +172,10 @@
                         <th scope="col" class="col-end-width text-center">
                             <i class="fa-solid fa-eye-slash"></i>
                         </th>
-                        <th scope="col" class="col-header-sortable recurring-item-col"><span>Item Name</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="col-header-sortable recurring-amount-col"><span>Am.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="col-header-sortable recurring-freq-col"><span>Freq.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="d-none d-lg-flex col-header-sortable recurring-cat-col"><span>Cat.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable item-col"><span>Item Name</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable amount-col"><span>Am.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable freq-col"><span>Freq.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="d-none d-lg-flex col-header-sortable cat-col"><span>Cat.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
                         <th scope="col" class="col-end-width text-center">
                             <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="addIncomeBtn" data-bs-toggle="modal" data-bs-target="#addIncomeModal">
                                 <i class="fa-solid fa-circle-plus"></i>
@@ -189,10 +189,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Universal Credit</td>
-                    <td class="recurring-amount-col item-amount">£800</td>
-                    <td class="recurring-freq-col item-frequency">Monthly</td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Benefits</td>
+                    <td class="item-col item-name">Universal Credit</td>
+                    <td class="amount-col item-amount">£800</td>
+                    <td class="freq-col item-frequency">Monthly</td>
+                    <td class="d-none d-lg-flex cat-col item-category">Benefits</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -202,10 +202,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">PIP</td>
-                    <td class="recurring-amount-col item-amount">£120</td>
-                    <td class="recurring-freq-col item-frequency">28 days</td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Benefits</td>
+                    <td class="item-col item-name">PIP</td>
+                    <td class="amount-col item-amount">£120</td>
+                    <td class="freq-col item-frequency">28 days</td>
+                    <td class="d-none d-lg-flex cat-col item-category">Benefits</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -215,10 +215,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Pay</td>
-                    <td class="recurring-amount-col item-amount">£100</td>
-                    <td class="recurring-freq-col item-frequency">Weekly</td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Benefits</td>
+                    <td class="item-col item-name">Pay</td>
+                    <td class="amount-col item-amount">£100</td>
+                    <td class="freq-col item-frequency">Weekly</td>
+                    <td class="d-none d-lg-flex cat-col item-category">Benefits</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -227,7 +227,7 @@
             </table>
         </section>
         <!-- Recurring Section -->
-        <section class="container px-lg-2 px-xl-3 tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab" tabindex="0">
+        <section class="container px-lg-2 px-xl-3 tab-pane" id="recurring" role="tabpanel" aria-labelledby="tab" tabindex="0">
             <h2 class="visually-hidden">Recurring</h2>
             <table class="table table-hover">
                 <thead>
@@ -235,10 +235,11 @@
                         <th scope="col" class="col-end-width text-center">
                             <i class="fa-solid fa-eye-slash"></i>
                         </th>
-                        <th scope="col" class="col-header-sortable recurring-item-col"><span>Item Name</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="col-header-sortable recurring-amount-col"><span>Am.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="col-header-sortable recurring-freq-col"><span>Freq.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="d-none d-lg-flex col-header-sortable recurring-cat-col"><span>Cat.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable item-col"><span>Item Name</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable amount-col"><span>Am.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable freq-col"><span>Freq.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="d-none d-lg-flex col-header-sortable date-col"><span>Skip Date(s)</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <!--<th scope="col" class="d-none d-lg-flex col-header-sortable cat-col"><span>Cat.</span><i class="fa-solid fa-sort hvr-grow"></i></th>-->
                         <th scope="col" class="col-end-width text-center">
                             <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="addRecurringBtn" data-bs-toggle="modal" data-bs-target="#addRecurringModal">
                                 <i class="fa-solid fa-circle-plus"></i>
@@ -252,10 +253,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Rent</td>
-                    <td class="recurring-amount-col item-amount">£1200</td>
-                    <td class="recurring-freq-col item-frequency">Monthly</td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Overheads</td>
+                    <td class="item-col item-name">Rent</td>
+                    <td class="amount-col item-amount">£1200</td>
+                    <td class="freq-col item-frequency">Monthly</td>
+                    <td class="d-none d-lg-flex cat-col item-category">Overheads</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -265,10 +266,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Council Tax</td>
-                    <td class="recurring-amount-col item-amount">£120</td>
-                    <td class="recurring-freq-col item-frequency">Monthly</td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Overheads</td>
+                    <td class="item-col item-name">Council Tax</td>
+                    <td class="amount-col item-amount">£120</td>
+                    <td class="freq-col item-frequency">Monthly</td>
+                    <td class="d-none d-lg-flex cat-col item-category">Overheads</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -278,10 +279,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Groceries</td>
-                    <td class="recurring-amount-col item-amount">£240</td>
-                    <td class="recurring-freq-col item-frequency">28 days</td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Essential</td>
+                    <td class="item-col item-name">Groceries</td>
+                    <td class="amount-col item-amount">£240</td>
+                    <td class="freq-col item-frequency">28 days</td>
+                    <td class="d-none d-lg-flex cat-col item-category">Essential</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -289,21 +290,21 @@
                 </tbody>
             </table>
         </section>
-        <!-- Onetime Section -->
-        <section class="container px-lg-2 px-xl-3 tab-pane" id="onetime" role="tabpanel" aria-labelledby="onetime-tab" tabindex="0">
-            <h2 class="visually-hidden">One-time</h2>
+        <!-- Oneoff Section -->
+        <section class="container px-lg-2 px-xl-3 tab-pane" id="oneoff" role="tabpanel" aria-labelledby="oneoff-tab" tabindex="0">
+            <h2 class="visually-hidden">One-off</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col" class="col-end-width text-center">
                             <i class="fa-solid fa-eye-slash"></i>
                         </th>
-                        <th scope="col" class="col-header-sortable recurring-item-col"><span>Item Name</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="col-header-sortable recurring-amount-col"><span>Am.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="col-header-sortable recurring-date-col"><span>Date</span><i class="fa-solid fa-sort hvr-grow"></i></th>
-                        <th scope="col" class="d-none d-lg-flex col-header-sortable recurring-cat-col"><span>Cat.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable item-col"><span>Item Name</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable amount-col"><span>Am.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="col-header-sortable date-col"><span>Date(s)</span><i class="fa-solid fa-sort hvr-grow"></i></th>
+                        <th scope="col" class="d-none d-lg-flex col-header-sortable cat-col"><span>Cat.</span><i class="fa-solid fa-sort hvr-grow"></i></th>
                         <th scope="col" class="col-end-width text-center">
-                            <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="addOnetimeBtn" data-bs-toggle="modal" data-bs-target="#addOnetimeModal">
+                            <button type="button" class="btn btn-sm btn-primary text-center text-nowrap px-1 py-0" id="addOneoffBtn" data-bs-toggle="modal" data-bs-target="#addOneoffModal">
                                 <i class="fa-solid fa-circle-plus"></i>
                             </button>
                         </th>
@@ -315,10 +316,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Debt repayment</td>
-                    <td class="recurring-amount-col item-amount">£50</td>
-                    <td class="recurring-date-col item-date"></td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Lending and Borrowing</td>
+                    <td class="item-col item-name">Debt repayment</td>
+                    <td class="amount-col item-amount">£50</td>
+                    <td class="date-col item-date"></td>
+                    <td class="d-none d-lg-flex cat-col item-category">Lending and Borrowing</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -328,10 +329,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Tattoo</td>
-                    <td class="recurring-amount-col item-amount">£120</td>
-                    <td class="recurring-date-col item-date"></td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Discretionary</td>
+                    <td class="item-col item-name">Tattoo</td>
+                    <td class="amount-col item-amount">£120</td>
+                    <td class="date-col item-date"></td>
+                    <td class="d-none d-lg-flex cat-col item-category">Discretionary</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -341,10 +342,10 @@
                         <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
                         <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
                     </th>
-                    <td class="recurring-item-col item-name">Unpaid bill</td>
-                    <td class="recurring-amount-col item-amount">£30</td>
-                    <td class="recurring-date-col item-date"></td>
-                    <td class="d-none d-lg-flex recurring-cat-col item-category">Overheads</td>
+                    <td class="item-col item-name">Unpaid bill</td>
+                    <td class="amount-col item-amount">£30</td>
+                    <td class="date-col item-date"></td>
+                    <td class="d-none d-lg-flex cat-col item-category">Overheads</td>
                     <td class="col-end-width open-item-modal text-center">
                         <i class="fa-regular fa-pen-to-square hvr-grow"></i>
                     </td>
@@ -698,12 +699,12 @@
             </div>
         </div>
     </div>
-    <!-- Add Onetime Modal -->
-    <div class="modal fade" id="addOnetimeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOnetimeModalLabel" aria-hidden="true">
+    <!-- Add Oneoff Modal -->
+    <div class="modal fade" id="addOneoffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOneoffModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="addOnetimeModalLabel">Add Onetime</h1>
+                <h1 class="modal-title fs-5" id="addOneoffModalLabel">Add Oneoff</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
