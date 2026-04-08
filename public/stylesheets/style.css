@@ -452,16 +452,16 @@ section:not(#overview) > table > tbody > tr {
   width: 10vw;
 }
 
-.recurring-item-col {
+.item-col {
   width: 38vw;
 }
 
-.recurring-amount-col {
+.amount-col {
   width: 16vw;
 }
 
-.recurring-freq-col,
-.recurring-date-col {
+.freq-col,
+.date-col {
   width: 18vw;
 }
 
@@ -506,23 +506,23 @@ section:not(#overview) > table > tbody > tr {
   .col-end-width {
     width: 5vw;
   }
-  .recurring-item-col {
+  .item-col {
     width: 42.5vw;
   }
 
-  .recurring-freq-col,
-  .recurring-amount-col,
-  .recurring-date-col {
+  .freq-col,
+  .amount-col,
+  .date-col {
     width: 10vw;
   }
 
-  .recurring-cat-col {
+  .cat-col {
     width: 20vw;
   }
 }
 
 @media (min-width: 1200px) {
-  .recurring-item-col {
+  .item-col {
     width: 44vw;
   }
 }
