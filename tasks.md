@@ -13,15 +13,16 @@
 
 - [x] Add Income 'add-item' modal
 - [ ] Amend Recurring 'add-item' modal
-- [ ] Amend One-time 'add-item' modal
+- [ ] Amend One-off 'add-item' modal
 - [ ] Add date updated to forms
 - [ ] Add next modal to save in forms (progress modal)
 - [ ] Add save function to script.js
 - [ ] Add progress spinner, error and complete functionality
+- [ ] Add skip position and payment type (bill, subscription, pot allocation,  adn sort)
 
 ## Database controls
 
-- [ ] !!create encryption process for credentials
+- [ ] !!create encryption process for credentials (Argon2id)
 - [ ] !!Move credentials to cred folder and add to git.ignore
 
 - [ ] Finish adding CRUD operations for MongoDb
