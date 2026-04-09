@@ -91,6 +91,7 @@ function loadBudgetSettingsFormDefaults () {
   let firstPaydate
   let secondPaydate
   let budgetDuration
+  let budgetUpdatedTimeObject
   let budgetUpdatedTime
 
   firstPaydate = budgetObject.paydate1;
@@ -99,7 +100,7 @@ function loadBudgetSettingsFormDefaults () {
 
   budgetDuration = budgetObject.duration;
 
-  budgetUpdatedTime = budgetObject.last_updated;
+  budgetUpdatedTimeObject = budgetObject.last_updated;
 
   document.getElementById('firstPaydate').defaultValue = firstPaydate.date
   document.getElementById('frequencyChoiceD1').defaultValue = firstPaydate.frequency
@@ -108,6 +109,8 @@ function loadBudgetSettingsFormDefaults () {
   document.getElementById('frequencyChoiceD2').defaultValue = secondPaydate.frequency
 
   document.getElementById('budgetDuration').defaultValue = budgetDuration
+
+  budgetUpdatedTime = `${budgetUpdatedTimeObject.localDate} ${budgetUpdatedTimeObject.localTime}`
 
   lastUpdatedTextUpdate("budget-dates", budgetUpdatedTime)
 
@@ -218,6 +221,14 @@ async function processFormValues(formId) {
 
             let date = Date.now()
             let utcDate = new Date(date).toUTCString()
+            let dateString = new Date(date).toDateString()
+            let timeString = new Date(date).toLocaleTimeString()
+
+            const timeObject = {
+              utc: utcDate,
+              localDate: dateString,
+              localTime: timeString
+            }
 
             if (dateValuesArray.length !== 2 || freqValuesArray.length !== 3) {
               console.error("Error with pulling all values from settings form")
@@ -238,9 +249,9 @@ async function processFormValues(formId) {
 
                 budget.duration = freqValuesArray[2].value;
 
-                budget.last_updated = utcDate;
+                budget.last_updated = timeObject;
 
-                budget.date_created = utcDate;
+                budget.date_created = timeObject;
 
                 // Store stringified budget object in local storage
 
