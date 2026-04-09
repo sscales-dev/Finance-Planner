@@ -1,5 +1,7 @@
 const { MongoClient } = require('mongodb');
 
+// import MongoClient from 'mongodb'
+
 // ---------------------------------------------------------------------------- LOGIN DETAILS
 
 const username = 'scalessamantha_db_user';
