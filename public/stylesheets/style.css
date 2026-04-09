@@ -690,8 +690,8 @@ table:not(#oneoff) > tbody > td.item-date {
 }
 
 @media (min-width: 576px) {
-  .modal {
-      max-width: 400px !important;
+  .modal-dialog {
+    max-width: 400px !important;
   }
 }
 
