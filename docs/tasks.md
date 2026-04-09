@@ -4,8 +4,8 @@
 
 ### Next
 
-- [ ] tr hover color: parchment
-- [ ] Rename 'Overview' Budgets
+- [ ] Adjust styling and colour palette for forms
+- [ ] Complete One-off 'add-item' modal
 - [ ] Add small (576px) styling for layout
 - [ ] Tidy HTML classes (unified order) and CSS
 
@@ -16,25 +16,25 @@
 
 ## Modals + Forms
 
+- [ ] Rename 'Overview' to 'Budgets'
+- [ ] Add Toast functionality + style/ position toast elements
 - [ ] Rename all form element ids, classes and attributes to be specific and consistent
 - [ ] Complete element ids in loadBudgetDefaults function
-- [ ] Move updateLastUpdatedText in processFormValues to underneath switch
-- [ ] Add Toast functionality + style/ position toast elements
+- [ ] Move updateLastUpdatedText in processFormValues to underneath switch?
+- [ ] Add functionality for each new form to processFormValues
 
-- [ ] Amend One-off 'add-item' modal
 - [ ] Move localStorage to sessionStorage once database module working
 
 ### Javascript
 
 - [ ] Tidy existing functions
-  - [ ] Comment properly
+  - [ ] Comment properly throughout functions
   - [ ] Ensure error checking, end-of-statement semi-colons, console.logging etc
-  - [ ] Sort/ group logically
-- [ ] Add functionality for each new form to processFormValues
+- [ ] Add prompt to enter budget settings if not loaded from localStorage
 - [ ] Add other background parameters for items when storing
-  - [ ] Add skip position and item sort
+  - [ ] Add position (dates) and item sort (transactions)
 - [ ] Review 'dates' functions from gapps script functions used in spreadsheet
-- [ ] Add functionality to calculate paydates, store and output to 'overview'
+- [ ] Add functionality to calculate paydates, store and output to 'budgets'
   - [ ] Also update year label at top left of budgets table
 
 - [ ] Create 'edit item' modals and forms
@@ -84,3 +84,5 @@
 - [x] Create smaller function to loop through elements and add values to array
 - [x] move update last updated date on modal footer functionality from processFormValues to it's own function
 - [x] Add date created to data store
+- [x] Sort/ group functions logically
+- [x] tr hover color on tables: parchment
