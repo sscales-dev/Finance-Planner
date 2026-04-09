@@ -135,7 +135,6 @@ if (toastTrigger) {
   
 **/
 
-
 //------------------------------------------------------------------------------ Form Processing
 
 /** Form Element Values to Array
@@ -209,6 +208,8 @@ async function processFormValues(formId) {
 
     switch (formId) {
         case "budgetDatesInputForm":
+            const saveBtn = document.getElementById('saveBudgetBtn')
+
             // Arrays of objects containing id and value
             let dateValuesArray = formValues.inputs;
             let freqValuesArray = formValues.selects;
@@ -251,7 +252,9 @@ async function processFormValues(formId) {
 
                 // Load values into form elements' defaultValues attributes
 
-                return loadBudgetSettingsFormDefaults()
+                loadBudgetSettingsFormDefaults()
+
+                return saveBtn.blur()
 
               } catch (err) {
                 console.error("Problem pulling values from budget settings form and storing...", err);
@@ -329,6 +332,12 @@ function addEventListenerToForms () {
 
   // Loop over them and prevent submission
   Array.from(forms).forEach(form => {
+    const modal = form.parentElement.parentElement.parentElement.parentElement
+
+    const newModal = new bootstrap.Modal(modal, {
+      backdrop: 'static', keyboard: false
+    })
+
     form.addEventListener('submit', async function (event) {
       if (!form.checkValidity()) {
         event.stopPropagation();
@@ -338,6 +347,8 @@ function addEventListenerToForms () {
       event.preventDefault();
       form.classList.add('was-validated');
 
+      newModal.hide();
+      
       console.log("Form Validated. Processing form...");
 
       try {
@@ -355,29 +366,6 @@ function addEventListenerToForms () {
   })
 }
 
-/** Add Modal Close Function to Save Buttons
- * 
- * For each modal, find save form button and create new Bootstrap modal.
- * Find save button and add event listener that hides the modal when the button is clicked.
- * 
- */
-
-function addModalCloseFunctionToSaveBtns () {
-  const modals = document.querySelectorAll('.modal');
-
-  Array.from(modals).forEach(modal => {
-    const saveBtn = modal.querySelector('.saveFormBtn')
-
-    const newModal = new bootstrap.Modal(modal, {
-      backdrop: 'static'
-    })
-
-    saveBtn.addEventListener("click", function () {
-        newModal.hide();
-    });
-  })
-}
-
 //------------------------------------------------------------------------------ Onload Function
 
 (() => {
@@ -389,7 +377,7 @@ function addModalCloseFunctionToSaveBtns () {
   // localStorage.clear();
 
   try {
-    loadFormDefaults("budget")
+    loadBudgetSettingsFormDefaults("budget")
 
   } catch (error) {
     console.error("No budget settings stored in localStorage:", error);
@@ -404,7 +392,7 @@ function addModalCloseFunctionToSaveBtns () {
   }
 
   try {
-    addModalCloseFunctionToSaveBtns()
+    //addModalCloseFunctionToSaveBtns()
 
   } catch (error) {
     console.error("Error adding event listener to form save buttons", error)

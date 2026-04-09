@@ -144,6 +144,8 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 #### Accessibility
 
+- https://www.w3schools.com/jsref/met_reset_blur.asp
+
 #### Bootstrap
 
 - https://stackoverflow.com/questions/19870743/horizontal-scroll-table-in-bootstrap-css
