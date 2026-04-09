@@ -102,6 +102,8 @@ function loadBudgetSettingsFormDefaults () {
 
   budgetUpdatedTimeObject = budgetObject.last_updated;
 
+  budgetUpdatedTime = `${budgetUpdatedTimeObject.localDate} ${budgetUpdatedTimeObject.localTime}`
+
   document.getElementById('firstPaydate').defaultValue = firstPaydate.date
   document.getElementById('frequencyChoiceD1').defaultValue = firstPaydate.frequency
 
@@ -109,8 +111,6 @@ function loadBudgetSettingsFormDefaults () {
   document.getElementById('frequencyChoiceD2').defaultValue = secondPaydate.frequency
 
   document.getElementById('budgetDuration').defaultValue = budgetDuration
-
-  budgetUpdatedTime = `${budgetUpdatedTimeObject.localDate} ${budgetUpdatedTimeObject.localTime}`
 
   lastUpdatedTextUpdate("budget-dates", budgetUpdatedTime)
 
