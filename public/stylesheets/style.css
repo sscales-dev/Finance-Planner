@@ -689,6 +689,10 @@ table:not(#oneoff) > tbody > td.item-date {
   color: var(--jet-black);
 }
 
+.modal-footer {
+  height: 5vh;
+}
+
 #frequencyChoiceD1,
 #frequencyChoiceD2 {
   max-width: 115px;
@@ -700,6 +704,10 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .form-text {
   padding-left: 0.5rem;
+}
+
+.form-btns-parallel {
+  width: 80px;
 }
 
 @media (min-width: 576px) {
