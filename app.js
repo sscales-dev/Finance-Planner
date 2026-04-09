@@ -1,7 +1,9 @@
 var createError = require('http-errors');
 var express = require('express');
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
+
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -14,9 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('title', 'Financial Planner')
 
-
 //If you don't want to use layouts you can disable them globally: http://expressjs.com/guide.html#view-rendering
-
 /*app.set('view options', {
   layout: false
 });*/
