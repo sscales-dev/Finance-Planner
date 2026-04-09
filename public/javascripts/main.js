@@ -1,5 +1,11 @@
-// Toggles visibility of an item
-// onclick function for the radio buttons in the overview table. 
+//------------------------------------------------------------------------------ Toggle Views (onclicks)
+
+/** Toggle Item Visibility
+ * 
+ * onclick function for the radio buttons/ icons in the itemised transaction lists.
+ * Toggles visibility of an item/ transaction in list.
+ * 
+ */ 
 
 function toggleItemVisibility(element) {
   const clickedElement = element;
@@ -33,8 +39,12 @@ function toggleItemVisibility(element) {
   return;
 }
 
-// onclick function for the date dropdowns in the itemised lists. 
-// Toggles visibility of the check icon and sets the item as active.
+/** Toggle Dropdown Date
+ * 
+ * onclick function for the date dropdowns in the itemised transaction lists.
+ * Toggles the checkmark against the selected date(s)
+ * 
+ */ 
 
 function toggleDropdownDate(element) {
     const clickedElement = element;
@@ -46,8 +56,14 @@ function toggleDropdownDate(element) {
     return;
 }
 
-// Load budget settings form defaults from localStorage.
-// These are used to populate the overview page and the settings modal when it is opened.
+/** Load Budget Settings Form Defaults
+ * 
+ * Loads the budget settings form default values from localStorage to the form elements.
+ * Toggles the checkmark against the selected date(s)
+ * 
+ */
+
+//------------------------------------------------------------------------------ Set Form Values
 
 function loadBudgetSettingsFormDefaults () {
   const budgetString =localStorage.getItem("budget")
@@ -84,8 +100,12 @@ function loadBudgetSettingsFormDefaults () {
   });
 }
 
-// Updates budget dates modal to display last_updated
-// Updates .modal-footer height to be auto
+/** Last Updated Text Update
+ * 
+ * Updates budget settings modal footer to display last_updated.
+ * Updates .modal-footer height to be auto.
+ * 
+ */
 
 function lastUpdatedTextUpdate (formName, lastUpdated) {
   const modalFooter = document.getElementById(`${formName}-modal-footer`);
@@ -99,7 +119,11 @@ function lastUpdatedTextUpdate (formName, lastUpdated) {
   return
 }
 
-/** const toastTrigger = document.getElementById('saveBudgetBtn')
+/** Toast Usage Example
+ * 
+ * 
+
+const toastTrigger = document.getElementById('saveBudgetBtn')
 const toastLiveExample = document.getElementById('liveToast')
 
 if (toastTrigger) {
@@ -107,11 +131,20 @@ if (toastTrigger) {
   toastTrigger.addEventListener('click', () => {
     toastBootstrap.show()
   })
-}**/
+}
+  
+**/
 
-// Loops through elementsArray and push id, values and defaultValues to array
 
-async function elementValuesToArray (elementsArray) {
+//------------------------------------------------------------------------------ Form Processing
+
+/** Form Element Values to Array
+ * 
+ * Loops through an array of elements and pushes id, values and defaultValues to a new array
+ * 
+ */
+
+async function formElementValuesToArray (elementsArray) {
   const array = []
 
   let i = 0;
@@ -126,10 +159,14 @@ async function elementValuesToArray (elementsArray) {
   }
 }
 
-// Pulls inputs, selects and checkboxes from provided form and passes them to elementValuesToArray
-// Returns Object of inputs, selects and checkboxes (provided by elementValuesToArray)
+/** Get Form Elements Values Object
+ * 
+ * Pulls input, select and checkbox elements from provided form and passes them to formElementValuesToArray
+ * Returns Object containing inputs, selects and checkboxes arrays (provided by formElementValuesToArray)
+ * 
+ */
 
-async function getFormValues (form) {
+async function getFormElementsValuesObject (form) {
     const inputs = form.getElementsByTagName("input");
     const selects = form.getElementsByTagName("select");
     const checkboxes = form.getElementsByTagName("checkboxes");
@@ -140,9 +177,9 @@ async function getFormValues (form) {
 
     // Pulls form elements and element values object for each element in the given arrays
 
-    const inputValues = await elementValuesToArray(inputs)
-    const selectValues = await elementValuesToArray(selects)
-    const checkboxValues = await elementValuesToArray(checkboxes)
+    const inputValues = await formElementValuesToArray(inputs)
+    const selectValues = await formElementValuesToArray(selects)
+    const checkboxValues = await formElementValuesToArray(checkboxes)
 
     object.inputs = inputValues
     object.selects = selectValues
@@ -153,12 +190,14 @@ async function getFormValues (form) {
 
 /** Process Form Values
  * 
- * Sends form to getFormValues, adds them to an object and stores them 
+ * Sends form to getFormElementsValuesObject, adds them to an object and stores them 
  * in localStorage. Depending on the form, it updates the defaultValues 
  * for the form and the last updated text on the forms modal footer.
  * 
- * @param {String} formId 
- * @returns 
+ * @param {String} formId
+ * 
+ * @task insert function to display error and prompt to retry when form processing fails
+ * 
  */
 
 async function processFormValues(formId) {
@@ -166,7 +205,7 @@ async function processFormValues(formId) {
 
     const form = document.getElementById(formId);
 
-    const formValues = await getFormValues(form)
+    const formValues = await getFormElementsValuesObject(form)
 
     switch (formId) {
         case "budgetDatesInputForm":
@@ -200,7 +239,7 @@ async function processFormValues(formId) {
 
                 budget.last_updated = utcDate;
 
-                budget.date_created = budget.last_updated;
+                budget.date_created = utcDate;
 
                 // Store stringified budget object in local storage
 
@@ -227,7 +266,18 @@ async function processFormValues(formId) {
     }
 }
 
-function addEventListeners () {
+//------------------------------------------------------------------------------ Add Event Listeners
+
+/** Add Event Listeners to Modals
+ * 
+ * Finds all forms that need validation and adds a 'submit' event listener.
+ * Handles event by stopping submit if inputs aren't valid.
+ * If inputs are valid, it marks the form as validated (for formatting purposes) and
+ * passes the form ID to processFormValues
+ * 
+ */
+
+function addEventListenersToModals () {
   // Get modal elements
   const budgetDatesModal = document.getElementById("datesModal");
   const addIncomeModal = document.getElementById("addIncomeModal");
@@ -262,24 +312,18 @@ function addEventListeners () {
   });
 }
 
-function addModalCloseToSaveBtns () {
-  const modals = document.querySelectorAll('.modal');
+/** Add Event Listener to Forms
+ * 
+ * Finds all forms that need validation and adds a 'submit' event listener.
+ * Handles event by stopping submit if inputs aren't valid.
+ * If inputs are valid, it marks the form as validated (for formatting purposes) and
+ * passes the form ID to processFormValues
+ * 
+ * @task insert function to display toast when form is successfully processed
+ * 
+ */
 
-  Array.from(modals).forEach(modal => {
-    const saveBtns = document.querySelectorAll('.saveFormBtn')
-    const newModal = new bootstrap.Modal(modal, {
-      backdrop: 'static'
-    })
-
-    Array.from(saveBtns).forEach(btn => {
-      btn.addEventListener("click", function () {
-        newModal.hide();
-      });
-    })
-  })
-}
-
-function addEventListenerToFormSubmitButtons () {
+function addEventListenerToForms () {
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll('.needs-validation')
 
@@ -291,7 +335,6 @@ function addEventListenerToFormSubmitButtons () {
         event.preventDefault();
 
       }
-      
       event.preventDefault();
       form.classList.add('was-validated');
 
@@ -312,10 +355,34 @@ function addEventListenerToFormSubmitButtons () {
   })
 }
 
-(() => { // Run on page load
+/** Add Modal Close Function to Save Buttons
+ * 
+ * For each modal, find save form button and create new Bootstrap modal.
+ * Find save button and add event listener that hides the modal when the button is clicked.
+ * 
+ */
+
+function addModalCloseFunctionToSaveBtns () {
+  const modals = document.querySelectorAll('.modal');
+
+  Array.from(modals).forEach(modal => {
+    const saveBtn = modal.querySelector('.saveFormBtn')
+    const newModal = new bootstrap.Modal(modal, {
+      backdrop: 'static'
+    })
+
+    saveBtn.addEventListener("click", function () {
+        newModal.hide();
+    });
+  })
+}
+
+//------------------------------------------------------------------------------ Onload Function
+
+(() => {
   'use strict'
 
-  console.error("Page loaded. Running onload functions...");
+  console.log("Page loaded. Running onload functions...");
 
   // Temporarily clear localStorage for testing purposes. Remove this in production.
   // localStorage.clear();
@@ -326,25 +393,24 @@ function addEventListenerToFormSubmitButtons () {
   } catch (error) {
     console.error("No budget settings stored in localStorage:", error);
 
-    // prompt to enter settings
   }
 
   try {
-    addEventListeners()
+    addEventListenersToModals()
 
   } catch (error) {
-    console.error("Error adding event listeners", error);
+    console.error("Error adding event listeners to modals", error);
   }
 
   try {
-    addModalCloseToSaveBtns()
+    addModalCloseFunctionToSaveBtns()
 
   } catch (error) {
     console.error("Error adding event listener to form save buttons", error)
   }
 
   try {
-    addEventListenerToFormSubmitButtons()
+    addEventListenerToForms()
 
   } catch (error) {
     console.error("Error adding event listener to form submit buttons", error)
