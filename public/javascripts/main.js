@@ -367,6 +367,7 @@ function addModalCloseFunctionToSaveBtns () {
 
   Array.from(modals).forEach(modal => {
     const saveBtn = modal.querySelector('.saveFormBtn')
+
     const newModal = new bootstrap.Modal(modal, {
       backdrop: 'static'
     })
