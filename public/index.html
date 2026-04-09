@@ -39,7 +39,7 @@
                         <a class="nav-link ibm-plex-sans-condensed-medium hvr-fade" id="oneoff-tab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ibm-plex-sans-condensed-medium" id="settingsModalBtn" href="#settings-modal" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="fa-solid fa-gear hvr-grow"></i></a>
+                        <a class="nav-link ibm-plex-sans-condensed-medium" id="datesModalBtn" href="#datesModal" data-bs-toggle="modal" data-bs-target="#datesModal"><i class="fa-solid fa-gear hvr-grow"></i></a>
                     </li>
                 </ul>
             </div>
@@ -910,20 +910,20 @@
             </table>
         </section>
     </div>
-    <!-- Settings Modal -->
-    <div class="modal fade" id="settingsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <!-- Dates Modal -->
+    <div class="modal fade" id="datesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="datesModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="settingsModalLabel">Paydate Settings</h1>
+                    <h1 class="modal-title fs-5" id="datesModalLabel">Budget Settings</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="container pt-3 pb-2 needs-validation" id="paydateInputForm">
+                    <form class="container pt-3 pb-2 needs-validation" id="budgetDatesInputForm">
                         <div class="input-group paydate-input-group mb-3">
                             <span class="input-group-text" id="paydateText1">1st</span>
-                            <input type="date" class="form-control" placeholder="2025-01-01" id="firstPaydate" aria-label="firstPaydate" aria-describedby="paydateText1">
-                            <select class="form-select" id="frequencyChoiceD1" type="select" aria-label="frequencyChoiceD1">
+                            <input type="date" class="form-control" placeholder="2025-01-01" id="firstPaydate" aria-label="firstPaydate" aria-describedby="paydateText1" required>
+                            <select class="form-select" id="frequencyChoiceD1" type="select" value="monthly" aria-label="frequencyChoiceD1" required>
                                 <option value="monthly" selected>Monthly</option>
                                 <option value="28d">28 days</option>
                                 <option value="weekly">Weekly</option>
@@ -931,8 +931,8 @@
                         </div>
                         <div class="input-group paydate-input-group mb-3">
                             <span class="input-group-text" id="paydateText2">2nd</span>
-                            <input type="date" class="form-control" placeholder="2025-01-01" id="secondPaydate" aria-label="secondPaydate" aria-describedby="paydateText2">
-                            <select class="form-select" id="frequencyChoiceD2" type="select" aria-label="frequencyChoiceD2">
+                            <input type="date" class="form-control" placeholder="2025-01-01" id="secondPaydate" aria-label="secondPaydate" aria-describedby="paydateText2" required>
+                            <select class="form-select" id="frequencyChoiceD2" type="select" value="28d" aria-label="frequencyChoiceD2" required>
                                 <option value="monthly">Monthly</option>
                                 <option value="28d" selected>28 days</option>
                                 <option value="weekly">Weekly</option>
@@ -940,19 +940,23 @@
                         </div>
                         <div class="input-group paydate-input-group my-4">
                             <span class="input-group-text" id="budgetDuration">Budget Duration</span>
-                            <select class="form-select" id="budgetDuration" type="select" aria-label="budgetDuration">
+                            <select class="form-select" id="budgetDuration" type="select" value="12" aria-label="budgetDuration">
                                 <option value="6">6 months</option>
                                 <option value="12" selected>12 months</option>
                                 <option value="18">18 months</option>
                             </select>
                         </div>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-primary" type="submit" onclick="processForm('paydateInputForm')">Save</button>
+                        <div class="d-flex flex-row align-items-senter justify-content-end">
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveBudgetBtn" type="submit">Save</button>
                         </div>
                     </form>                   
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer" id="budget-dates-modal-footer">
+                    <div class="d-flex flex-row align-items-center justify-content-start visually-hidden" id="budget-dates-updated-info">
+                        <p class="text-body-secondary fw-medium text-body-secondary me-2 mb-0">Last Updated:</p>
+                        <small class="text-body-secondary" id="budget-dates-updated-time"></small>
+                    </div>          
                 </div>
             </div>
         </div>
@@ -1085,13 +1089,13 @@
                             </div>
                         </div>
 
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-primary" type="submit" onclick="addIncomeItem()">Save</button>
+                        <div class="d-flex flex-row align-items-senter justify-content-end">
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary form-btns-parallel ms-3" id="saveNewIncomeItemBtn" type="submit">Save</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -1174,13 +1178,6 @@
                             </select>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="recurringIncludeText">Include in Overview?</span>
-                            <div class="input-group-text">
-                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in overview checkbox" checked>
-                            </div>
-                        </div>
-
                         <hr>
 
                         <div class="input-group">
@@ -1257,9 +1254,16 @@
                         
                         <hr>
 
-                        <div class="d-flex flex-row justify-content-end">
-                            <button type="submit" class="btn btn-secondary add-form-btns ms-auto" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary add-form-btns mx-3" onclick="addIncomeItem()">Save</button>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="recurringIncludeText">Include in Overview?</span>
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in overview checkbox" checked>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-senter justify-content-end">
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary form-btns-parallel ms-3" id="saveNewRecurringItemBtn" type="submit">Save</button>
                         </div>
                     </form>
                 </div>
@@ -1293,6 +1297,7 @@
                             </select>
                         </div>
                         <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative?</div>
+
                         <div class="input-group mb-3">
                             <select class="form-select" aria-label="CategorySelect">
                                 <option selected>Category</option>
@@ -1307,6 +1312,7 @@
                                 <option value="weekly">Weekly</option>
                             </select>
                         </div>
+
                         <div class="accordion mb-3" id="incomeAdditionalInfoAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -1387,54 +1393,48 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="input-group mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="includeInOverviewCheck" checked>
-                                <label class="form-check-label" for="includeInOverviewCheck">
-                                    Include in overview calculations
-                                </label>
+                            <span class="input-group-text" id="recurringIncludeText">Include in Overview?</span>
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in overview checkbox" checked>
                             </div>
                         </div>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-primary" type="submit" onclick="addIncomeItem()">Save</button>
+
+                        <div class="d-flex flex-row align-items-senter justify-content-end">
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary form-btns-parallel ms-3" id="saveNewOneoffItemBtn" type="submit">Save</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Data Processing Modal -->
-    <div class="modal fade" id="processingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="processingModalLabel" aria-hidden="true">
-        <div class="d-none justify-content-center align-items-center status-page" id="spinner-page">
-            <span class="d-flex justify-content-center align-items-center status-page" id="spinner-content">
-                <h3 class="me-4 pt-2">Processing dates...</h3>
-                <i class="fa-solid fa-spinner fa-2xl fa-spin"></i>
-            </span>
+    <!-- Add/ Update Confirmed Toast -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-
-        <div class="d-none flex-column justify-content-center align-items-center mt-5 status-page" id="error-page">
-            <h3 class="text-danger text-center mb-4" id="error-text">Error!</h3>
-        </div>
-        
-        <div class="d-none flex-column justify-content-center align-items-center mt-5 status-page" id="success-page">
-            <h3 class="text-success text-center mb-4">Successfully updated dates on spreadsheet!</h3>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
         </div>
     </div>
     <!-- Footer -->
     <footer class="container my-4 px-4">
         <p>Contact Details: scales.samantha@outlook.com</p>
     </footer>
-    <!-- Bootstrap JS -->
+
+    <!-- Bootstrap JS and Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
-    <!-- Custom JavaScript Modules-->
-    <script type="module" src="./javascripts/modules/database.mjs"></script>
-    <script type="module" src="./javascripts/load.js"></script>
+
     <!-- Custom JavaScript -->
-    <script src="./javascripts/modules/classes.js"></script>
+    <script src="./javascripts/classes.js"></script>
     <script src="./javascripts/main.js"></script>
 </body>
 </html>
