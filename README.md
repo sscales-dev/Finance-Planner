@@ -40,23 +40,21 @@ Provide a user interface that the user can use effortlessly, within the remit of
 
 ### User Stories
 
-**User Goals**
-
-
+#### User Goals
 
 ### Requirements
 
 ### Design
 
-**Colour Scheme**
+#### Colour Scheme
 
 - Pastel, soft colours to avoid aggitation/ stress - but should be easily customisable
 
-**Typography**
+#### Typography
 
 - Straightforward, clean easy to read
 
-**Imagery**
+#### Imagery
 
 - I chose a plant icon as the brand icon as it represents growth.
 
@@ -64,9 +62,9 @@ Provide a user interface that the user can use effortlessly, within the remit of
 
 ## Features
 
-
-
 ### Possible Features
+
+- Manual Sorting of itemised lists (drag and drop)
 
 ## Technologies Used
 
@@ -78,9 +76,6 @@ Provide a user interface that the user can use effortlessly, within the remit of
 
 ### Frameworks, Libraries & Programs Used
 
-- Node.js
-- Express
-- MongoDb
 - Bootstrap
 - [Hover.css](https://github.com/IanLunn/Hover)
 - Google Fonts
@@ -88,22 +83,22 @@ Provide a user interface that the user can use effortlessly, within the remit of
 - VS Code
 - Git
 - GitHub
-- Balsamiq
-- [Adobe - Convert to Webp](https://www.adobe.com/express/feature/image/resize/webp)
-https://image.online-convert.com/convert-to-webp
-
-?? Image resource page
+- Node.js
+- Express
+- MongoDb
+- Argon2
 
 ## Testing
+
+- !! UNIT TESTING
 
 - screenshot of final features  
 - explain link with user stories
   - e.g navigate easily through the site
   - what features acheive requirements
-
 - test user stories
 
-### Validator Testing 
+### Validator Testing
 
 - [W3C HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
@@ -116,88 +111,73 @@ Lighthouse
 
 ### Known Bugs
 
-- FIXED: languages list from about me page displays over the top of the navigation dropdown when cicked (mobile view)
-- FIXED: when clicking navigation button dropdown, personal info in footer still shows (due to hvr-grow classes)
-
-- border for contact modal should be the same as the dropdown menu (--steel-blue-gray)
-
-- styling in safari is off
-
-- no 768px nor 922px styling
-
 ## Deployment
 
 ### GitHub Pages
 
 I used GitHub Pages to deploy my project, using the steps as follows:
 
-1.  Navigate to 'Settings' tab at top of repository
-1.  Scroll to bottom of 'General' page and click 'Change Visibility' > 'Change to Public'
-1.  Click 'I want to make my repository public'
-1.  Click 'I have read and understand these effects'
-1.  Click 'Make This Respository Public'
+1. Navigate to 'Settings' tab at top of repository
+1. Scroll to bottom of 'General' page and click 'Change Visibility' > 'Change to Public'
+1. Click 'I want to make my repository public'
+1. Click 'I have read and understand these effects'
+1. Click 'Make This Respository Public'
 
-1.  Choose 'Pages' from left-hand menu in Settings
-1.  Under 'Build and deployment' > 'Branch', choose the source 'main' from the dropdown menu
-1.  Click 'Save' (to the right of '/ (root)')
+1. Choose 'Pages' from left-hand menu in Settings
+1. Under 'Build and deployment' > 'Branch', choose the source 'main' from the dropdown menu
+1. Click 'Save' (to the right of '/ (root)')
 
 ### ??Forking the GitHub Repository
 
 ### ??Making a Local Clone
 
-## Credits 
+## Credits
 
 - README template used, taken from [Code Institute Solutions on GitHub](https://github.com/Code-Institute-Solutions/SampleREADME)
 
-- [Argon2 in NodeJS](https://mojoauth.com/hashing/argon2-in-nodejs#implementing-argon2-in-nodejs)
-
-**GIT**
-
-- 
-
 ### Code
 
+#### HTML + CSS
+
 - https://www.w3schools.com/cssref/sel_not.php
-- https://www.w3schools.com/js/js_classes.asp
+- https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset
 
-**Accessibility**
+#### Accessibility
 
-- 
-
-
-**Bootstrap**
+#### Bootstrap
 
 - https://stackoverflow.com/questions/19870743/horizontal-scroll-table-in-bootstrap-css
 - https://stackoverflow.com/questions/20828224/how-do-i-change-column-width-of-bootstrap-tables
 - https://css-tricks.com/fixing-tables-long-strings/
+- [Modal Hide Functions](https://github.com/orgs/twbs/discussions/32347)
 
-
-**W3 Schools**
-
-- 
-
-**Font Awesome**
-
-- 
-
-**MongoDB**
+#### MongoDB
 
 - https://www.mongodb.com/docs/drivers/node/current/#introduction
 - https://www.mongodb.com/docs/drivers/node/current/crud/insert/
 
-**JavaScript**
+#### JavaScript
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#introducing_an_example
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+- https://www.w3schools.com/jsref/prop_win_localstorage.asp
+- https://www.w3schools.com/jsref/prop_win_sessionstorage.asp
+- https://www.w3schools.com/js/tryit.asp?filename=tryjs_date_toutcstring
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+- https://www.w3schools.com/js/js_classes.asp
+- https://stackoverflow.com/questions/29975372/referenceerror-require-is-not-defined-in-mongodb-shell
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
-
-**Express/ Node**
+#### Express/ Node
 
 - https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment
 - https://nodejs.org/api/packages.html#determining-module-system
+- https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
 - https://expressjs.com/en/starter/installing.html
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes
+- [Argon2 in NodeJS](https://mojoauth.com/hashing/argon2-in-nodejs#implementing-argon2-in-nodejs)
 
-**ESLint**
+#### ESLint
 
 - https://eslint.org/
 - https://eslint.org/docs/latest/use/getting-started
@@ -205,10 +185,8 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 ### Content
 
-- [Brand Icon](https://www.iconpacks.net/free-icon/plant-1573.html)
-
 ### Media
 
-- 
+- [Brand Icon](https://www.iconpacks.net/free-icon/plant-1573.html)
 
 ### Acknowledgements
