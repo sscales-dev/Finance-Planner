@@ -4,8 +4,8 @@ const { MongoClient } = require('mongodb');
 
 // ---------------------------------------------------------------------------- LOGIN DETAILS
 
-const username = 'scalessamantha_db_user';
-const password = 'UdyQG9cBeS4f0Tdc';
+const username = '';
+const password = '';
 
 const uri = `mongodb+srv://${username}:${password}@financial-planner-app.vvbstzd.mongodb.net/?appName=financial-planner-app`;
 
