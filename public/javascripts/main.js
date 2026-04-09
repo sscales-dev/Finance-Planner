@@ -56,49 +56,7 @@ function toggleDropdownDate(element) {
     return;
 }
 
-/** Load Budget Settings Form Defaults
- * 
- * Loads the budget settings form default values from localStorage to the form elements.
- * Toggles the checkmark against the selected date(s)
- * 
- */
-
 //------------------------------------------------------------------------------ Set Form Values
-
-function loadBudgetSettingsFormDefaults () {
-  const budgetString =localStorage.getItem("budget")
-  const budgetObject = JSON.parse(budgetString)
-
-  let firstPaydate
-  let secondPaydate
-  let budgetDuration
-  let budgetUpdatedTime
-
-  firstPaydate = budgetObject.paydate1;
-
-  secondPaydate = budgetObject.paydate2;
-
-  budgetDuration = budgetObject.duration;
-
-  budgetUpdatedTime = budgetObject.last_updated;
-
-  // document.getElementById(' ').defaultValue = firstPaydate.date
-  // document.getElementById(' ').defaultValue = firstPaydate.frequency
-
-  // document.getElementById(' ').defaultValue = secondPaydate.date
-  // document.getElementById(' ').defaultValue = secondPaydate.frequency
-
-  // document.getElementById(' ').defaultValue = budgetDuration
-
-  lastUpdatedTextUpdate("budget-dates", budgetUpdatedTime)
-
-  console.log("Budget settings loaded!", {
-    firstPaydate,
-    secondPaydate,
-    budgetDuration,
-    budgetUpdatedTime
-  });
-}
 
 /** Last Updated Text Update
  * 
@@ -117,6 +75,48 @@ function lastUpdatedTextUpdate (formName, lastUpdated) {
   updateInfoContainer.classList.remove("visually-hidden");
 
   return
+}
+
+/** Load Budget Settings Form Defaults
+ * 
+ * Loads the budget settings form default values from localStorage to the form elements.
+ * Toggles the checkmark against the selected date(s)
+ * 
+ */
+
+function loadBudgetSettingsFormDefaults () {
+  const budgetString =localStorage.getItem("budget")
+  const budgetObject = JSON.parse(budgetString)
+
+  let firstPaydate
+  let secondPaydate
+  let budgetDuration
+  let budgetUpdatedTime
+
+  firstPaydate = budgetObject.paydate1;
+
+  secondPaydate = budgetObject.paydate2;
+
+  budgetDuration = budgetObject.duration;
+
+  budgetUpdatedTime = budgetObject.last_updated;
+
+  document.getElementById('firstPaydate').defaultValue = firstPaydate.date
+  document.getElementById('frequencyChoiceD1').defaultValue = firstPaydate.frequency
+
+  document.getElementById('secondPaydate').defaultValue = secondPaydate.date
+  document.getElementById('frequencyChoiceD2').defaultValue = secondPaydate.frequency
+
+  document.getElementById('budgetDuration').defaultValue = budgetDuration
+
+  lastUpdatedTextUpdate("budget-dates", budgetUpdatedTime)
+
+  console.log("Budget settings loaded!" /*, {
+    firstPaydate,
+    secondPaydate,
+    budgetDuration,
+    budgetUpdatedTime
+  }*/);
 }
 
 /** Toast Usage Example
