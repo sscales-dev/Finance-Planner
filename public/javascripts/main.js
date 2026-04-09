@@ -152,7 +152,7 @@ async function formElementValuesToArray (elementsArray) {
   let i = 0;
 
   for (i = 0; i < elementsArray.length; i++) {
-      console.log("Pushing details to array", elementsArray[i].id);
+      //console.log("Pushing details to array", elementsArray[i].id);
       array.push({"id": elementsArray[i].id, "value": elementsArray[i].value, "defaultValue": elementsArray[i].defaultValue});
   };
 
