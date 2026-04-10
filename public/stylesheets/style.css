@@ -10,20 +10,20 @@
   --velvet-orchid: #803181; /* active nav links */
   --royal-orchid: #802392;
 
-  --dusk-blue: #4E598C; /* 78, 89, 140 */
-  --glaucous: #7D82B8; /* tables - use rgba 125, 130, 184 */
-  --hot-rose: #BA2C73; /* hover text and icons? */
-  --neon-pink: #FF006E; /* hover text and icons? */
-  --bright-peony: #FB62F6;
+  --dusk-blue: #4e598c; /* 78, 89, 140 */
+  --glaucous: #7d82b8; /* tables - use rgba 125, 130, 184 */
+  --hot-rose: #ba2c73; /* hover text and icons? */
+  --neon-pink: #ff006e; /* hover text and icons? */
+  --bright-peony: #fb62f6;
   --magenta-bloom: #e83f6f;
   --verdigris1: #1ea896;
   --verdigris2: #00a896;
 
   /* Forms */
-  --crayola-blue: #3777FF; /* save buttons? */
+  --crayola-blue: #3777ff; /* save buttons? */
   --pumpkin-spice: #ff8c42;
   --charcoal: #525669; /* cancel button 82, 86, 105 */
-  --baltic-blue: #035E7B; /* input label bgs? 3, 94, 123 */
+  --baltic-blue: #035e7b; /* 3, 94, 123 */
 
   /* plant colours */
   --faded-copper: #a07e63;
@@ -46,9 +46,8 @@
   --oxford-navy: #0f375e;
   --silver: #b9bbbd;
 
-  --sage-green: #60992D;
+  --sage-green: #60992d;
   --rapberry-plum: #a80874;
-
 }
 
 /* ------------------------------------------------------- BOOTSTRAP COLOURS */
@@ -182,94 +181,6 @@
   --bs-form-invalid-border-color: #dc3545;
 }
 
-/* ------------------------------------------------------- FONTS - normal */
-
-.ibm-plex-sans-condensed-thin {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.ibm-plex-sans-condensed-extralight {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.ibm-plex-sans-condensed-light {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.ibm-plex-sans-condensed-regular {
-  font-family: "IBM Plex Sans Condensed", sans-serif !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-}
-
-.ibm-plex-sans-condensed-medium {
-  font-family: "IBM Plex Sans Condensed", sans-serif !important;
-  font-weight: 500 !important;
-  font-style: normal !important;
-}
-
-.ibm-plex-sans-condensed-semibold {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.ibm-plex-sans-condensed-bold {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* ------------------------------------------------------- FONTS - italic */
-
-.ibm-plex-sans-condensed-thin-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.ibm-plex-sans-condensed-extralight-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.ibm-plex-sans-condensed-light-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.ibm-plex-sans-condensed-regular-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.ibm-plex-sans-condensed-medium-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.ibm-plex-sans-condensed-semibold-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.ibm-plex-sans-condensed-bold-italic {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
 /* ------------------------------------------------------- Hover.css */
 
 /* Grow */
@@ -314,9 +225,16 @@
 body {
   background-color: var(--white-smoke);
   color: var(--jet-black);
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* ------------------------------------------------------- NAVBAR */
+
+h1{
+  font-weight: 400;
+}
 
 .navbar-brand > img {
   margin-bottom: 1rem;
@@ -324,27 +242,28 @@ body {
 }
 
 .nav-tabs {
-  background-color: var(--parchment) !important;
+  background-color: var(--parchment);
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .nav-link {
-  color: var(--dark-teal) !important;
-  padding-left: 0.575rem !important;
-  padding-right: 0.575rem !important;
+  color: var(--dark-teal);
+  font-weight: 500;
+  padding-left: 0.575rem;
+  padding-right: 0.575rem;
 }
 
 .nav-tabs .nav-link.active {
-  background-color: white !important;
-  border-color: var(--alabaster-grey) !important;
-  border-bottom: white 1px solid !important;
-  color: var(--velvet-orchid) !important;
+  background-color: white;
+  border-color: var(--alabaster-grey);
+  border-bottom: white 1px solid;
+  color: var(--velvet-orchid);
 }
 
 .nav-link:hover,
 .fa-gear:hover,
 .nav-link.active:hover {
-  color: var(--bs-orange) !important;
+  color: var(--bs-orange);
 }
 
 @media (min-width: 768px) {
@@ -368,14 +287,13 @@ body {
 
 table {
   --bs-table-hover-bg: rgba(237, 236, 232, 0.4) !important; /* parchment */
-  border-left: 1px solid var(--alabaster-grey) !important;
-  border-right: 1px solid var(--alabaster-grey) !important;
-  table-layout: fixed !important;
+  border-left: 1px solid var(--alabaster-grey);
+  border-right: 1px solid var(--alabaster-grey);
+  table-layout: fixed;
 }
 
 th,
 td {
-  color: var(--jet-black) !important;
   width: 16vw;
 }
 
@@ -495,7 +413,7 @@ section:not(#overview) > table > tbody > tr {
 }
 
 .add-btn:hover {
-  background-color: var(--bs-orange);
+  background-color: var(--bs-orange) !important;
   border-color: var(--bs-orange);
   color: white;
   outline-color: var(--bs-orange);
@@ -528,7 +446,7 @@ td > .fa-regular {
 .fa-sort:hover,
 .fa-circle:hover,
 .fa-pen-to-square:hover,
-.fa-circle-xmark  {
+.fa-circle-xmark {
   color: var(--bs-orange);
 }
 
@@ -657,7 +575,7 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .dropdown-item:hover,
 .dropdown-item.active {
-  background-color: rgba(237, 236, 232, 0.5) !important;  /* parchment */
+  background-color: rgba(237, 236, 232, 0.5) !important; /* parchment */
   color: var(--jet-black);
 }
 
@@ -676,17 +594,37 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .modal-header,
 .modal-footer {
-  background-color: var(--white-smoke);
+  background-color: var(--parchment);
 }
 
-.modal-title,
-.modal-body,
-.modal-footer {
-  color: var(--jet-black);
+.modal-body {
+  background-color: var(--white-smoke);
 }
 
 .modal-footer {
   height: 7vh;
+}
+
+.input-group-text {
+  background-color: rgba(78, 89, 140, 0.14); /* Dusk Blue */
+}
+
+.frequency-select {
+  background-color: rgba(125, 130, 184, 0.1); /* Glacous */
+}
+
+.saveFormBtn {
+  background-color: var(--crayola-blue);
+}
+
+.btn-secondary {
+  background-color: rgba(82, 86, 105, 0.58); /* Charcoal */
+  border: 1px solid rgba(82, 86, 105, 0.1); /* Charcoal */
+}
+
+.saveFormBtn:hover {
+  background-color: var(--bs-orange);
+  border-color: var(--bs-orange);
 }
 
 @media (min-width: 576px) {
