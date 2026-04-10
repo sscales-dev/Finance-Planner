@@ -12,8 +12,10 @@
 
 ### Later
 
+- [ ] Add frequency display to budget date columns
 - [ ] Add 'loading' displays
 - [ ] Add Nested Tables in Overview section with categories
+- [ ] within forms - select option:hover color
 
 ## Modals + Forms
 
