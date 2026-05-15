@@ -4,6 +4,7 @@
   --white-smoke: #f5f6f4; /* background */
   --jet-black: #2d3142; /* font */
   --alabaster-grey: #dee2e6; /* borders */
+  --platinum: #F3F4F6; /* light select colour */
 
   --parchment: #edece8; /* unselected tabs */
   --dark-teal: #154c51; /* buttons and nav links */
@@ -316,7 +317,7 @@ td {
 
 @media (min-width: 992px) {
   .container {
-    max-width: 975px;
+    max-width: 96%;
   }
 
   th,
@@ -450,6 +451,13 @@ td > .fa-regular {
   color: var(--bs-orange);
 }
 
+#recurring-table > tbody > tr > th,
+#recurring-table > tbody > tr > td,
+#oneoff-table > tbody > tr > th,
+#oneoff-table > tbody > tr > td {
+  height: 40px;
+}
+
 @media (min-width: 768px) {
   .col-end-width {
     width: 5vw;
@@ -472,12 +480,12 @@ td > .fa-regular {
   }
 
   .date-col {
-    width: 14vw;
+    width: 15vw;
   }
 
-  #income-table > thead > tr > th.item-col,
-  #income-table > tbody > tr > td.item-col {
-    width: 30vw;
+  #oneoff-table > thead > tr > th.item-col,
+  #oneoff-table > tbody > tr > td.item-col {
+    width: 37vw;
   }
 
   #income-table > thead > tr > th.freq-col,
@@ -490,11 +498,6 @@ td > .fa-regular {
   #income-table > thead > tr > th.cat-col,
   #income-table > tbody > tr > td.cat-col {
     width: 25.5vw;
-  }
-
-  #oneoff-table > thead > tr > th.date-col,
-  #oneoff-table > tbody > tr > td.date-col {
-    width: 12vw;
   }
 
   .btn-group {
@@ -512,25 +515,40 @@ td > .fa-regular {
 }
 
 @media (min-width: 992px) {
-  .item-col {
-    width: 42.5vw;
+  #income-table > thead > tr > th.item-col,
+  #income-table > tbody > tr > td.item-col {
+    width: 38vw;
   }
 
-  .freq-col,
-  .amount-col,
-  .date-col {
+  #recurring-table > thead > tr > th.item-col,
+  #recurring-table > tbody > tr > td.item-col {
+    width: 27.5vw;
+  }
+
+  #oneoff-table > thead > tr > th.item-col,
+  #oneoff-table > tbody > tr > td.item-col {
+    width: 37.5vw;
+  }
+
+  #income-table > thead > tr > th.freq-col,
+  #income-table > thead > tr > th.amount-col,
+  #income-table > tbody > tr > td.freq-col,
+  #income-table > tbody > tr > td.amount-col {
     width: 10vw;
   }
 
   .cat-col {
     width: 20vw;
   }
+
+  .date-col {
+    width: 15vw;
+  }
+
 }
 
-@media (min-width: 1200px) {
-  .item-col {
-    width: 44vw;
-  }
+@media (min-width: 1400px) {
+
 }
 
 /* ------------------------------------------------------- Date Dropdown */
@@ -609,6 +627,10 @@ table:not(#oneoff) > tbody > td.item-date {
   background-color: rgba(78, 89, 140, 0.14); /* Dusk Blue */
 }
 
+.form-select {
+  background-color: var(--platinum);
+}
+
 .frequency-select {
   background-color: rgba(125, 130, 184, 0.1); /* Glacous */
 }
@@ -654,4 +676,8 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .form-btns-parallel {
   width: 80px;
+}
+
+.input-group > .paym-direction-select {
+  max-width: 80px;
 }

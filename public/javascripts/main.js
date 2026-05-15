@@ -356,8 +356,15 @@ function addEventListenerToForms () {
 
       }
       event.preventDefault();
-      form.classList.add('was-validated');
 
+      if (form.id === "budgetDatesInputForm") {
+        form.classList.add('was-validated');
+        newModal.hide();
+        console.log("Form Validated. Processing form...");
+        return;
+      }
+
+      form.reset()
       newModal.hide();
       
       console.log("Form Validated. Processing form...");
