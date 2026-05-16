@@ -281,13 +281,13 @@ h1{
 
 /* ------------------------------------------------------- Tables */
 
-.scrollable-table {
+.scrollableTable {
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
 table {
-  --bs-table-hover-bg: rgba(237, 236, 232, 0.4) !important; /* parchment */
+  --bsTable-hover-bg: rgba(237, 236, 232, 0.4) !important; /* parchment */
   border-left: 1px solid var(--alabaster-grey);
   border-right: 1px solid var(--alabaster-grey);
   table-layout: fixed;
@@ -458,10 +458,10 @@ td > .fa-regular {
   color: var(--bs-orange);
 }
 
-#recurring-table > tbody > tr > th,
-#recurring-table > tbody > tr > td,
-#oneoff-table > tbody > tr > th,
-#oneoff-table > tbody > tr > td {
+#recurringTable > tbody > tr > th,
+#recurringTable > tbody > tr > td,
+#oneoffTable > tbody > tr > th,
+#oneoffTable > tbody > tr > td {
   height: 40px;
 }
 
@@ -490,20 +490,20 @@ td > .fa-regular {
     width: 15vw;
   }
 
-  #oneoff-table > thead > tr > th.item-col,
-  #oneoff-table > tbody > tr > td.item-col {
+  #oneoffTable > thead > tr > th.item-col,
+  #oneoffTable > tbody > tr > td.item-col {
     width: 37vw;
   }
 
-  #income-table > thead > tr > th.freq-col,
-  #income-table > thead > tr > th.amount-col,
-  #income-table > tbody > tr > td.freq-col,
-  #income-table > tbody > tr > td.amount-col {
+  #incomeTable > thead > tr > th.freq-col,
+  #incomeTable > thead > tr > th.amount-col,
+  #incomeTable > tbody > tr > td.freq-col,
+  #incomeTable > tbody > tr > td.amount-col {
     width: 15vw;
   }
 
-  #income-table > thead > tr > th.cat-col,
-  #income-table > tbody > tr > td.cat-col {
+  #incomeTable > thead > tr > th.cat-col,
+  #incomeTable > tbody > tr > td.cat-col {
     width: 25.5vw;
   }
 
@@ -522,25 +522,25 @@ td > .fa-regular {
 }
 
 @media (min-width: 992px) {
-  #income-table > thead > tr > th.item-col,
-  #income-table > tbody > tr > td.item-col {
+  #incomeTable > thead > tr > th.item-col,
+  #incomeTable > tbody > tr > td.item-col {
     width: 38vw;
   }
 
-  #recurring-table > thead > tr > th.item-col,
-  #recurring-table > tbody > tr > td.item-col {
+  #recurringTable > thead > tr > th.item-col,
+  #recurringTable > tbody > tr > td.item-col {
     width: 27.5vw;
   }
 
-  #oneoff-table > thead > tr > th.item-col,
-  #oneoff-table > tbody > tr > td.item-col {
+  #oneoffTable > thead > tr > th.item-col,
+  #oneoffTable > tbody > tr > td.item-col {
     width: 37.5vw;
   }
 
-  #income-table > thead > tr > th.freq-col,
-  #income-table > thead > tr > th.amount-col,
-  #income-table > tbody > tr > td.freq-col,
-  #income-table > tbody > tr > td.amount-col {
+  #incomeTable > thead > tr > th.freq-col,
+  #incomeTable > thead > tr > th.amount-col,
+  #incomeTable > tbody > tr > td.freq-col,
+  #incomeTable > tbody > tr > td.amount-col {
     width: 10vw;
   }
 
