@@ -27,19 +27,19 @@
                 </a>
                 <ul class="nav nav-tabs"><!-- add justify content end to larger devices-->
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" aria-current="true" type="button" role="tab" aria-controls="overview" aria-selected="true" href="#overview">Overview</a>
+                        <a class="nav-link hvr-fade active" id="budgetTab" data-bs-toggle="tab" data-bs-target="#budget" aria-current="true" type="button" role="tab" aria-controls="budget" aria-selected="true" href="#budget">Budget</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade" id="income-tab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false" href="#income">Income</a>
+                        <a class="nav-link hvr-fade" id="incomeTab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false" href="#income">Income</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade" id="tab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
+                        <a class="nav-link hvr-fade" id="recurringTab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade" id="oneoff-tab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
+                        <a class="nav-link hvr-fade" id="oneoffTab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="datesModalBtn" href="#datesModal" data-bs-toggle="modal" data-bs-target="#datesModal"><i class="fa-solid fa-gear hvr-grow"></i></a>
+                        <a class="nav-link" id="budgetSettingsModalBtn" href="#budgetSettingsModal" data-bs-toggle="modal" data-bs-target="#budgetSettingsModal"><i class="fa-solid fa-gear hvr-grow"></i></a>
                     </li>
                 </ul>
             </div>
@@ -47,125 +47,125 @@
     </header>
     <!-- MAIN CONTENT -->
     <div class="tab-content">
-        <!-- Overview Section -->
-        <section class="container px-lg-3 tab-pane active" id="overview" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
-            <h2 class="visually-hidden">Overview</h2>
+        <!-- Budget Section -->
+        <section class="container px-lg-3 tab-pane active" id="budget" role="tabpanel" aria-labelledby="budgetTab" tabindex="0">
+            <h2 class="visually-hidden">Budget</h2>
             <div class="scrollable-table">
-                <table class="table table-responsive table-hover">
+                <table class="table table-responsive table-hover" id="budgetTable">
                     <thead>
-                        <tr>
-                            <th scope="col" class="category-column text-end">2026</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
-                            <th scope="col" class="budget-col">mm-dd</th>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center paydateRow">
+                            <th scope="col" class="category-column text-end fs-3" id="budgetYear">2026</th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate1"><span id="date1">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate2"><span id="date2">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate3"><span id="date3">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate4"><span id="date4">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate5"><span id="date5">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate6"><span id="date6">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate7"><span id="date7">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate8"><span id="date8">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate9"><span id="date9">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate10"><span id="date10">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate11"><span id="date11">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate12"><span id="date12">mm-dd</span><span class="payDateFrequency">monthly</span></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center availableBalanceRow">
                             <th scope="row" class="category-column text-end align-middle">Available Balance</th>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col" id="availableBalance1">£0.00</td>
+                            <td class="budget-col" id="availableBalance2">£0.00</td>
+                            <td class="budget-col" id="availableBalance3">£0.00</td>
+                            <td class="budget-col" id="availableBalance4">£0.00</td>
+                            <td class="budget-col" id="availableBalance5">£0.00</td>
+                            <td class="budget-col" id="availableBalance6">£0.00</td>
+                            <td class="budget-col" id="availableBalance7">£0.00</td>
+                            <td class="budget-col" id="availableBalance8">£0.00</td>
+                            <td class="budget-col" id="availableBalance9">£0.00</td>
+                            <td class="budget-col" id="availableBalance10">£0.00</td>
+                            <td class="budget-col" id="availableBalance11">£0.00</td>
+                            <td class="budget-col" id="availableBalance12">£0.00</td>
                         </tr>
-                        <tr>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center incomeRow">
                             <th scope="row" class="category-column text-end align-middle">Income</th>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col" id="incomePay1">£0.00</td>
+                            <td class="budget-col" id="incomePay2">£0.00</td>
+                            <td class="budget-col" id="incomePay3">£0.00</td>
+                            <td class="budget-col" id="incomePay4">£0.00</td>
+                            <td class="budget-col" id="incomePay5">£0.00</td>
+                            <td class="budget-col" id="incomePay6">£0.00</td>
+                            <td class="budget-col" id="incomePay7">£0.00</td>
+                            <td class="budget-col" id="incomePay8">£0.00</td>
+                            <td class="budget-col" id="incomePay9">£0.00</td>
+                            <td class="budget-col" id="incomePay10">£0.00</td>
+                            <td class="budget-col" id="incomePay11">£0.00</td>
+                            <td class="budget-col" id="incomePay12">£0.00</td>
                         </tr>
-                        <tr>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center overheadsRow">
                             <th scope="row" class="category-column text-end align-middle">Overheads</th>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col" id="overheadsPay1">£0.00</td>
+                            <td class="budget-col" id="overheadsPay2">£0.00</td>
+                            <td class="budget-col" id="overheadsPay3">£0.00</td>
+                            <td class="budget-col" id="overheadsPay4">£0.00</td>
+                            <td class="budget-col" id="overheadsPay5">£0.00</td>
+                            <td class="budget-col" id="overheadsPay6">£0.00</td>
+                            <td class="budget-col" id="overheadsPay7">£0.00</td>
+                            <td class="budget-col" id="overheadsPay8">£0.00</td>
+                            <td class="budget-col" id="overheadsPay9">£0.00</td>
+                            <td class="budget-col" id="overheadsPay10">£0.00</td>
+                            <td class="budget-col" id="overheadsPay11">£0.00</td>
+                            <td class="budget-col" id="overheadsPay12">£0.00</td>
                         </tr>
-                        <tr>
-                            <th scope="row" class="category-column text-end align-middle">Essential</th>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center essentialsRow">
+                            <th scope="row" class="category-column text-end align-middle">Essentials</th>
+                            <td class="budget-col" id="essentialsPay1">£0.00</td>
+                            <td class="budget-col" id="essentialsPay2">£0.00</td>
+                            <td class="budget-col" id="essentialsPay3">£0.00</td>
+                            <td class="budget-col" id="essentialsPay4">£0.00</td>
+                            <td class="budget-col" id="essentialsPay5">£0.00</td>
+                            <td class="budget-col" id="essentialsPay6">£0.00</td>
+                            <td class="budget-col" id="essentialsPay7">£0.00</td>
+                            <td class="budget-col" id="essentialsPay8">£0.00</td>
+                            <td class="budget-col" id="essentialsPay9">£0.00</td>
+                            <td class="budget-col" id="essentialsPay10">£0.00</td>
+                            <td class="budget-col" id="essentialsPay11">£0.00</td>
+                            <td class="budget-col" id="essentialsPay12">£0.00</td>
                         </tr>
-                        <tr>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center discretionaryRow">
                             <th scope="row" class="category-column text-end align-middle">Discretionary</th>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay1">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay2">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay3">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay4">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay5">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay6">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay7">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay8">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay9">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay10">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay11">£0.00</td>
+                            <td class="budget-col" id="discretionaryPay12">£0.00</td>
                         </tr>
-                        <tr>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center lendingBorrowingRow">
                             <th scope="row" class="category-column text-end align-middle">Lending & Borrowing</th>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
-                            <td class="budget-col">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay1">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay2">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay3">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay4">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay5">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay6">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay7">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay8">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay9">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay10">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay11">£0.00</td>
+                            <td class="budget-col" id="lendingBorrowingPay12">£0.00</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
         <!-- Income Section -->
-        <section class="container px-lg-3 px-xl-3 tab-pane" id="income" role="tabpanel" aria-labelledby="income-tab" tabindex="0">
+        <section class="container px-lg-3 px-xl-3 tab-pane" id="income" role="tabpanel" aria-labelledby="incomeTab" tabindex="0">
             <h2 class="visually-hidden">Income</h2>
             <table class="table table-hover" id="income-table">
                 <thead>
@@ -240,7 +240,7 @@
             </table>
         </section>
         <!-- Recurring Section -->
-        <section class="container px-lg-3 px-xl-3 tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab" tabindex="0">
+        <section class="container px-lg-3 px-xl-3 tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurringTab" tabindex="0">
             <h2 class="visually-hidden">Recurring</h2>
             <table class="table table-hover" id="recurring-table">
                 <thead>
@@ -479,7 +479,7 @@
             </table>
         </section>
         <!-- Oneoff Section -->
-        <section class="container px-lg-3 px-xl-3 tab-pane" id="oneoff" role="tabpanel" aria-labelledby="oneoff-tab" tabindex="0">
+        <section class="container px-lg-3 px-xl-3 tab-pane" id="oneoff" role="tabpanel" aria-labelledby="oneoffTab" tabindex="0">
             <h2 class="visually-hidden">One-off</h2>
             <table class="table table-hover" id="oneoff-table">
                 <thead>
@@ -724,11 +724,11 @@
         </section>
     </div>
     <!-- Dates Modal -->
-    <div class="modal fade" id="datesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="datesModalLabel" aria-hidden="true">
+    <div class="modal fade" id="budgetSettingsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="budgetSettingsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="datesModalLabel">Budget Settings</h1>
+                    <h1 class="modal-title fs-5" id="budgetSettingsModalLabel">Budget Settings</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -765,10 +765,10 @@
                         </div>
                     </form>                   
                 </div>
-                <div class="modal-footer" id="budget-dates-modal-footer">
-                    <div class="d-flex flex-row align-items-center justify-content-start visually-hidden" id="budget-dates-updated-info">
+                <div class="modal-footer" id="budgetSettingsModalFooter">
+                    <div class="d-flex flex-row align-items-center justify-content-start visually-hidden" id="budgetDatesUpdatedInfo">
                         <p class="text-body-secondary fw-medium text-body-secondary me-2 mb-0">Last Updated:</p>
-                        <small class="text-body-secondary" id="budget-dates-updated-time"></small>
+                        <small class="text-body-secondary" id="budgetDatesUpdatedTime"></small>
                     </div>          
                 </div>
             </div>
@@ -816,9 +816,9 @@
                         </div>
 
                         <div class="input-group mb-4">
-                            <span class="input-group-text" id="incomeIncludeText">Include in Overview?</span>
+                            <span class="input-group-text" id="incomeIncludeText">Include in Budget?</span>
                             <div class="input-group-text">
-                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in overview checkbox" checked>
+                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>
 
@@ -1070,9 +1070,9 @@
                         <hr>
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="recurringIncludeText">Include in Overview?</span>
+                            <span class="input-group-text" id="recurringIncludeText">Include in Budget?</span>
                             <div class="input-group-text">
-                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in overview checkbox" checked>
+                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>
 
@@ -1150,9 +1150,9 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="recurringIncludeText">Include in Overview?</span>
+                            <span class="input-group-text" id="recurringIncludeText">Include in Budget?</span>
                             <div class="input-group-text">
-                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in overview checkbox" checked>
+                                <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>
 

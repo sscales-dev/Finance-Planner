@@ -339,8 +339,10 @@ td {
 
 /* ------------------------------------------------------- Overview Section */
 
-#overview > div > table > tbody > tr {
-  height: 10vh;
+tr.paydateRow > th,
+tr.paydateRow > td,
+th#budgetYear {
+  height: 7.5vh;
 }
 
 .category-column {
@@ -353,6 +355,11 @@ td {
 .budget-col {
   text-align: center;
   text-wrap: nowrap;
+}
+
+span.payDateFrequency {
+  color: var(--charcoal);
+  font-weight: 400;
 }
 
 @media (min-width: 768px) {
@@ -375,8 +382,8 @@ td {
 
 /* ------------------------------------------------------- Itemised sections */
 
-section:not(#overview) > table > thead > tr,
-section:not(#overview) > table > tbody > tr {
+section:not(#budget) > table > thead > tr,
+section:not(#budget) > table > tbody > tr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
