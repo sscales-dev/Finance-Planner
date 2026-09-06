@@ -653,13 +653,13 @@ table:not(#oneoff) > tbody > td.item-date {
 }
 
 .input-group-text,
+.form-select,
 .accordion-button {
   background-color: var(--bs-gray-200);
 }
 
-.frequency-select,
-.checkbox-group-bg-color,
-.form-select {
+.paym-direction-select,
+.checkbox-group-bg-color {
   background-color: var(--bs-gray-100) !important;
 }
 
