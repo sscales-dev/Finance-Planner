@@ -56,6 +56,15 @@ function toggleDropdownDate(element) {
     return;
 }
 
+//------------------------------------------------------------------------------ Buttons
+
+function unfocusActiveButtons() {
+    const activeButton = document.activeElement;
+    if (activeButton) {
+        activeButton.blur();
+    }
+}
+
 //------------------------------------------------------------------------------ Set Form Values
 
 /** Last Updated Text Update

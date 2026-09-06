@@ -729,7 +729,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="budgetSettingsModalLabel">Budget Settings</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="container pt-3 pb-2 needs-validation" id="budgetDatesInputForm">
@@ -760,8 +760,8 @@
                             </select>
                         </div>
                         <div class="d-flex flex-row justify-content-center">
-                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveBudgetBtn" type="submit">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveBudgetBtn" type="submit" onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>                   
                 </div>
@@ -780,7 +780,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addIncomeModalLabel">Add Income</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column justify-content-end needs-validation" id="addIncomeForm">
@@ -801,13 +801,13 @@
                         <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative? (defaults to positive/ in)</div>
 
                         <div class="input-group mb-4">
-                            <select class="form-select" aria-label="CategorySelect" required>
+                            <select class="form-select" aria-label="Category Select" required>
                                 <option value="" disabled selected>Category</option>
                                 <option value="benefits">benefits</option>
                                 <option value="advance-repayment">advance repayment</option>
                                 <option value="additional-income">additional income</option>
                             </select>
-                            <select class="form-select" aria-label="FrequencySelect" required>
+                            <select class="form-select" aria-label="frequencySelect" required>
                                 <option value="" disabled selected>Frequency</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
@@ -902,8 +902,8 @@
                         </div>
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
-                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewIncomeItemBtn" type="submit">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewIncomeItemBtn" type="submit" onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -918,7 +918,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addRecurringModalLabel">Add Recurring Payment</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column justify-content-end needs-validation" id="addRecurringForm">
@@ -931,7 +931,7 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon3">Amount (£)</span>
                             <input type="text" class="form-control" id="incomeAmountInput" aria-label="IncomeAmount" placeholder="0.00" aria-describedby="basic-addon3" required>
-                            <select class="form-select paym-direction-select" aria-label="DirectionSelect">
+                            <select class="form-select paym-direction-select" aria-label="directionSelect">
                                 <option value="-" selected>-</option>
                                 <option value="+">+</option>
                             </select>
@@ -955,7 +955,7 @@
                         <div class="form-text mb-3" id="recurring-payment-frequency-description">How often is the payment made?</div>
 
                         <div class="input-group">
-                            <select class="form-select frequency-select" aria-label="FrequencySelect" required>
+                            <select class="form-select frequency-select" aria-label="Frequency Select" required>
                                 <option value="" disabled selected>Deduct from</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
@@ -964,7 +964,7 @@
                         <div class="form-text mb-3" id="recurring-budget-description">Which paydate does the recurring payment align with?</div>
 
                         <div class="input-group">
-                            <select class="form-select" id="categorySelect" aria-label="CategorySelect" required>
+                            <select class="form-select" id="categorySelect" aria-label="Category Select" required>
                                 <option value="" disabled selected>Category</option>
                                 <option value="banking">Bank Interest and Fees</option>
                                 <option value="debt-repayments">Debt Repayments</option>
@@ -988,7 +988,7 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon6">Start Date</span>
                             <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Start Date" aria-describedby="basic-addon6">
-                            <div class="input-group-text">
+                            <div class="input-group-text checkbox-group-bg-color">
                                 <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox to set default start date" checked>
                             </div>
                         </div>
@@ -1003,7 +1003,7 @@
                         <hr>
 
                         <div class="input-group">
-                            <select class="form-select" aria-label="DateSelect" aria-describedby="basic-addon8">
+                            <select class="form-select" aria-label="dateSelect" aria-describedby="basic-addon8">
                                 <option value="n/a" selected>Renewal Date</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -1066,8 +1066,8 @@
                         </div>
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
-                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewRecurringItemBtn" type="submit">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewRecurringItemBtn" type="submit" onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -1082,7 +1082,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addOneoffModalLabel">Add Oneoff</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column justify-content-end needs-validation" id="addIncomeForm">
@@ -1095,7 +1095,7 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon3">Amount (£)</span>
                             <input type="text" class="form-control" id="incomeAmountInput" aria-label="IncomeAmount" placeholder="0.00" aria-describedby="basic-addon3" required>
-                            <select class="form-select paym-direction-select" aria-label="DirectionSelect">
+                            <select class="form-select paym-direction-select" aria-label="directionSelect">
                                 <option value="-" selected>-</option>
                                 <option value="+">+</option>
                             </select>
@@ -1103,8 +1103,14 @@
                         <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative? (defaults to negative/ out)</div>
 
                         <div class="input-group mb-3">
-                            <select class="form-select" aria-label="DateSelect" required>
-                                <option value="null" disabled selected>Payment Date</option>
+                            <select class="form-select" aria-label="Category Select" required>
+                                <option value="null" selected>Category</option>
+                                <option value="2027-1-13">2027-1-13</option>
+                                <option value="2027-1-13">2027-1-13</option>
+                                <option value="2027-1-13">2027-1-13</option>
+                            </select>
+                            <select class="form-select" aria-label="dateSelect" required>
+                                <option value="null" selected>Payment Date</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
@@ -1144,8 +1150,8 @@
                         </div>
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
-                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewOneoffItemBtn" type="submit">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewOneoffItemBtn" type="submit" onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>
                 </div>

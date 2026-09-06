@@ -4,8 +4,8 @@
 
 ### Next
 
-- [ ] Fix aria-hidden and blur() close-btn on modal headers
-- [ ] Adjust styling and colour palette for forms 
+- [x] Fix aria-hidden and blur() close-btn on modal headers
+- [x] Adjust styling and colour palette for forms 
 - [ ] Complete One-off 'add-item' modal
 - [ ] Add small (576px) styling for layout
 - [ ] Tidy HTML classes (unified order) and CSS
