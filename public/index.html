@@ -20,7 +20,7 @@
     <!-- HEADER -->
     <header class="mt-3">
         <nav class="navbar pb-0">
-            <div class="container-fluid d-md-flex flex-row align-items-md-end mx-lg-4">
+            <div class="container-fluid d-flex flex-column flex-md-row align-items-md-end mx-lg-4">
                 <a class="navbar-brand" href="#">
                     <img src="images/brand-icon.png" alt="Financial Planner" width="42.5" height="55" class="d-inline-block fs-1align-text-top">
                     <h1 class="d-inline-block fs-1">Financial Planner</h1>
@@ -71,7 +71,7 @@
                     </thead>
                     <tbody>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center availableBalanceRow">
-                            <th scope="row" class="category-column text-end align-middle">Available Balance</th>
+                            <th scope="row" class="category-column text-end align-middle">Av. Balance</th>
                             <td class="budget-col" id="availableBalance1">£0.00</td>
                             <td class="budget-col" id="availableBalance2">£0.00</td>
                             <td class="budget-col" id="availableBalance3">£0.00</td>
@@ -145,20 +145,20 @@
                             <td class="budget-col" id="discretionaryPay11">£0.00</td>
                             <td class="budget-col" id="discretionaryPay12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center lendingBorrowingRow">
-                            <th scope="row" class="category-column text-end align-middle">Lending & Borrowing</th>
-                            <td class="budget-col" id="lendingBorrowingPay1">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay2">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay3">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay4">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay5">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay6">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay7">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay8">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay9">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay10">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay11">£0.00</td>
-                            <td class="budget-col" id="lendingBorrowingPay12">£0.00</td>
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center loansanddebtRow">
+                            <th scope="row" class="category-column text-end align-middle">Loans & Debt</th>
+                            <td class="budget-col" id="loansanddebtPay1">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay2">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay3">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay4">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay5">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay6">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay7">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay8">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay9">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay10">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay11">£0.00</td>
+                            <td class="budget-col" id="loansanddebtPay12">£0.00</td>
                         </tr>
                     </tbody>
                 </table>
@@ -751,15 +751,15 @@
                                 <option value="weekly">Weekly</option>
                             </select>
                         </div>
-                        <div class="input-group paydate-input-group my-4">
-                            <span class="input-group-text" id="budgetDuration">Budget Duration</span>
+                        <div class="d-flex justify-content-center input-group paydate-input-group mx-auto my-4">
                             <select class="form-select" id="budgetDuration" type="select" value="12" aria-label="budgetDuration">
+                                <option value="default" selected>Budget Duration</option>
                                 <option value="6">6 months</option>
-                                <option value="12" selected>12 months</option>
+                                <option value="12">12 months</option>
                                 <option value="18">18 months</option>
                             </select>
                         </div>
-                        <div class="d-flex flex-row align-items-senter justify-content-end">
+                        <div class="d-flex flex-row justify-content-center">
                             <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
                             <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveBudgetBtn" type="submit">Save</button>
                         </div>
@@ -793,7 +793,7 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon3">Amount (£)</span>
                             <input type="text" class="form-control" id="incomeAmountInput" aria-label="IncomeAmount" placeholder="0.00" aria-describedby="basic-addon3" required>
-                            <select class="form-select paym-direction-select" aria-label="DirectionSelect">
+                            <select class="form-select paym-direction-select" aria-label="directionSelect">
                                 <option value="+" selected>+</option>
                                 <option value="-">-</option>
                             </select>
@@ -817,7 +817,7 @@
 
                         <div class="input-group mb-4">
                             <span class="input-group-text" id="incomeIncludeText">Include in Budget?</span>
-                            <div class="input-group-text">
+                            <div class="input-group-text checkbox-group-bg-color">
                                 <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>
@@ -840,9 +840,8 @@
                                             <input type="number" class="form-control" placeholder="e.g. 12" aria-label="Duration" aria-describedby="basic-addon7">
                                         </div>
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon8">Renewal Date</span>
-                                            <select class="form-select" aria-label="DateSelect" aria-describedby="basic-addon8">
-                                                <option selected>Select Date</option>
+                                            <select class="form-select" id="dateSelect" aria-label="dateSelect" aria-describedby="basic-addon8">
+                                                <option value="n/a" selected>Select Renewal Date</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -875,9 +874,8 @@
                                         </div>
                                         <div class="form-text mb-3" id="basic-addon5">Select the billing/payment date (if applicable)</div>
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon9">Renewal Month</span>
-                                            <select class="form-select" aria-label="monthSelect" aria-describedby="basic-addon9">
-                                                <option selected>Select Month</option>
+                                            <select class="form-select" id="monthSelect" aria-label="monthSelect" aria-describedby="basic-addon9">
+                                                <option value="n/a"selected>Select Renewal Month</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -938,44 +936,36 @@
                                 <option value="+">+</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative? (defaults to negative/ out)</div>
+                        <div class="form-text mb-3" id="recurring-amount-description">Is the amount positive or negative? (defaults to negative/ out)</div>
 
                         <div class="input-group">
-                            <span class="input-group-text" id="recurringPaymentFreqText">Payment Freq.</span>
                             <select class="form-select" id="recurringPaymentFreqSelect" aria-label="recurringPaymentFreqSelect" required>
-                                <option value="" disabled selected>Please Choose...</option>
+                                <option value="" disabled selected>Payment Freq.</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
                                 <option value="weekly">Weekly</option>
                             </select>
-                        </div>
-                        <div class="form-text mb-3" id="recurring-payment-freq-description">How often is the payment made?</div>
-
-                        <div class="input-group">
-                            <span class="input-group-text" id="recurringPaymentTypeText">Payment Type</span>
                             <select class="form-select" id="recurringPaymentTypeSelect" aria-label="recurringPaymentTypeSelect" required>
-                                <option value="" disabled selected>Please Choose...</option>
+                                <option value="" disabled selected>Payment Type</option>
                                 <option value="contracted-payment">Contracted Payment</option>
                                 <option value="monthly-payment">Monthly Payment</option>
                                 <option value="pot-allocation">Pot Allocation</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="recurring-payment-type-description">What type of payment is this?</div>
+                        <div class="form-text mb-3" id="recurring-payment-frequency-description">How often is the payment made?</div>
 
                         <div class="input-group">
-                            <span class="input-group-text" id="recurringDeductFromText">Deduct from</span>
                             <select class="form-select frequency-select" aria-label="FrequencySelect" required>
-                                <option value="" disabled selected>Please Choose...</option>
+                                <option value="" disabled selected>Deduct from</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
                             </select>
                         </div>
                         <div class="form-text mb-3" id="recurring-budget-description">Which paydate does the recurring payment align with?</div>
 
-                        <div class="input-group mb-4">
-                            <span class="input-group-text" id="recurringCategoryText">Category</span>
+                        <div class="input-group">
                             <select class="form-select" id="categorySelect" aria-label="CategorySelect" required>
-                                <option value="" disabled selected>Please Choose...</option>
+                                <option value="" disabled selected>Category</option>
                                 <option value="banking">Bank Interest and Fees</option>
                                 <option value="debt-repayments">Debt Repayments</option>
                                 <option value="refunds">Refunds</option>
@@ -991,6 +981,7 @@
                                 <option value="social">Social</option>
                             </select>
                         </div>
+                        <div class="form-text mb-3" id="recurring-category-description">What category does this payment fall under?</div>
 
                         <hr>
 
@@ -1012,9 +1003,8 @@
                         <hr>
 
                         <div class="input-group">
-                            <span class="input-group-text" id="basic-addon8">Renewal Date</span>
                             <select class="form-select" aria-label="DateSelect" aria-describedby="basic-addon8">
-                                <option value="null" selected>n/a</option>
+                                <option value="n/a" selected>Renewal Date</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -1048,9 +1038,8 @@
                         <div class="form-text mb-3" id="basic-addon5">Select the billing/payment date (if applicable)</div>
 
                         <div class="input-group">
-                            <span class="input-group-text" id="basic-addon9">Renewal Month</span>
                             <select class="form-select" aria-label="monthSelect" aria-describedby="basic-addon9">
-                                <option value="null" selected>n/a</option>
+                                <option value="n/a" selected>Renewal Month</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -1071,7 +1060,7 @@
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="recurringIncludeText">Include in Budget?</span>
-                            <div class="input-group-text">
+                            <div class="input-group-text checkbox-group-bg-color">
                                 <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>
@@ -1114,9 +1103,8 @@
                         <div class="form-text mb-3" id="basic-addon5">Is the amount positive or negative? (defaults to negative/ out)</div>
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="dateSelectText">Payment Date</span>
                             <select class="form-select" aria-label="DateSelect" required>
-                                <option value="" disabled selected>dd/mm/yyyy</option>
+                                <option value="null" disabled selected>Payment Date</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
@@ -1137,9 +1125,8 @@
                                             <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Start Date" aria-describedby="basic-addon6">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="recurringIncludeText">Is the deadline flexible?</span>
                                             <select class="form-select" aria-label="payment flexibility select">
-                                                <option value="" disabled selected>y/n</option>
+                                                <option value="" disabled selected>Is the deadline flexible? (y/n)</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>
@@ -1151,7 +1138,7 @@
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="recurringIncludeText">Include in Budget?</span>
-                            <div class="input-group-text">
+                            <div class="input-group-text checkbox-group-bg-color">
                                 <input class="form-check-input mt-0" type="checkbox" id="includeInOverviewCheck" aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>

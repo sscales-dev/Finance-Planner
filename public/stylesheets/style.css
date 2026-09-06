@@ -248,7 +248,7 @@ h1{
 }
 
 .nav-link {
-  color: var(--dark-teal);
+  color: var(--bs-gray-800);
   font-weight: 500;
   padding-left: 0.575rem;
   padding-right: 0.575rem;
@@ -281,7 +281,13 @@ h1{
 
 /* ------------------------------------------------------- Tables */
 
-.scrollableTable {
+.container {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-width: 100%;
+}
+
+.scrollable-table {
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -291,6 +297,15 @@ table {
   border-left: 1px solid var(--alabaster-grey);
   border-right: 1px solid var(--alabaster-grey);
   table-layout: fixed;
+}
+
+th {
+  color: var(--bs-gray-700) !important;
+}
+
+td.budget-col {
+  color: var(--bs-gray-500) !important;
+  font-style: italic;
 }
 
 th,
@@ -337,13 +352,7 @@ td {
   }
 }
 
-/* ------------------------------------------------------- Overview Section */
-
-tr.paydateRow > th,
-tr.paydateRow > td,
-th#budgetYear {
-  height: 7.5vh;
-}
+/* ------------------------------------------------------- Budget Section */
 
 .category-column {
   border-right: 2px solid var(--parchment) !important;
@@ -352,7 +361,19 @@ th#budgetYear {
   width: 28vw;
 }
 
+th.category-column {
+  font-size: 0.9rem;
+/*  height: 6.2vh;*/
+}
+
+tr.paydateRow > th,
+tr.paydateRow > td,
+th#budgetYear {
+  height: 7.5vh;
+}
+
 .budget-col {
+  font-size: 0.9rem;
   text-align: center;
   text-wrap: nowrap;
 }
@@ -445,10 +466,11 @@ td > .fa-regular {
   padding-top: 0.1rem;
 }
 
+.fa-eye-slash,
 .fa-sort,
 .fa-circle,
 .fa-pen-to-square {
-  color: var(--dark-teal);
+  color: var(--bs-gray-800);
 }
 
 .fa-sort:hover,
@@ -571,7 +593,7 @@ table:not(#oneoff) > tbody > td.item-date {
 }
 
 .btn-outline-secondary {
-  --bs-btn-color: var(--dark-teal);
+  --bs-btn-color: var(--bs-gray-700);
   --bs-btn-border-color: none;
 }
 
@@ -630,16 +652,24 @@ table:not(#oneoff) > tbody > td.item-date {
   height: 7vh;
 }
 
-.input-group-text {
-  background-color: rgba(78, 89, 140, 0.14); /* Dusk Blue */
+.input-group-text,
+.accordion-button {
+  background-color: var(--bs-gray-200); /* Dusk Blue */
+}
+
+.frequency-select,
+.checkbox-group-bg-color,
+.form-select {
+  background-color: var(--bs-gray-100) !important; /* Glacous */
 }
 
 .form-select {
-  background-color: var(--platinum);
+  max-width: 205px;
 }
 
-.frequency-select {
-  background-color: rgba(125, 130, 184, 0.1); /* Glacous */
+.form-check-input:checked {
+  background-color: var(--velvet-orchid);
+  border-color: var(--velvet-orchid);
 }
 
 .saveFormBtn {
@@ -647,7 +677,7 @@ table:not(#oneoff) > tbody > td.item-date {
 }
 
 .btn-secondary {
-  background-color: rgba(82, 86, 105, 0.58); /* Charcoal */
+  background-color: var(--charcoal);
   border: 1px solid rgba(82, 86, 105, 0.1); /* Charcoal */
 }
 
@@ -686,5 +716,6 @@ table:not(#oneoff) > tbody > td.item-date {
 }
 
 .input-group > .paym-direction-select {
+  background-color: var(--platinum);
   max-width: 80px;
 }
