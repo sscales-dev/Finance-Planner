@@ -113,6 +113,8 @@ Lighthouse
 
 ## Deployment
 
+To run: set DEBUG=finance-planner:* & npm start
+
 ### GitHub Pages
 
 I used GitHub Pages to deploy my project, using the steps as follows:
