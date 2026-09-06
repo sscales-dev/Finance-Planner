@@ -245,6 +245,7 @@ h1{
 .nav-tabs {
   background-color: var(--parchment);
   border-radius: 0.5rem 0.5rem 0 0;
+  min-width: 92vw;
 }
 
 .nav-link {
@@ -265,6 +266,20 @@ h1{
 .fa-gear:hover,
 .nav-link.active:hover {
   color: var(--bs-orange);
+}
+
+@media (max-width: 374px) {
+  .nav-tabs {
+    background-color: var(--parchment);
+    border-radius: 0.5rem 0.5rem 0 0;
+    min-width: 90vw;
+  }
+  .nav-link {
+    color: var(--bs-gray-800);
+    font-weight: 500;
+    padding-left: 0.53rem;
+    padding-right: 0.53rem;
+  }
 }
 
 @media (min-width: 768px) {
