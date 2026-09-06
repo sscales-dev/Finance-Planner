@@ -654,13 +654,13 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .input-group-text,
 .accordion-button {
-  background-color: var(--bs-gray-200); /* Dusk Blue */
+  background-color: var(--bs-gray-200);
 }
 
 .frequency-select,
 .checkbox-group-bg-color,
 .form-select {
-  background-color: var(--bs-gray-100) !important; /* Glacous */
+  background-color: var(--bs-gray-100) !important;
 }
 
 .form-select {
@@ -699,10 +699,6 @@ table:not(#oneoff) > tbody > td.item-date {
   max-width: 115px;
 }
 
-.direction-select {
-  width: 40px !important;
-}
-
 #categorySelect > option {
   font-size: 0.75rem;
 }
@@ -715,7 +711,6 @@ table:not(#oneoff) > tbody > td.item-date {
   width: 80px;
 }
 
-.input-group > .paym-direction-select {
-  background-color: var(--platinum);
-  max-width: 80px;
+.paym-direction-select {
+  max-width: 70px;
 }
