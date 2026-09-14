@@ -225,6 +225,9 @@
 
 body {
   background-color: var(--white-smoke);
+}
+
+body, h1 {
   color: var(--jet-black);
   font-family: "IBM Plex Sans Condensed", sans-serif;
   font-weight: 400;
@@ -232,10 +235,6 @@ body {
 }
 
 /* ------------------------------------------------------- NAVBAR */
-
-h1{
-  font-weight: 400;
-}
 
 .navbar-brand > img {
   margin-bottom: 1rem;
@@ -270,13 +269,9 @@ h1{
 
 @media (max-width: 374px) {
   .nav-tabs {
-    background-color: var(--parchment);
-    border-radius: 0.5rem 0.5rem 0 0;
     min-width: 90vw;
   }
   .nav-link {
-    color: var(--bs-gray-800);
-    font-weight: 500;
     padding-left: 0.53rem;
     padding-right: 0.53rem;
   }
@@ -371,31 +366,43 @@ td {
 
 .category-column {
   border-right: 2px solid var(--parchment) !important;
+  color: #23022E !important;
   font-size: 0.95rem;
   font-weight: 600;
   width: 28vw;
 }
 
-th.category-column {
+th.category-column,
+td.budget-col {
   font-size: 0.9rem;
-/*  height: 6.2vh;*/
 }
 
 tr.paydateRow > th,
-tr.paydateRow > td,
-th#budgetYear {
+tr.paydateRow > td {
   height: 7.5vh;
 }
 
 .budget-col {
-  font-size: 0.9rem;
   text-align: center;
   text-wrap: nowrap;
 }
 
-span.payDateFrequency {
+th#budgetYear {
+  color: var(--dark-teal) !important;
+  font-size: 1.75rem !important;
+  font-weight: 600;
+}
+
+span.paydate {
+  color: var(--dark-teal);
+  font-weight: 600;
+}
+
+span.paydate-frequency {
   color: var(--charcoal);
-  font-weight: 400;
+  font-size: 0.75rem;
+  font-weight: 300;
+/*  font-style: italic;*/
 }
 
 @media (min-width: 768px) {
@@ -591,10 +598,6 @@ td > .fa-regular {
 
 }
 
-@media (min-width: 1400px) {
-
-}
-
 /* ------------------------------------------------------- Date Dropdown */
 
 table:not(#oneoff) > tbody > td.item-date {
@@ -673,6 +676,10 @@ table:not(#oneoff) > tbody > td.item-date {
   background-color: var(--bs-gray-200);
 }
 
+#budgetDuration {
+  background-color: #fff;
+}
+
 .paym-direction-select,
 .checkbox-group-bg-color {
   background-color: var(--bs-gray-100) !important;
@@ -711,7 +718,8 @@ table:not(#oneoff) > tbody > td.item-date {
 
 #frequencyChoiceD1,
 #frequencyChoiceD2 {
-  max-width: 115px;
+  font-size: 0.9rem;
+  max-width: 97.5px;
 }
 
 #categorySelect > option {
@@ -728,4 +736,8 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .paym-direction-select {
   max-width: 70px;
+}
+
+.form-control {
+  font-size: 0.9rem;
 }

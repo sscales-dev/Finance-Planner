@@ -20,12 +20,12 @@
     <!-- HEADER -->
     <header class="mt-3">
         <nav class="navbar pb-0">
-            <div class="container-fluid d-flex flex-column flex-md-row align-items-start align-items-md-end px-3">
+            <div class="d-flex flex-column flex-md-row align-items-start px-3">
                 <a class="navbar-brand" href="#">
-                    <img src="images/brand-icon.png" alt="Financial Planner" width="42.5" height="55" class="d-inline-block fs-1align-text-top">
+                    <img src="images/brand-icon.png" alt="Financial Planner" width="42.5" height="55" class="d-inline-block fs-1 align-text-middle">
                     <h1 class="d-inline-block fs-1">Financial Planner</h1>
                 </a>
-                <ul class="nav nav-tabs"><!-- add justify content end to larger devices-->
+                <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link hvr-fade active" id="budgetTab" data-bs-toggle="tab" data-bs-target="#budget" aria-current="true" type="button" role="tab" aria-controls="budget" aria-selected="true" href="#budget">Budget</a>
                     </li>
@@ -55,24 +55,60 @@
             <div class="scrollable-table">
                 <table class="table table-responsive table-hover" id="budgetTable">
                     <thead>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center paydateRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center paydate-row">
                             <th scope="col" class="category-column text-end fs-3" id="budgetYear">2026</th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate1"><span id="date1">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate2"><span id="date2">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate3"><span id="date3">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate4"><span id="date4">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate5"><span id="date5">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate6"><span id="date6">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate7"><span id="date7">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate8"><span id="date8">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate9"><span id="date9">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate10"><span id="date10">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate11"><span id="date11">mm-dd</span><span class="payDateFrequency">monthly</span></th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate12"><span id="date12">mm-dd</span><span class="payDateFrequency">monthly</span></th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate1">
+                                <span class="paydate" id="date1">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate2">
+                                <span class="paydate" id="date2">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate3">
+                                <span class="paydate" id="date3">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate4">
+                                <span class="paydate" id="date4">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate5">
+                                <span class="paydate" id="date5">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate6">
+                                <span class="paydate" id="date6">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate7">
+                                <span class="paydate" id="date7">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate8">
+                                <span class="paydate" id="date8">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate9">
+                                <span class="paydate" id="date9">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate10">
+                                <span class="paydate" id="date10">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate11">
+                                <span class="paydate" id="date11">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
+                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate12">
+                                <span class="paydate" id="date12">mm-dd</span>
+                                <span class="paydate-frequency">monthly</span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center availableBalanceRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center available-balance-row">
                             <th scope="row" class="category-column text-end align-middle">Av. Balance</th>
                             <td class="budget-col" id="availableBalance1">£0.00</td>
                             <td class="budget-col" id="availableBalance2">£0.00</td>
@@ -87,7 +123,7 @@
                             <td class="budget-col" id="availableBalance11">£0.00</td>
                             <td class="budget-col" id="availableBalance12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center incomeRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center income-row">
                             <th scope="row" class="category-column text-end align-middle">Income</th>
                             <td class="budget-col" id="incomePay1">£0.00</td>
                             <td class="budget-col" id="incomePay2">£0.00</td>
@@ -102,7 +138,7 @@
                             <td class="budget-col" id="incomePay11">£0.00</td>
                             <td class="budget-col" id="incomePay12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center overheadsRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center overheads-row">
                             <th scope="row" class="category-column text-end align-middle">Overheads</th>
                             <td class="budget-col" id="overheadsPay1">£0.00</td>
                             <td class="budget-col" id="overheadsPay2">£0.00</td>
@@ -117,7 +153,7 @@
                             <td class="budget-col" id="overheadsPay11">£0.00</td>
                             <td class="budget-col" id="overheadsPay12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center essentialsRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center essentials-row">
                             <th scope="row" class="category-column text-end align-middle">Essentials</th>
                             <td class="budget-col" id="essentialsPay1">£0.00</td>
                             <td class="budget-col" id="essentialsPay2">£0.00</td>
@@ -132,7 +168,7 @@
                             <td class="budget-col" id="essentialsPay11">£0.00</td>
                             <td class="budget-col" id="essentialsPay12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center discretionaryRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center discretionary-row">
                             <th scope="row" class="category-column text-end align-middle">Discretionary</th>
                             <td class="budget-col" id="discretionaryPay1">£0.00</td>
                             <td class="budget-col" id="discretionaryPay2">£0.00</td>
@@ -147,7 +183,7 @@
                             <td class="budget-col" id="discretionaryPay11">£0.00</td>
                             <td class="budget-col" id="discretionaryPay12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center loansanddebtRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center loans-and-debt-row">
                             <th scope="row" class="category-column text-end align-middle">Loans & Debt</th>
                             <td class="budget-col" id="loansanddebtPay1">£0.00</td>
                             <td class="budget-col" id="loansanddebtPay2">£0.00</td>
@@ -748,17 +784,19 @@
                             <span class="input-group-text" id="paydateText2">2nd</span>
                             <input type="date" class="form-control" placeholder="2025-01-01" id="secondPaydate" aria-label="secondPaydate" aria-describedby="paydateText2" required>
                             <select class="form-select frequency-select" id="frequencyChoiceD2" type="select" value="28d" aria-label="frequencyChoiceD2" required>
+                                <option value="n/a">N/A</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28d" selected>28 days</option>
                                 <option value="weekly">Weekly</option>
                             </select>
                         </div>
                         <div class="d-flex justify-content-center input-group paydate-input-group mx-auto my-4">
+                            <span class="input-group-text" id="budgetDurationText">Budget Duration</span>
                             <select class="form-select" id="budgetDuration" type="select" value="12" aria-label="budgetDuration">
-                                <option value="default" selected>Budget Duration</option>
                                 <option value="6">6 months</option>
-                                <option value="12">12 months</option>
+                                <option value="12" selected>12 months</option>
                                 <option value="18">18 months</option>
+                                <option value="24">24 months</option>
                             </select>
                         </div>
                         <div class="d-flex flex-row justify-content-center">
