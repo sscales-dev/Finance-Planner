@@ -442,6 +442,10 @@ section:not(#budget) > table > tbody > tr {
   width: 18vw;
 }
 
+.form-select.item-select {
+  background-color: #fff;
+}
+
 .add-btn-col {
   padding: 0.45rem 0.25rem !important;
 }
@@ -510,8 +514,16 @@ td > .fa-regular {
     width: 5vw;
   }
 
-  .item-col {
+  th.item-col > span,
+  td.item-col {
+    padding-right: 1.5rem !important;
+    text-align: right;
     width: 35vw;
+  }
+
+  .item-date {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
   .amount-col {
