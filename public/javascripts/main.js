@@ -31,6 +31,20 @@ function toggleItemVisibility(element) {
       clickedElement.parentElement.classList.remove('checked');
       clickedElement.parentElement.classList.add('unchecked');
 
+    } else if (className === "fa-square-plus") {
+      clickedElement.classList.add("d-none");
+      clickedElement.nextElementSibling.classList.remove("d-none");
+ 
+      clickedElement.parentElement.classList.remove('closed');
+      clickedElement.parentElement.classList.add('open');
+
+    } else if (className === "fa-square-minus") {
+      clickedElement.classList.add("d-none");
+      clickedElement.previousElementSibling.classList.remove("d-none");
+ 
+      clickedElement.parentElement.classList.remove('open');
+      clickedElement.parentElement.classList.add('closed');
+
     } else {
       continue;
     }

@@ -405,6 +405,11 @@ span.paydate-frequency {
 /*  font-style: italic;*/
 }
 
+.fa-square-plus:hover,
+.fa-square-minus:hover {
+  color: var(--bs-orange);
+}
+
 @media (min-width: 768px) {
   .category-column {
     width: 20vw;

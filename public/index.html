@@ -109,7 +109,11 @@
                     </thead>
                     <tbody>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center available-balance-row">
-                            <th scope="row" class="category-column text-end align-middle">Av. Balance</th>
+                            <th scope="row" class="category-column text-end align-middle">
+                                Av. Balance &nbsp;
+                                <i class="fa-solid fa-scale-balanced"></i>
+                                <!--<i class="fa-light fa-scale-balanced"></i> ! upgrade fontawesome to starter for these icons-->
+                            </th>
                             <td class="budget-col" id="availableBalance1">£0.00</td>
                             <td class="budget-col" id="availableBalance2">£0.00</td>
                             <td class="budget-col" id="availableBalance3">£0.00</td>
@@ -124,7 +128,11 @@
                             <td class="budget-col" id="availableBalance12">£0.00</td>
                         </tr>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center income-row">
-                            <th scope="row" class="category-column text-end align-middle">Income</th>
+                            <th scope="row" class="category-column text-end align-middle closed">
+                                Income &nbsp;
+                                <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus d-none" onclick="toggleItemVisibility(this)"></i>
+                            </th>
                             <td class="budget-col" id="incomePay1">£0.00</td>
                             <td class="budget-col" id="incomePay2">£0.00</td>
                             <td class="budget-col" id="incomePay3">£0.00</td>
@@ -139,7 +147,11 @@
                             <td class="budget-col" id="incomePay12">£0.00</td>
                         </tr>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center overheads-row">
-                            <th scope="row" class="category-column text-end align-middle">Overheads</th>
+                            <th scope="row" class="category-column text-end align-middle closed">
+                                Overheads &nbsp;
+                                <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            </th>
                             <td class="budget-col" id="overheadsPay1">£0.00</td>
                             <td class="budget-col" id="overheadsPay2">£0.00</td>
                             <td class="budget-col" id="overheadsPay3">£0.00</td>
@@ -154,7 +166,11 @@
                             <td class="budget-col" id="overheadsPay12">£0.00</td>
                         </tr>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center essentials-row">
-                            <th scope="row" class="category-column text-end align-middle">Essentials</th>
+                            <th scope="row" class="category-column text-end align-middle closed">
+                                Essentials &nbsp;
+                                <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            </th>
                             <td class="budget-col" id="essentialsPay1">£0.00</td>
                             <td class="budget-col" id="essentialsPay2">£0.00</td>
                             <td class="budget-col" id="essentialsPay3">£0.00</td>
@@ -169,7 +185,11 @@
                             <td class="budget-col" id="essentialsPay12">£0.00</td>
                         </tr>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center discretionary-row">
-                            <th scope="row" class="category-column text-end align-middle">Discretionary</th>
+                            <th scope="row" class="category-column text-end align-middle closed">
+                                Discretionary &nbsp;
+                                <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            </th>
                             <td class="budget-col" id="discretionaryPay1">£0.00</td>
                             <td class="budget-col" id="discretionaryPay2">£0.00</td>
                             <td class="budget-col" id="discretionaryPay3">£0.00</td>
@@ -184,7 +204,11 @@
                             <td class="budget-col" id="discretionaryPay12">£0.00</td>
                         </tr>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center loans-and-debt-row">
-                            <th scope="row" class="category-column text-end align-middle">Loans & Debt</th>
+                            <th scope="row" class="category-column text-end align-middle closed">
+                                Loans & Debt &nbsp;
+                                <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            </th>
                             <td class="budget-col" id="loansanddebtPay1">£0.00</td>
                             <td class="budget-col" id="loansanddebtPay2">£0.00</td>
                             <td class="budget-col" id="loansanddebtPay3">£0.00</td>
