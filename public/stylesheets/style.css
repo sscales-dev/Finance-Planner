@@ -10,6 +10,7 @@
   --dark-teal: #154c51; /* buttons and nav links */
   --velvet-orchid: #803181; /* active nav links */
   --royal-orchid: #802392;
+  --dark-amethyst: #23022E; /* category column font */
 
   --dusk-blue: #4e598c; /* 78, 89, 140 */
   --glaucous: #7d82b8; /* tables - use rgba 125, 130, 184 */
@@ -277,18 +278,6 @@ body, h1 {
   }
 }
 
-@media (min-width: 768px) {
-  .navbar-brand {
-    padding-top: 1rem;
-    max-height: 75px;
-  }
-
-  .navbar-brand > img {
-    /*padding-bottom: 1.25rem;*/
-    margin-bottom: 1.25rem;
-  }
-}
-
 /* ------------------------------------------------------- Tables */
 
 .container {
@@ -323,34 +312,6 @@ td {
   width: 16vw;
 }
 
-@media (min-width: 768px) {
-  .container {
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    max-width: 98.5%;
-  }
-
-  .table {
-    border-top: 1px solid var(--alabaster-grey) !important;
-  }
-
-  th,
-  td {
-    width: 9vw;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 96%;
-  }
-
-  th,
-  td {
-    width: 7vw;
-  }
-}
-
 @media (min-width: 1200px) {
   .container {
     max-width: 97%;
@@ -366,7 +327,7 @@ td {
 
 .category-column {
   border-right: 2px solid var(--parchment) !important;
-  color: #23022E !important;
+  color: var(--dark-amethyst) !important;
   font-size: 0.95rem;
   font-weight: 600;
   width: 28vw;
@@ -408,18 +369,6 @@ span.paydate-frequency {
 .fa-square-plus:hover,
 .fa-square-minus:hover {
   color: var(--bs-orange);
-}
-
-@media (min-width: 768px) {
-  .category-column {
-    width: 20vw;
-  }
-}
-
-@media (min-width: 992px) {
-  .category-column {
-    width: 17vw;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -514,92 +463,7 @@ td > .fa-regular {
   height: 40px;
 }
 
-@media (min-width: 768px) {
-  .col-end-width {
-    width: 5vw;
-  }
-
-  .item-col {
-    width: 27vw;
-  }
-
-  .amount-col {
-    width: 11vw;
-  }
-
-  .freq-col {
-    width: 10vw;
-  }
-
-  .cat-col {
-    width: 23vw;
-  }
-
-  .date-col {
-    width: 15vw;
-  }
-
-  #oneoffTable > thead > tr > th.item-col,
-  #oneoffTable > tbody > tr > td.item-col {
-    width: 37vw;
-  }
-
-  #incomeTable > thead > tr > th.freq-col,
-  #incomeTable > thead > tr > th.amount-col,
-  #incomeTable > tbody > tr > td.freq-col,
-  #incomeTable > tbody > tr > td.amount-col {
-    width: 15vw;
-  }
-
-  #incomeTable > thead > tr > th.cat-col,
-  #incomeTable > tbody > tr > td.cat-col {
-    width: 25.5vw;
-  }
-
-  .btn-group {
-    margin: auto auto;
-  }
-
-  .fa-calendar-check {
-    margin-left: 0.5rem;
-    margin-right: 0.25rem;
-  }
-
-  .date-select-btn::after {
-    margin-right: 0.75rem;
-  }
-}
-
-@media (min-width: 992px) {
-  #incomeTable > thead > tr > th.item-col,
-  #incomeTable > tbody > tr > td.item-col {
-    width: 38vw;
-  }
-
-  #recurringTable > thead > tr > th.item-col,
-  #recurringTable > tbody > tr > td.item-col {
-    width: 27.5vw;
-  }
-
-  #oneoffTable > thead > tr > th.item-col,
-  #oneoffTable > tbody > tr > td.item-col {
-    width: 37.5vw;
-  }
-
-  #incomeTable > thead > tr > th.freq-col,
-  #incomeTable > thead > tr > th.amount-col,
-  #incomeTable > tbody > tr > td.freq-col,
-  #incomeTable > tbody > tr > td.amount-col {
-    width: 10vw;
-  }
-
-  .cat-col {
-    width: 20vw;
-  }
-
-  .date-col {
-    width: 15vw;
-  }
+@media (min-width: 1200px) {
 
 }
 
@@ -649,15 +513,8 @@ table:not(#oneoff) > tbody > td.item-date {
   color: var(--jet-black);
 }
 
-@media (min-width: 768px) {
-  td.item-date {
-    padding-top: 0.4rem;
-    padding-bottom: 0.35rem;
-  }
+@media (min-width: 1200px) {
 
-  .dropdown-menu {
-    min-width: 8rem;
-  }
 }
 
 /* ------------------------------------------------------- Settings Modal */
