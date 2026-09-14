@@ -72,6 +72,11 @@ function toggleDropdownDate(element) {
 
 //------------------------------------------------------------------------------ Buttons
 
+/** Unfocus Active Buttons
+ * 
+ * Blurs the active button to prevent it from being focused when the modal is closed.
+ * 
+ */
 function unfocusActiveButtons() {
     const activeButton = document.activeElement;
     if (activeButton) {
