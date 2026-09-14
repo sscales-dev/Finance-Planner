@@ -113,7 +113,7 @@ Lighthouse
 
 ## Deployment
 
-To run: set DEBUG=finance-planner:* & npm start
+To run: `set DEBUG=finance-planner:* & npm start`
 
 ### GitHub Pages
 
