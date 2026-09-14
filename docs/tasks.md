@@ -4,14 +4,19 @@
 
 ### Next
 
-- [x] Fix aria-hidden and blur() close-btn on modal headers
-- [x] Adjust styling and colour palette for forms 
-- [ ] Complete One-off 'add-item' modal
-- [ ] Add small (576px) styling for layout
-- [ ] Tidy HTML classes (unified order) and CSS
+- [ ] Tidy HTML classes 
+  - [ ] ids camelcase
+  - [ ] classes in unified order
+
+- [ ] Refactor CSS
 
 ### Later
 
+- [ ] recurring payment add form:
+    > renewal date and month
+    > if category === household bills
+    > if category === subscriptions
+        > renewal date +/ month should be required
 - [ ] Add frequency display to budget date columns
 - [ ] Add 'loading' displays
 - [ ] Add Nested Tables in Overview section with categories
@@ -19,9 +24,11 @@
 
 ## Modals + Forms
 
-- [ ] Rename 'Overview' to 'Budgets'
-- [ ] Add Toast functionality + style/ position toast elements
 - [ ] Rename all form element ids, classes and attributes to be specific and consistent
+- [ ] Ensure all forms have all required attributes
+- [ ] Ensure all form aspects have suitable names and ids and descriptions etc
+- [ ] Add required to needed inputs
+- [ ] Add Toast functionality + style/ position toast elements
 - [ ] Complete element ids in loadBudgetDefaults function
 - [ ] Move updateLastUpdatedText in processFormValues to underneath switch?
 - [ ] Add functionality for each new form to processFormValues
@@ -89,3 +96,9 @@
 - [x] Add date created to data store
 - [x] Sort/ group functions logically
 - [x] tr hover color on tables: parchment
+- [x] Rename 'Overview' to 'Budgets'
+- [x] Fix aria-hidden and blur() close-btn on modal headers
+- [x] Adjust styling and colour palette for forms 
+- [x] Complete One-off 'add-item' modal
+- [x] Add small (576px) styling for layout
+- [x] secondary btn hover color
