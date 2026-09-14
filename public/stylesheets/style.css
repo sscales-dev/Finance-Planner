@@ -278,6 +278,16 @@ body, h1 {
   }
 }
 
+@media (min-width: 1200px) {
+  .navbar > div {
+    padding-left: 2.75rem !important;
+    padding-right: 2.75rem !important;
+  }
+  .nav-tabs {
+    min-width: 337px;
+  }
+}
+
 /* ------------------------------------------------------- Tables */
 
 .container {
@@ -317,6 +327,10 @@ td {
     max-width: 97%;
   }
 
+  table {
+    border-top: 1px solid var(--alabaster-grey);
+  }
+
   th,
   td {
     width: 7vw;
@@ -330,22 +344,26 @@ td {
   color: var(--dark-amethyst) !important;
   font-size: 0.95rem;
   font-weight: 600;
-  width: 28vw;
+  width: 35vw;
 }
 
 th.category-column,
 td.budget-col {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
-tr.paydateRow > th,
-tr.paydateRow > td {
-  height: 7.5vh;
+tr.paydate-row > th {
+  height: 7.75vh;
 }
 
 .budget-col {
   text-align: center;
   text-wrap: nowrap;
+  width: 20vw;
+}
+
+td.budget-col {
+  height: 5.5vh;
 }
 
 th#budgetYear {
@@ -356,6 +374,7 @@ th#budgetYear {
 
 span.paydate {
   color: var(--dark-teal);
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -372,8 +391,26 @@ span.paydate-frequency {
 }
 
 @media (min-width: 1200px) {
+  tr.paydate-row > th {
+    height: 6vh;
+  }
+
+  th.category-column,
+  td.budget-col {
+    height: 4vh;
+  }
+
   .category-column {
-    width: 15vw;
+    width: 13.5vw;
+  }
+
+  .budget-col {
+    width: 6.8vw;
+  }
+
+  th.category-column,
+  td.budget-col {
+    font-size: 0.9rem;
   }
 }
 
@@ -412,7 +449,7 @@ section:not(#budget) > table > tbody > tr {
 .add-btn {
   background-color: var(--dark-teal);
   border-color: var(--dark-teal);
-  padding-left: 0.15rem !important;
+  padding-left: 0.1rem !important;
   padding-right: 0.15rem !important;
   width: 1.5rem;
 }
@@ -442,6 +479,10 @@ td > .fa-regular {
   padding-top: 0.1rem;
 }
 
+.fa-pen-to-square {
+  padding-right: 2rem !important;
+}
+
 .fa-eye-slash,
 .fa-sort,
 .fa-circle,
@@ -452,6 +493,7 @@ td > .fa-regular {
 .fa-sort:hover,
 .fa-circle:hover,
 .fa-pen-to-square:hover,
+.fa-trash:hover,
 .fa-circle-xmark {
   color: var(--bs-orange);
 }
@@ -464,7 +506,42 @@ td > .fa-regular {
 }
 
 @media (min-width: 1200px) {
+  .col-end-width {
+    width: 5vw;
+  }
 
+  .item-col {
+    width: 35vw;
+  }
+
+  .amount-col {
+    width: 15vw;
+  }
+
+  .freq-col,
+  .date-col {
+    width: 15vw;
+  }
+
+  .cat-col {
+    width: 19.75vw;
+  }
+
+  #recurringTable > * > tr > th.date-col,
+  #recurringTable > * > tr > td.date-col {
+    width: 9.75vw;
+  }
+
+  #recurringTable > * > tr > th.freq-col,
+  #recurringTable > * > tr > td.freq-col,
+  #recurringTable > * > tr > th.cat-col,
+  #recurringTable > * > tr > td.cat-col {
+    width: 12.5vw;
+  }
+
+  .add-btn {
+    padding-left: 0.1rem !important;
+  }
 }
 
 /* ------------------------------------------------------- Date Dropdown */
@@ -573,6 +650,12 @@ table:not(#oneoff) > tbody > td.item-date {
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 400px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-footer {
+    height: 4vh;
   }
 }
 
