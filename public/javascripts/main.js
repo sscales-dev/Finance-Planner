@@ -154,7 +154,7 @@ function loadBudgetSettingsFormDefaults () {
  * 
  * 
 
-const toastTrigger = document.getElementById('saveBudgetBtn')
+const toastTrigger = document.getElementById('saveBudgetSettingsBtn')
 const toastLiveExample = document.getElementById('liveToast')
 
 if (toastTrigger) {
@@ -239,7 +239,7 @@ async function processFormValues(formId) {
 
     switch (formId) {
         case "budgetDatesInputForm":
-            const saveBtn = document.getElementById('saveBudgetBtn')
+            const saveBtn = document.getElementById('saveBudgetSettingsBtn')
 
             // Arrays of objects containing id and value
             let dateValuesArray = formValues.inputs;
