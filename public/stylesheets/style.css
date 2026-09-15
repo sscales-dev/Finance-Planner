@@ -602,10 +602,6 @@ table:not(#oneoff) > tbody > td.item-date {
   color: var(--jet-black);
 }
 
-@media (min-width: 1200px) {
-
-}
-
 /* ------------------------------------------------------- Settings Modal */
 
 .modal-header,
