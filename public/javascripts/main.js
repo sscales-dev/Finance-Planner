@@ -422,8 +422,16 @@ function addEventListenerToForms () {
       event.preventDefault();
 
       if (form.id === "budgetDatesInputForm") {
+        const saveBtn = document.getElementById('saveBudgetSettingsBtn')
+
         form.classList.add('was-validated');
         newModal.hide();
+
+        saveBtn.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>`;
+        saveBtn.style = "background-color: var(--success-green); border-color: var(--success-green); color: #fff;";
+        
         console.log("Form Validated. Processing form...");
         return;
       }
