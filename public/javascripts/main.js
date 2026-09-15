@@ -321,37 +321,73 @@ async function processFormValues(formId) {
 
 function addEventListenersToModals () {
   // Get modal elements
-  const budgetDatesModal = document.getElementById("datesModal");
+  const budgetSettingsModal = document.getElementById("budgetSettingsModal");
   const addIncomeModal = document.getElementById("addIncomeModal");
   const addRecurringModal = document.getElementById("addRecurringModal");
+  const addOneoffModal = document.getElementById("addOneoffModal");
 
-  // First input fields for each modal. Used to set focus when the modal is opened.
-  const budgetDatesModalFirstInput = document.getElementById("firstPaydate");
-  const addIncomeModalFirstInput = document.getElementById("incomeNameInput");
-  const addRecurringModalFirstInput = document.getElementById("recurringNameInput");
+  // Add event listeners to each modal
+  // shown.bs.modal: Focuses on the first input field when the modal is opened.
+  // hidden.bs.modal: Removes was-validated and adds needs validation on close.
+  budgetSettingsModal.addEventListener("shown.bs.modal", () => {
+    const budgetSettingsModalFirstInput = document.getElementById("firstPaydate");
 
-  // Add event listener to each modal
-  // Focuses on the first input field when the modal is opened.
-  budgetDatesModal.addEventListener("shown.bs.modal", () => {
-    budgetDatesModalFirstInput.focus();
+    budgetSettingsModalFirstInput.focus();
     
   });
 
-  budgetDatesModal.addEventListener('hidden.bs.modal', event => {
+  budgetSettingsModal.addEventListener('hidden.bs.modal', event => {
     const form = document.getElementById("budgetDatesInputForm")
 
     form.classList.remove('was-validated')
     form.classList.add('needs-validation')
+
   })
 
   addIncomeModal.addEventListener("shown.bs.modal", () => {
+    const addIncomeModalFirstInput = document.getElementById("incomeNameInput");
+
     addIncomeModalFirstInput.focus();
+
   });
 
+  addIncomeModal.addEventListener('hidden.bs.modal', event => {
+    const form = document.getElementById("addIncomeForm")
+
+    form.classList.remove('was-validated')
+    form.classList.add('needs-validation')
+
+  })
+
   addRecurringModal.addEventListener("shown.bs.modal", () => {
+    const addRecurringModalFirstInput = document.getElementById("recurringNameInput");
+
     addRecurringModalFirstInput.focus();
 
   });
+
+  addRecurringModal.addEventListener('hidden.bs.modal', event => {
+    const form = document.getElementById("addRecurringForm")
+
+    form.classList.remove('was-validated')
+    form.classList.add('needs-validation')
+
+  })
+
+   addOneoffModal.addEventListener("shown.bs.modal", () => {
+    const addOneoffModalFirstInput = document.getElementById("oneoffNameInput");
+
+    addOneoffModalFirstInput.focus();
+
+  });
+
+  addOneoffModal.addEventListener('hidden.bs.modal', event => {
+    const form = document.getElementById("addOneoffForm")
+
+    form.classList.remove('was-validated')
+    form.classList.add('needs-validation')
+
+  })
 }
 
 /** Add Event Listener to Forms
