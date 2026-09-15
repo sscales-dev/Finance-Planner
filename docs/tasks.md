@@ -4,21 +4,28 @@
 
 ### Next
 
+
+
+### Later
+
 - [ ] Tidy HTML classes 
   - [ ] ids camelcase
+  - [ ] classes kebab case
   - [ ] classes in unified order
 
 - [ ] Refactor CSS
 
-### Later
-
+- [ ] Create tabs in Budget Settings for Dates and Categories
+- [ ] Add frequency display option (monthly vs 28d) to budget date columns
+- [ ] Add 'edit' forms on itemised sections
+- [ ] Add archive button functionality on itemised section forms
 - [ ] recurring payment add form:
     > renewal date and month
     > if category === household bills
     > if category === subscriptions
         > renewal date +/ month should be required
-- [ ] Add frequency display to budget date columns
 - [ ] Add 'loading' displays
+- [ ] Add login option/ modal etc
 - [ ] Add Nested Tables in Overview section with categories
 - [ ] within forms - select option:hover color
 
@@ -28,6 +35,7 @@
 - [ ] Ensure all forms have all required attributes
 - [ ] Ensure all form aspects have suitable names and ids and descriptions etc
 - [ ] Add required to needed inputs
+
 - [ ] Add Toast functionality + style/ position toast elements
 - [ ] Complete element ids in loadBudgetDefaults function
 - [ ] Move updateLastUpdatedText in processFormValues to underneath switch?
@@ -37,6 +45,7 @@
 
 ### Javascript
 
+- [ ] Move 'unfocusActiveButtons() onclick to javascript main.js
 - [ ] Tidy existing functions
   - [ ] Comment properly throughout functions
   - [ ] Ensure error checking, end-of-statement semi-colons, console.logging etc
