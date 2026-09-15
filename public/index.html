@@ -878,13 +878,13 @@
 
                         <div class="input-group mb-4">
                             <select class="form-select" aria-label="Category Select" required>
-                                <option value="" selected>Category</option>
+                                <option value="" disabled selected>Category</option>
                                 <option value="benefits">benefits</option>
                                 <option value="advance-repayment">advance repayment</option>
                                 <option value="additional-income">additional income</option>
                             </select>
                             <select class="form-select" aria-label="Frequency Select" required>
-                                <option value="" selected>Frequency</option>
+                                <option value="" disabled selected>Frequency</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
                                 <option value="weekly">Weekly</option>
@@ -1075,11 +1075,18 @@
                         </div>
                         <div class="form-text mb-3" id="recurringBudgetDescription" aria-label="Recurring Budget Description">Defaults to 12 months</div>
 
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="recurringIncludeInBudgetText">Include in Budget?</span>
+                            <div class="input-group-text checkbox-group-bg-color">
+                                <input class="form-check-input mt-0" type="checkbox" id="recurringIncludeInBudgetCheck" aria-label="Include in budget checkbox" aria-describedby="recurringIncludeInBudgetText" checked>
+                            </div>
+                        </div>
+
                         <hr>
 
                         <div class="input-group">
                             <select class="form-select" id="recurringBillingDateSelect" aria-label="Billing Date Select">
-                                <option value="null" selected>Billling Date</option>
+                                <option value="null" disabled selected>Billing Date</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -1114,7 +1121,7 @@
 
                         <div class="input-group">
                             <select class="form-select" aria-label="recurringMonthSelect">
-                                <option value="n/a" selected>Renewal Month</option>
+                                <option value="n/a" disabled selected>Renewal Month</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -1130,15 +1137,8 @@
                             </select>
                         </div>
                         <div class="form-text mb-3" aria-label="Renewal Month Description">Select the renewal month (if applicable)</div>
-                        
-                        <hr>
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="recurringIncludeInBudgetText">Include in Budget?</span>
-                            <div class="input-group-text checkbox-group-bg-color">
-                                <input class="form-check-input mt-0" type="checkbox" id="recurringIncludeInBudgetCheck" aria-label="Include in budget checkbox" aria-describedby="recurringIncludeInBudgetText" checked>
-                            </div>
-                        </div>
+                        <hr class="mb-4">
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
                             <button class="btn btn-secondary form-btns-parallel" id="cancelNewRecurringItemBtn" type="reset" aria-label="Cancel Button" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
@@ -1178,13 +1178,13 @@
 
                         <div class="input-group mb-3">
                             <select class="form-select" id="oneoffCategorySelect" aria-label="Category Select" required>
-                                <option value="null" selected>Category</option>
+                                <option value="null" disabled selected>Category</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
                             </select>
                             <select class="form-select" id="oneoffDateSelect" aria-label="Date Select" required>
-                                <option value="null" selected>Payment Date</option>
+                                <option value="null" disabled selected>Payment Date</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
                                 <option value="2027-1-13">2027-1-13</option>
@@ -1233,7 +1233,7 @@
             </div>
         </div>
     </div>
-    <!-- Add/ Update Confirmed Toast -->
+    <!-- Add/ Update Confirmed Toast
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <img src="..." class="rounded me-2" alt="...">
@@ -1244,7 +1244,7 @@
         <div class="toast-body">
             Hello, world! This is a toast message.
         </div>
-    </div>
+    </div> -->
     <!-- Footer -->
     <footer class="container my-4 px-4">
         <p>Contact Details: scales.samantha@outlook.com</p>
