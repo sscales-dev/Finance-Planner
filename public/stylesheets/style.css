@@ -352,8 +352,8 @@ td.budget-col {
   font-size: 0.8rem;
 }
 
-tr.paydate-row > th {
-  height: 7.75vh;
+tr#paydateRow > th {
+  height: 6vh;
 }
 
 .budget-col {

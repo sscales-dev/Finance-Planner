@@ -1,24 +1,17 @@
 /** Date Manipulation Functions
  * 
- * Copied from Google Apps Script attached to Financial Planning Spreadsheet (previous iteration of this tool)
+ * Copied from Google Apps Script (attached to Financial Planning Spreadsheet - previous iteration of this tool)
  * 
  */
-
-function addOneMonth (isodate) {
-
-}
-
-function add28Days (isodate) {
-
-}
 
 /** ifDateWeekend
  * 
  * Takes the given date and adjusts it to the previous friday if it falls on a saturday or sunday
+ * 
  */
 
-function ifDateWeekend (date) {
-  // Logger.log("Check paydate triggered for: " + date)
+async function ifDateWeekend (date) {
+  // console.log("Check paydate triggered for: " + date)
 
   // create date, d from given value 
     // [] review the formats etc
@@ -59,7 +52,7 @@ function ifDateWeekend (date) {
     throw `Error checking day: no newDate`
 
   } else {
-    //Logger.log(`Date Checked: New Value: ${newDate.toISOString()}`)
+    //console.log(`Date Checked: New Value: ${newDate.toISOString()}`)
 
     return newDate
 
@@ -76,11 +69,13 @@ function ifDateWeekend (date) {
  * @customfunction
 */
 
-async function calculatePaydays (start_date, freq) {
+export async function calculatePaydays (start_date, freq) {
   if (!start_date || !freq) {
     throw `calculatePaydays: Missing parameters!`
 
   }
+
+  console.log(freq)
 
   // create date from given date
     // [] check the given value's data types/ formats
@@ -91,12 +86,12 @@ async function calculatePaydays (start_date, freq) {
   
   let newArr = []
 
-  Logger.log(`Compiling Array of dates, ${freq} frequency, starting from: ${start_date}`)
+  // console.log(`Compiling Array of dates, ${freq} frequency, starting from: ${start_date}`)
 
   // switch between monthly our 28d/ 28d pay cycles (monthly x 17 & fourWeekly x 19)
   switch (freq) {
     case `monthly`: // loops through 17 paydays and pushes them to a new array
-      Logger.log(`Calculating Monthly Paydates...`)
+      console.log(`Calculating Monthly Paydates...`)
 
       // get full year and full month
       let year = start.getFullYear()
@@ -105,7 +100,7 @@ async function calculatePaydays (start_date, freq) {
       //set the month number
       let monthNum = startMonth + 1
 
-      numPaym = 17 // 12 paydays for monthly
+      numPaym = 12 // 12 paydays for monthly
 
       // loop through the number of payments outlined, adjust if necessary, calls ifDateWeekend(date) and adds it to the array
       let i = 0
@@ -143,8 +138,8 @@ async function calculatePaydays (start_date, freq) {
       }
 
       // if the new array is the right length, return it
-      if (newArr.length === 17) {
-        //Logger.log("Paydays List: " + newArr)
+      if (newArr.length === 12) {
+        //console.log("Paydays List: " + newArr)
 
         // send to data validation list on out_once
         return newArr
@@ -152,14 +147,14 @@ async function calculatePaydays (start_date, freq) {
       }
       break;
     case `28d`: // loops through 19 cycles of adding 4 wks in milliseconds, pushing to new array
-      Logger.log(`Calculating 28d Paydates...`)
+      console.log(`Calculating 28d Paydates...`)
 
       // specify lengths of time in milliseconds
       let oneDay = 86400000
       let onePayCycle = oneDay * 28
       
       // number of dates to generate
-      numPaym = 19
+      numPaym = 14
       
       // loop through the numPaym, if its the first one, just make date = start, otherwise add one paycycle x j (number of iterations) to the date variable
       let j = 0
@@ -185,8 +180,8 @@ async function calculatePaydays (start_date, freq) {
       }
 
       // if the array is the right length, return it
-      if (newArr.length === 19) {
-        //Logger.log("Calculate Paydays: Array: " + newArr)
+      if (newArr.length === 14) {
+        //console.log("Calculate Paydays: Array: " + newArr)
 
         return newArr
 
@@ -198,12 +193,48 @@ async function calculatePaydays (start_date, freq) {
   }
 }
 
+/** buildPaydaysArray
+ * 
+ *  Takes the given dates (monthly, then 28d)
+ * 
+ * @task add in the parameter options
+ * 
+ * @param {Date} arr1
+ * @param {Date} arr2
+ */
+export async function buildPaydaysArray (arr1, arr2) {
+  if (arr1.length < 12 || arr2.length < 14) {
+    throw `buildPaydaysArray: Missing Parameters!`
+
+  }
+  const newArr = []
+
+  let i = 0
+
+  for (i = 0; i < arr1.length; i++) {
+    newArr.push([arr1[i], `monthly`]) //[arr1[i], `monthly`]
+  }
+
+  let j = 0
+
+  for (j = 0; j < arr2.length; j++) {
+    newArr.push([arr2[j], `28d`]) //[arr2[j], `28d`]
+
+  }
+
+  // if the new array is the right length (17 = 19), return it
+  if (newArr.length === 26) {
+    return newArr.sort()
+
+  }
+}
+
 /** addPaydayLists
  * 
- * [] needs review
+ * [] needs review - google sheets functions
  * 
- */
-async function addPaydayLists (pdl, freq) {
+
+export async function addPaydayLists (pdl, freq) {
   freq = `monthly`//  `28d` // 
   pdl = await calculatePaydays(`2026-01-13`, freq) 
   // pdl = await calculatePaydays(`2026-01-13`, freq)
@@ -257,7 +288,7 @@ async function addPaydayLists (pdl, freq) {
       }
       
       if (checks[0] === endInt) {
-        Logger.log(`Monthly Paydays List Outputted to Sheet`)
+        console.log(`Monthly Paydays List Outputted to Sheet`)
 
         return
 
@@ -293,7 +324,7 @@ async function addPaydayLists (pdl, freq) {
       }
       
       if (checks[0] === endInt) {
-        Logger.log(`28d Paydays List Outputted to Sheet`)
+        console.log(`28d Paydays List Outputted to Sheet`)
         
         return
 
@@ -301,54 +332,18 @@ async function addPaydayLists (pdl, freq) {
 
       break;
   }
-}
+} */
 
-/** buildPaydaysArray
- * 
- *  Takes the given dates (monthly, then 28d)
- * 
- * @task add in the parameter options
- * 
- * @param {Date} arr1
- * @param {Date} arr2
- */
-async function buildPaydaysArray (arr1, arr2) {
-  if (arr1.length < 17 || arr2.length < 19) {
-    throw `buildPaydaysArray: Missing Parameters!`
-
-  }
-  const newArr = []
-
-  let i = 0
-
-  for (i = 0; i < arr1.length; i++) {
-    newArr.push([arr1[i], `monthly`]) //[arr1[i], `monthly`]
-  }
-
-  let j = 0
-
-  for (j = 0; j < arr2.length; j++) {
-    newArr.push([arr2[j], `28d`]) //[arr2[j], `28d`]
-
-  }
-
-  // if the new array is the right length (17 = 19), return it
-  if (newArr.length === 36) {
-    return newArr.sort()
-
-  }
-}
-
-/** addDates function
+/** addDates - google sheets functions
  * 
  * @task - write description
  * @task - add date lists to _out_once columns - L & M - (data validated lists)
  * 
  * @param {Date/ String} d1
  * @param {Date/ String} d2
- */
 
-async function addDates (arr1, arr2) {
+
+export async function addDates (arr1, arr2) {
   // [] should add option to enter Spreadsheet ID
   const ss = SpreadsheetApp.getActiveSpreadsheet()
 
@@ -371,11 +366,11 @@ async function addDates (arr1, arr2) {
 
   // Logs if dates array is compiled
   if (datesArray.length === 36) {
-    Logger.log(`addDates: dates Array Compiled! ${datesArray}`)
+    console.log(`addDates: dates Array Compiled! ${datesArray}`)
 
     // Find the month of the given date
     const firstDate = new Date(datesArray[0][0])
-    // Logger.log(`firstDate: ${firstDate}`)
+    // console.log(`firstDate: ${firstDate}`)
 
     let monthSort = undefined
     let lastMonth = undefined
@@ -386,7 +381,7 @@ async function addDates (arr1, arr2) {
     let i = 0
 
     for (i = 0; i < sheets.length; i++) {
-      Logger.log(`Iterating Sheets: ${1 + i}`)
+      console.log(`Iterating Sheets: ${1 + i}`)
 
       // set budget sheet and sheet number
       let sheetNum = i
@@ -396,7 +391,7 @@ async function addDates (arr1, arr2) {
       let j = 0
 
       for (j = 0; j < budgetColumns.length; j++) {
-        Logger.log(`Iterating Columns: ${1 + j}`)
+        console.log(`Iterating Columns: ${1 + j}`)
 
         // select the column number
         let budgetCol = budgetColumns[j]
@@ -426,7 +421,7 @@ async function addDates (arr1, arr2) {
 
         // Current Date
         let currentDate = new Date(datesArray[ind][0])
-        Logger.log(`currentDate: ${currentDate.toISOString()}`)
+        console.log(`currentDate: ${currentDate.toISOString()}`)
 
         // converts the current date to a string
         let dateString = currentDate.toISOString()
@@ -443,12 +438,12 @@ async function addDates (arr1, arr2) {
 
         // Throw Error if value not set, otherwise log
         if (dateCell.getValue().toString() !== `${currentDate.toString()}`) {
-          //Logger.log(`${dateCell.getValue()} and ${currentDate}`)
+          //console.log(`${dateCell.getValue()} and ${currentDate}`)
           throw `Date Value Not Set`
 
         } else {
           checks[1] += 1
-          Logger.log(`addDates: Date Value Set: ${dateCell.getValue().toISOString()}`)
+          console.log(`addDates: Date Value Set: ${dateCell.getValue().toISOString()}`)
 
         }
 
@@ -473,11 +468,11 @@ async function addDates (arr1, arr2) {
           // set the monthSort as 1 (new sheet)
           monthSort = 1
 
-          Logger.log(`New Dates Array started: lastMonth: ${lastMonth}, monthSort: ${monthSort} - properties set`)
+          console.log(`New Dates Array started: lastMonth: ${lastMonth}, monthSort: ${monthSort} - properties set`)
 
         } else {
-          // Logger.log(`lastMonth: ${lastMonth}`)
-          // Logger.log(`monthSort: ${monthSort}`)
+          // console.log(`lastMonth: ${lastMonth}`)
+          // console.log(`monthSort: ${monthSort}`)
 
         }
         
@@ -491,7 +486,7 @@ async function addDates (arr1, arr2) {
         monthSortCell.setValue(monthSort)
 
         if (monthSortCell.getValue() === monthSort) {
-          //Logger.log('Month Sort Number Set: ' + monthSortCell.getValue())
+          //console.log('Month Sort Number Set: ' + monthSortCell.getValue())
           checks[0] += 1
 
         } else {
@@ -505,7 +500,7 @@ async function addDates (arr1, arr2) {
 
           // calculate end dates for sheet based on given dates
           if (currentDate.getMonth() === 11) {
-            Logger.log(`write code for year turnover on emd dates`)
+            console.log(`write code for year turnover on emd dates`)
 
           } else {
             let tempDate
@@ -515,7 +510,7 @@ async function addDates (arr1, arr2) {
               
               endDate = ifDateWeekend(tempDate).toISOString().split('T')[0] //tempDate2.split('T')[0]
 
-              Logger.log(`monthly paydate: endDate: ${endDate}`)
+              console.log(`monthly paydate: endDate: ${endDate}`)
 
             } else if (dateFreq === `28d`) {
               let oneDay = 86400000
@@ -524,12 +519,12 @@ async function addDates (arr1, arr2) {
               tempDate = new Date(currentDate.getTime() + onePayCycle)
               endDate = tempDate.toISOString().split('T')[0]
 
-              Logger.log(`28d paydate: endDate: ${endDate}`)
+              console.log(`28d paydate: endDate: ${endDate}`)
               
             }
           }
 
-          Logger.log(`budgetCol: ${budgetCol}, type: ${typeof budgetCol}`)
+          console.log(`budgetCol: ${budgetCol}, type: ${typeof budgetCol}`)
 
           let endFormula
 
@@ -581,14 +576,14 @@ async function addDates (arr1, arr2) {
     }
 
     if (checks[0] === 36 && checks[1] === 36 && checks[2] === 36 && checks[3] === 2) {
-      Logger.log(`Spreadsheet amended!`)
+      console.log(`Spreadsheet amended!`)
       return
 
     } else {
-      Logger.log(checks)
+      console.log(checks)
 
       throw `addDates: Error configuring sheets`
 
     }
   }
-}
+} */
