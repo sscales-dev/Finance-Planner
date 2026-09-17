@@ -245,6 +245,9 @@ body, h1 {
 .nav-tabs {
   background-color: var(--parchment);
   border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.nav-tabs:not(#budgetSettingsNavTabs) {
   min-width: 92vw;
 }
 
@@ -297,7 +300,10 @@ body, h1 {
 }
 
 .scrollable-table {
+  border-bottom: 1px solid var(--alabaster-grey);
+  height: 45vh;
   overflow-x: scroll;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -320,6 +326,31 @@ td.budget-col {
 th,
 td {
   width: 16vw;
+}
+
+.category-header-row > th {
+  color: var(--jet-black);
+  background-color: var(--bs-gray-100);
+  font-weight: 500;
+}
+
+tr.category-header-row {
+  border: 1px solid var(--alabaster-grey);
+}
+
+tfoot {
+  height: 3vh;
+}
+
+tfoot > tr > th.edit-cat-col,
+tfoot > tr > td.cat-name-col,
+tfoot > tr > td.parent-col {
+  background-color: var(--bs-gray-100);
+}
+
+#categoriesTable > tfoot {
+  border-bottom: 1px solid var(--alabaster-grey) !important;
+  border-top: 1px solid var(--alabaster-grey) !important;
 }
 
 @media (min-width: 1200px) {
@@ -494,11 +525,16 @@ td > .fa-regular {
   color: var(--bs-gray-800);
 }
 
+th.edit-cat-col > .fa-pen-to-square {
+  color: var(--dark-amethyst);
+}
+
 .fa-sort:hover,
 .fa-circle:hover,
 .fa-pen-to-square:hover,
 .fa-box-archive:hover,
-.fa-circle-xmark {
+.fa-circle-xmark,
+.fa-circle-plus:hover {
   color: var(--bs-orange);
 }
 
@@ -617,6 +653,16 @@ table:not(#oneoff) > tbody > td.item-date {
   height: 7vh;
 }
 
+th.edit-cat-col {
+  width: 2.5vw;
+}
+
+#categoriesTable > tbody > tr:not(.category-header-row) > th:not(.edit-cat-col),
+#categoriesTable > tbody > tr > td {
+  color: var(--jet-black)/*var(--bs-gray-700)*/;
+  
+}
+
 .input-group-text,
 .form-select,
 .accordion-button {
@@ -636,9 +682,38 @@ table:not(#oneoff) > tbody > td.item-date {
   max-width: 205px;
 }
 
+.category-row > th,
+.category-row > td {
+  font-size: 0.95rem;
+}
+
+
+.cat-name-col {
+  text-align: right;
+}
+
+.parent-col {
+  width: 37.5px;
+}
+
+#newCategoryInput {
+  width: 150px;
+}
+
+#addMasterCategorySelect {
+  border-radius: 0 0.375rem 0.375rem 0;
+  font-size: 0.9rem;
+}
+
 .form-check-input:checked {
   background-color: var(--velvet-orchid);
   border-color: var(--velvet-orchid);
+}
+
+#addCategoryBtn.fa-circle-plus {
+  color: var(--dark-teal);
+  font-size: 1.2rem !important;
+  margin-left: 0.4rem !important;
 }
 
 .saveFormBtn {

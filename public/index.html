@@ -806,30 +806,25 @@
                     <h1 class="modal-title fs-5" id="budgetSettingsModalLabel">Budget Settings</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
                 </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs">
+                <div class="modal-body px-2">
+                    <ul class="nav nav-tabs" id="budgetSettingsNavTabs">
                         <li class="nav-item">
                             <a class="nav-link hvr-fade active" id="datesTab" data-bs-toggle="tab" data-bs-target="#dateSettings" aria-current="true" type="button" role="tab" aria-controls="dateSettings" aria-selected="true" href="#dateSettings">Dates</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link hvr-fade" id="categoriesTab" data-bs-toggle="tab" data-bs-target="#categories" type="button" role="tab" aria-controls="categories" aria-selected="false" href="#categories">Categories</a>
+                            <a class="nav-link hvr-fade" id="categoriesTab" data-bs-toggle="tab" data-bs-target="#categorySettings" type="button" role="tab" aria-controls="categorySettings" aria-selected="false" href="#categorySettings">Categories</a>
                         </li>
                         <!--<li class="nav-item">
                             <a class="nav-link hvr-fade" id="recurringTab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hvr-fade" id="oneoffTab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="budgetSettingsModalBtn" href="#budgetSettingsModal" data-bs-toggle="modal" data-bs-target="#budgetSettingsModal">
-                                <i class="fa-solid fa-gear hvr-grow"></i>
-                            </a>
                         </li>-->
                     </ul>
                     <div class="tab-content"> 
                         <section class="container tab-pane px-3 active" id="dateSettings" role="tabpanel" aria-labelledby="datesTab" tabindex="0">
                             <h2 class="visually-hidden">Dates</h2>
-                            <form class="container pt-4 pb-2 needs-validation" id="budgetDatesInputForm">
+                            <form class="container px-2 pt-4 pb-0 needs-validation" id="budgetDatesInputForm">
                                 <div class="input-group paydate-input-group mb-3">
                                     <span class="input-group-text" id="paydate1Label">1st</span>
                                     <input type="date" class="form-control" id="firstPaydate" aria-label="First Paydate" aria-describedby="paydate1Label" required>
@@ -864,10 +859,234 @@
                                 </div>
                             </form>
                         </section>
-                        <section class="container tab-pane px-3" id="categorySettings" role="tabpanel" aria-labelledby="categoriesTab" tabindex="0">
+                        <section class="container tab-pane px-0" id="categorySettings" role="tabpanel" aria-labelledby="categoriesTab" tabindex="0">
                             <h2 class="visually-hidden">Categories</h2>
-                            <form class="container pt-4 pb-2 needs-validation" id="categoriesInputForm">
-                                
+                            <form class="container px-1 pt-4 pb-1 needs-validation" id="categoriesInputForm">
+                                <div class="input-group d-flex flex-row align-items-center mb-3">
+                                    <input type="text" class="form-control" id="newCategoryInput" aria-label="Master category text input">
+                                    <select class="form-select" id="addMasterCategorySelect">
+                                        <option disabled selected>Parent</option>
+                                        <option value="income">Income</option>
+                                        <option value="overheads">Overheads</option>
+                                        <option value="essentials">Essentials</option>
+                                        <option value="discretionary">Discretionary</option>
+                                        <option value="loansanddebt">Loans And Debt</option>
+                                    </select>
+                                    <!-- Converyt to button saveFormBtn-->
+                                    <i class="fa-solid fa-circle-plus hvr-grow" id="addCategoryBtn"></i>
+                                </div>
+                                <div class="scrollable-table pe-1">
+                                    <table class="table table-sm table-responsive table-borderless h-50" id="categoriesTable">
+                                        <thead>
+                                            <tr class="category-header-row">
+                                                <th scope="col" class="edit-cat-col"></th>
+                                                <th scope="col" class="cat-name-col pe-1">Name</th>
+                                                <th scope="col" class="parent-col ps-3">Parent</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Benefits</td>
+                                                <td class="parent-col ps-3">Income</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Additional Income</td>
+                                                <td class="parent-col ps-3">Income</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Refunds</td>
+                                                <td class="parent-col ps-3">Income</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Bank Interest and Fees</td>
+                                                <td class="parent-col ps-3">Overheads</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Household Bills (DDs)</td>
+                                                <td class="parent-col ps-3">Overheads</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Subscriptions</td>
+                                                <td class="parent-col ps-3">Overheads</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Pet Supplies</td>
+                                                <td class="parent-col ps-3">Overheads</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Amazon</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Sainsbury's</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Household</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">General</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Vaping</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Personal Care</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Transport</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Social</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Downtime</td>
+                                                <td class="parent-col ps-3">Essentials</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Home Improvements</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Hair and Beauty</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Entertainment</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Technology</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Personal Development</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Art</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Gifts and Special Occasions</td>
+                                                <td class="parent-col ps-3">Discretionary</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Emergency Funds</td>
+                                                <td class="parent-col ps-3">Saving</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Monthly Buffer</td>
+                                                <td class="parent-col ps-3">Saving</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Debt Repayments</td>
+                                                <td class="parent-col ps-3">Loans & Debt</td>
+                                            </tr>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                </th>
+                                                <td class="cat-name-col pe-1">Loans Returned</td>
+                                                <td class="parent-col ps-3">Loans & Debt</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="category-row">
+                                                <th scope="row" class="edit-cat-col"></th>
+                                                <td class="cat-name-col pe-1"></td>
+                                                <td class="parent-col ps-3"></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="d-flex flex-row justify-content-end me-3 mt-3">
+                                    <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </form>
                         </section>
                     </div>               
@@ -876,7 +1095,11 @@
                     <div class="d-flex flex-row align-items-center justify-content-start visually-hidden" id="budgetDatesUpdatedInfo">
                         <p class="text-body-secondary fw-medium text-body-secondary me-2 mb-0">Last Updated:</p>
                         <small class="text-body-secondary" id="budgetDatesUpdatedTime"></small>
-                    </div>          
+                    </div>
+                    <div class="d-none flex-row align-items-center justify-content-start visually-hidden" id="budgetCategoriesUpdatedInfo">
+                        <p class="text-body-secondary fw-medium text-body-secondary me-2 mb-0">Last Updated:</p>
+                        <small class="text-body-secondary" id="budgetCategoriesUpdatedTime"></small>
+                    </div>       
                 </div>
             </div>
         </div>
