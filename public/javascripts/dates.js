@@ -229,6 +229,33 @@ export async function buildPaydaysArray (arr1, arr2) {
   }
 }
 
+/** Get Paydays Array
+ * 
+ *  Pulls budget settings from local storage, sends paydates and frequencies to calculatePaydays
+ *  Then passes the2 separate arrays to buildPaydaysArray to sort
+ * 
+ * @returns ordered dates array (with a 2 item array per index)
+ */
+
+export async function getPaydaysArray () { 
+  const budgetString = localStorage.getItem("budget")
+  const budgetObject = JSON.parse(budgetString)
+
+  const paydate1 = budgetObject.paydate1.date
+  const frequency1 = budgetObject.paydate1.frequency
+
+  const paydate2 = budgetObject.paydate2.date
+  const frequency2 = budgetObject.paydate2.frequency
+
+  const dates1 = await calculatePaydays(paydate1, frequency1)
+  const dates2 = await calculatePaydays(paydate2, frequency2)
+
+  const orderedDatesArray = await buildPaydaysArray(dates1, dates2)
+
+  return orderedDatesArray
+
+}
+
 //----------------------------------------------------------------------------- Google Sheets
 
 /** addPaydayLists

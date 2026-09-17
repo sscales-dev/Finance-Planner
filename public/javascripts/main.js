@@ -1,80 +1,22 @@
-import { calculatePaydays, buildPaydaysArray } from './dates.js'
+import { calculatePaydays, buildPaydaysArray, getPaydaysArray } from './dates.js'
 
-//------------------------------------------------------------------------------ Toggle Views (onclicks)
+//------------------------------------------------------------------------------ Buttons
 
-/** Toggle Item Visibility
+/** Unfocus Active Buttons
  * 
- * onclick function for the radio buttons/ icons in the itemised transaction lists.
- * Toggles visibility of an item/ transaction in list.
+ * Blurs the active button to prevent it from being focused when the modal is closed.
  * 
- * @param {Element} element
+ * @param {Element} btn
  * 
- */ 
-
-function toggleItemVisibility(element) {
-  const clickedElement = element;
-  const classList = clickedElement.classList;
-
-  let className;
-
-  let i = 0;
-
-  for (i = 0; i < classList.length; i++) {
-    className = classList[i];
-    if (className === "fa-circle-xmark") {
-        clickedElement.classList.add("d-none");
-        clickedElement.previousElementSibling.classList.remove("d-none");
-
-        clickedElement.parentElement.classList.remove('unchecked');
-        clickedElement.parentElement.classList.add('checked');
-
-    } else if (className === "fa-circle") {
-      clickedElement.classList.add("d-none");
-      clickedElement.nextElementSibling.classList.remove("d-none");
- 
-      clickedElement.parentElement.classList.remove('checked');
-      clickedElement.parentElement.classList.add('unchecked');
-
-    } else if (className === "fa-square-plus") {
-      clickedElement.classList.add("d-none");
-      clickedElement.nextElementSibling.classList.remove("d-none");
- 
-      clickedElement.parentElement.classList.remove('closed');
-      clickedElement.parentElement.classList.add('open');
-
-    } else if (className === "fa-square-minus") {
-      clickedElement.classList.add("d-none");
-      clickedElement.previousElementSibling.classList.remove("d-none");
- 
-      clickedElement.parentElement.classList.remove('open');
-      clickedElement.parentElement.classList.add('closed');
-
-    } else {
-      continue;
+ */
+function unfocusActiveButtons(btn) {
+    const activeButton = btn;
+    if (activeButton) {
+        activeButton.blur();
     }
-  }
-
-  return;
 }
 
-/** Toggle Dropdown Date
- * 
- * onclick function for the date dropdowns in the itemised transaction lists.
- * Toggles the checkmark against the selected date(s)
- * 
- * @param {Element} element
- * 
- */ 
-
-function toggleDropdownDate(element) {
-    const clickedElement = element;
-    const checkIcon = clickedElement.querySelector("i");
-
-    clickedElement.classList.toggle("active");
-    checkIcon.classList.toggle("d-none");
-
-    return;
-}
+//------------------------------------------------------------------------------ Toasts
 
 /** Display Toast with message
  * 
@@ -104,22 +46,6 @@ function displayToast (message) {
 
   return toast.show();
 
-}
-
-//------------------------------------------------------------------------------ Buttons
-
-/** Unfocus Active Buttons
- * 
- * Blurs the active button to prevent it from being focused when the modal is closed.
- * 
- * @param {Element} btn
- * 
- */
-function unfocusActiveButtons(btn) {
-    const activeButton = btn;
-    if (activeButton) {
-        activeButton.blur();
-    }
 }
 
 //------------------------------------------------------------------------------ Set Form Values
@@ -196,29 +122,6 @@ function loadBudgetSettingsToFormDefaults () {
     budgetDuration,
     budgetUpdatedTime
   }*/);
-}
-
-//------------------------------------------------------------------------------ Date Functions
-
-
-
-async function getPaydaysArray () { 
-  const budgetString = localStorage.getItem("budget")
-  const budgetObject = JSON.parse(budgetString)
-
-  const paydate1 = budgetObject.paydate1.date
-  const frequency1 = budgetObject.paydate1.frequency
-
-  const paydate2 = budgetObject.paydate2.date
-  const frequency2 = budgetObject.paydate2.frequency
-
-  const dates1 = await calculatePaydays(paydate1, frequency1)
-  const dates2 = await calculatePaydays(paydate2, frequency2)
-
-  const orderedDatesArray = await buildPaydaysArray(dates1, dates2)
-
-  return orderedDatesArray
-
 }
 
 //------------------------------------------------------------------------------ Update Interface
