@@ -353,13 +353,13 @@ td.budget-col {
 }
 
 tr#paydateRow > th {
-  height: 6vh;
+  height: 7.5vh;
 }
 
 .budget-col {
   text-align: center;
   text-wrap: nowrap;
-  width: 20vw;
+  width: 22.5vw;
 }
 
 td.budget-col {
@@ -391,7 +391,7 @@ span.paydate-frequency {
 }
 
 @media (min-width: 1200px) {
-  tr.paydate-row > th {
+  tr#paydateRow > th {
     height: 6vh;
   }
 
@@ -497,7 +497,7 @@ td > .fa-regular {
 .fa-sort:hover,
 .fa-circle:hover,
 .fa-pen-to-square:hover,
-.fa-trash:hover,
+.fa-box-archive:hover,
 .fa-circle-xmark {
   color: var(--bs-orange);
 }

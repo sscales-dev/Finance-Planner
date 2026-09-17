@@ -1,4 +1,4 @@
-import { calculatePaydays, addPaydayLists, buildPaydaysArray } from './dates.js'
+import { calculatePaydays, buildPaydaysArray } from './dates.js'
 
 //------------------------------------------------------------------------------ Toggle Views (onclicks)
 
@@ -156,6 +156,11 @@ function lastUpdatedTextUpdate (formName, lastUpdated) {
 function loadBudgetSettingsToFormDefaults () {
   const budgetString = localStorage.getItem("budget")
   const budgetObject = JSON.parse(budgetString)
+
+  if (!budgetString) {
+    throw Error ("No budget settings in Local Storage");
+
+  }
 
   // console.log(budgetObject);
 
@@ -675,36 +680,30 @@ function addEventListenersToModals () {
   console.log("Page loaded. Running onload functions...");
 
   // Add Event Listeners to Modals
-
   try {
     addEventListenersToModals()
 
   } catch (err) {
     console.error("Error adding event listeners to modals", err);
+
   }
 
   // Temporarily clear localStorage for testing purposes. Remove this in production.
   // localStorage.clear();
 
-  // Load Budget Settings
-
+  
   try {
-    // Add 'if' to check for budget settings true/ false and prompt to configure if not present
+    // Load Budget Settings
+
     loadBudgetSettingsToFormDefaults("budget")
 
-  } catch (err) {
-    throw Error("No budget settings stored in localStorage:", err);
-    // throw modal to prompt user to enter budget settings
-  }
+    // Load Budget Dates and Frequencies to Budget Table and Dropdown lists
 
-  // Load Budget Dates and Frequencies to Budget Table and Dropdown lists
-
-  try {
     setBudgetDatesAndFrequencies()
 
   } catch (err) {
-    console.error(err);
-    
+    console.errer(err); // throw modal to prompt user to enter budget settings
+
   }
 })()
 
