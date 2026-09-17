@@ -4,30 +4,29 @@
 
 ### Next
 
+- [ ] Create tab content for categories tab in settings modal
+- [ ] Add Nested Tables in Overview section with categories
+- [ ] within forms - select option:hover color
+- [ ] Amend unfocus active buttons to blur button and move to interface - put back on onclik in html
+- [ ] Add 'edit' forms on itemised sections
+- [ ] Add functionality for each new form to processFormValues
+- [ ] Add 'loading' displays
+- [ ] Add prompt to enter budget settings if not loaded from localStorage
+- [ ] Add functionality to recurring payment add formn selects:
+    > renewal date and month
+    > if category === household bills
+    > if category === subscriptions
+        > renewal date +/ month should be required
+- [ ] Add functionailty to factor in budget duration in calculate paydays etc
+- [ ] Add login option/ modal etc
 
-
-### Later
+---
 
 - [ ] Tidy HTML classes 
   - [ ] ids camelcase
   - [ ] classes kebab case
   - [ ] classes in unified order
-
 - [ ] Refactor CSS
-
-- [ ] Create tabs in Budget Settings for Dates and Categories
-- [ ] Add frequency display option (monthly vs 28d) to budget date columns
-- [ ] Add 'edit' forms on itemised sections
-- [ ] Add archive button functionality on itemised section forms
-- [ ] recurring payment add form:
-    > renewal date and month
-    > if category === household bills
-    > if category === subscriptions
-        > renewal date +/ month should be required
-- [ ] Add 'loading' displays
-- [ ] Add login option/ modal etc
-- [ ] Add Nested Tables in Overview section with categories
-- [ ] within forms - select option:hover color
 
 ## Modals + Forms
 
@@ -36,31 +35,22 @@
 - [ ] Ensure all form aspects have suitable names and ids and descriptions etc
 - [ ] Add required to needed inputs
 
-- [ ] Add Toast functionality + style/ position toast elements
-- [ ] Complete element ids in loadBudgetDefaults function
-- [ ] Move updateLastUpdatedText in processFormValues to underneath switch?
-- [ ] Add functionality for each new form to processFormValues
-
-- [ ] Move localStorage to sessionStorage once database module working
-
 ### Javascript
 
-- [ ] Move 'unfocusActiveButtons() onclick to javascript main.js
-- [ ] Tidy existing functions
-  - [ ] Comment properly throughout functions
-  - [ ] Ensure error checking, end-of-statement semi-colons, console.logging etc
-- [ ] Add prompt to enter budget settings if not loaded from localStorage
+- [ ] Add functionailty to update year label at top left of budgets table in dates functions
+- [ ] Move localStorage to sessionStorage once database module working
 - [ ] Add other background parameters for items when storing
   - [ ] Add position (dates) and item sort (transactions)
-- [ ] Review 'dates' functions from gapps script functions used in spreadsheet
-- [ ] Add functionality to calculate paydates, store and output to 'budgets'
-  - [ ] Also update year label at top left of budgets table
 
-- [ ] Create 'edit item' modals and forms
+  ---
+
+  - [ ] Tidy existing functions
+  - [ ] Comment properly throughout functions
+  - [ ] Ensure error checking, end-of-statement semi-colons, console.logging etc
 
 ## Interface
 
-- [ ] Finish Bootstrap + Javascript interface controls
+- [] Finish Bootstrap + Javascript interface controls
 
 ## Server
 
@@ -85,9 +75,12 @@
 
 ## Future features
 
+- [ ] Create drag feature on item rows on mobile to choose from delete or archive options
 - [ ] Login/ security
 - [ ] Serve on local network
 - [ ] Sorting of itemised lists
+- [ ] Add Toast functionality + style/ position toast elements
+
 
 ## COMPLETED
 
@@ -111,3 +104,8 @@
 - [x] Complete One-off 'add-item' modal
 - [x] Add small (576px) styling for layout
 - [x] secondary btn hover color
+- [x] Create tabs in Budget Settings for Dates and Categories
+- [x] Add frequency display option (monthly vs 28d) to budget date columns
+- [x] Add archive button functionality on itemised section forms
+- [?] Complete element ids in loadBudgetDefaults function
+- [x] Review 'dates' functions from gapps script functions used in spreadsheet

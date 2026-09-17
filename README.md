@@ -143,6 +143,7 @@ I used GitHub Pages to deploy my project, using the steps as follows:
 
 - https://www.w3schools.com/cssref/sel_not.php
 - https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset
+- https://www.geeksforgeeks.org/bootstrap/how-to-make-bootstrap-table-with-sticky-table-head/
 
 #### Accessibility
 

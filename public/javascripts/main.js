@@ -77,6 +77,7 @@ function lastUpdatedTextUpdate (formName, lastUpdated) {
  * Loads the budget settings form default values from localStorage to the form elements.
  * Toggles the checkmark against the selected date(s)
  * 
+ * @task ?Refactor lets to be constant with HTMl elements and then just = budgetOnject
  */
 
 function loadBudgetSettingsToFormDefaults () {
