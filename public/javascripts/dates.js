@@ -229,9 +229,11 @@ export async function buildPaydaysArray (arr1, arr2) {
   }
 }
 
+//----------------------------------------------------------------------------- Google Sheets
+
 /** addPaydayLists
  * 
- * [] needs review - google sheets functions
+ * [] needs review
  * 
 
 export async function addPaydayLists (pdl, freq) {
@@ -334,7 +336,7 @@ export async function addPaydayLists (pdl, freq) {
   }
 } */
 
-/** addDates - google sheets functions
+/** addDates
  * 
  * @task - write description
  * @task - add date lists to _out_once columns - L & M - (data validated lists)
