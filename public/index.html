@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Planner</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/ab9a8696e7.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
 
-    <link href="stylesheets/style.css" rel="stylesheet"></link>
+    <link href="stylesheets/style.css" rel="stylesheet">
+    </link>
     <script src="/javascripts/interface.js"></script>
 
 </head>
+
 <body>
     <!-- HEADER -->
     <header class="mt-3">
         <nav class="navbar pb-0">
-            <div class="container-fluid d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-md-between px-3">
+            <div
+                class="container-fluid d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-md-between px-3">
                 <a class="navbar-brand" href="#">
-                    <img src="images/brand-icon.png" alt="Financial Planner" width="42.5" height="55" class="d-inline-block fs-1 align-text-middle">
+                    <img src="images/brand-icon.png" alt="Financial Planner" width="42.5" height="55"
+                        class="d-inline-block fs-1 align-text-middle">
                     <h1 class="d-inline-block fs-1">Financial Planner</h1>
                 </a>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade active" id="budgetTab" data-bs-toggle="tab" data-bs-target="#budget" aria-current="true" type="button" role="tab" aria-controls="budget" aria-selected="true" href="#budget">Budget</a>
+                        <a class="nav-link hvr-fade active" id="budgetTab" data-bs-toggle="tab" data-bs-target="#budget"
+                            aria-current="true" type="button" role="tab" aria-controls="budget" aria-selected="true"
+                            href="#budget">Budget</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade" id="incomeTab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false" href="#income">Income</a>
+                        <a class="nav-link hvr-fade" id="incomeTab" data-bs-toggle="tab" data-bs-target="#income"
+                            type="button" role="tab" aria-controls="income" aria-selected="false"
+                            href="#income">Income</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade" id="recurringTab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
+                        <a class="nav-link hvr-fade" id="recurringTab" data-bs-toggle="tab" data-bs-target="#recurring"
+                            type="button" role="tab" aria-controls="recurring" aria-selected="false"
+                            href="#recurring">Recurring</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hvr-fade" id="oneoffTab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
+                        <a class="nav-link hvr-fade" id="oneoffTab" data-bs-toggle="tab" data-bs-target="#oneoff"
+                            type="button" role="tab" aria-controls="oneoff" aria-selected="false"
+                            href="#oneoff">One-off</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="budgetSettingsModalBtn" href="#budgetSettingsModal" data-bs-toggle="modal" data-bs-target="#budgetSettingsModal">
+                        <a class="nav-link" id="budgetSettingsModalBtn" href="#budgetSettingsModal"
+                            data-bs-toggle="modal" data-bs-target="#budgetSettingsModal">
                             <i class="fa-solid fa-gear hvr-grow"></i>
                         </a>
                     </li>
@@ -51,65 +68,91 @@
     <!-- MAIN CONTENT -->
     <div class="tab-content">
         <!-- Budget Section -->
-        <section class="container tab-pane px-3 active" id="budget" role="tabpanel" aria-labelledby="budgetTab" tabindex="0">
+        <section class="container tab-pane px-3 active" id="budget" role="tabpanel" aria-labelledby="budgetTab"
+            tabindex="0">
             <h2 class="visually-hidden">Budget</h2>
             <div class="scrollable-table">
                 <table class="table table-responsive table-hover" id="budgetTable">
                     <thead>
                         <tr class="d-inline-flex flex-row align-items-center justify-content-center" id="paydateRow">
                             <th scope="col" class="category-column text-end fs-3" id="budgetYear">2026</th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate1">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate1">
                                 <span class="paydate" id="date1">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate2">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate2">
                                 <span class="paydate" id="date2">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate3">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate3">
                                 <span class="paydate" id="date3">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate4">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate4">
                                 <span class="paydate" id="date4">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate5">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate5">
                                 <span class="paydate" id="date5">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate6">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate6">
                                 <span class="paydate" id="date6">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate7">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate7">
                                 <span class="paydate" id="date7">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate8">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate8">
                                 <span class="paydate" id="date8">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate9">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate9">
                                 <span class="paydate" id="date9">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate10">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate10">
                                 <span class="paydate" id="date10">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate11">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate11">
                                 <span class="paydate" id="date11">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
-                            <th scope="col" class="d-inline-flex flex-column align-items-center justify-content-center budget-col" id="payDate12">
+                            <th scope="col"
+                                class="d-inline-flex flex-column align-items-center justify-content-center budget-col"
+                                id="payDate12">
                                 <span class="paydate" id="date12">mmm-dd</span>
                                 <span class="paydate-frequency">monthly</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center available-balance-row" id="availableBalanceRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center available-balance-row"
+                            id="availableBalanceRow">
                             <th scope="row" class="category-column text-end align-middle">
                                 Av. Balance &nbsp;
                                 <i class="fa-solid fa-scale-balanced"></i>
@@ -128,7 +171,8 @@
                             <td class="budget-col" id="availableBalance11">£0.00</td>
                             <td class="budget-col" id="availableBalance12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center income-row" id="incomeRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center income-row"
+                            id="incomeRow">
                             <th scope="row" class="category-column text-end align-middle closed">
                                 Income &nbsp;
                                 <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
@@ -147,11 +191,13 @@
                             <td class="budget-col" id="income11">£0.00</td>
                             <td class="budget-col" id="income12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center overheads-row" id="overheadsRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center overheads-row"
+                            id="overheadsRow">
                             <th scope="row" class="category-column text-end align-middle closed">
                                 Overheads &nbsp;
                                 <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none"
+                                    onclick="toggleItemVisibility(this)"></i>
                             </th>
                             <td class="budget-col" id="overheads1">£0.00</td>
                             <td class="budget-col" id="overheads2">£0.00</td>
@@ -166,11 +212,13 @@
                             <td class="budget-col" id="overheads11">£0.00</td>
                             <td class="budget-col" id="overheads12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center essentials-row" id="essentialsRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center essentials-row"
+                            id="essentialsRow">
                             <th scope="row" class="category-column text-end align-middle closed">
                                 Essentials &nbsp;
                                 <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none"
+                                    onclick="toggleItemVisibility(this)"></i>
                             </th>
                             <td class="budget-col" id="essentials1">£0.00</td>
                             <td class="budget-col" id="essentials2">£0.00</td>
@@ -185,11 +233,13 @@
                             <td class="budget-col" id="essentials11">£0.00</td>
                             <td class="budget-col" id="essentials12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center discretionary-row" id="discretionaryRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center discretionary-row"
+                            id="discretionaryRow">
                             <th scope="row" class="category-column text-end align-middle closed">
                                 Discretionary &nbsp;
                                 <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none"
+                                    onclick="toggleItemVisibility(this)"></i>
                             </th>
                             <td class="budget-col" id="discretionary1">£0.00</td>
                             <td class="budget-col" id="discretionary2">£0.00</td>
@@ -204,11 +254,13 @@
                             <td class="budget-col" id="discretionary11">£0.00</td>
                             <td class="budget-col" id="discretionary12">£0.00</td>
                         </tr>
-                        <tr class="d-inline-flex flex-row align-items-center justify-content-center loans-and-debt-row" id="loansAndDebtRow">
+                        <tr class="d-inline-flex flex-row align-items-center justify-content-center loans-and-debt-row"
+                            id="loansAndDebtRow">
                             <th scope="row" class="category-column text-end align-middle closed">
                                 Loans & Debt &nbsp;
                                 <i class="fa-regular fa-square-plus hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                                <i class="fa-solid fa-square-minus hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                                <i class="fa-solid fa-square-minus hvr-grow d-none"
+                                    onclick="toggleItemVisibility(this)"></i>
                             </th>
                             <td class="budget-col" id="loansAndDebt1">£0.00</td>
                             <td class="budget-col" id="loansAndDebt2">£0.00</td>
@@ -253,7 +305,8 @@
                             <i class="fa-solid fa-sort hvr-grow"></i>
                         </th>
                         <th scope="col" class="col-end-width add-btn-col text-center">
-                            <button type="button" class="btn btn-sm btn-primary add-btn text-center text-nowrap py-0" id="addIncomeBtn" data-bs-toggle="modal" data-bs-target="#addIncomeModal">
+                            <button type="button" class="btn btn-sm btn-primary add-btn text-center text-nowrap py-0"
+                                id="addIncomeBtn" data-bs-toggle="modal" data-bs-target="#addIncomeModal">
                                 <i class="fa-solid fa-circle-plus"></i>
                             </button>
                         </th>
@@ -263,7 +316,8 @@
                     <tr class="d-flex flex-row align-items-center justify-content-space-between">
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Universal Credit</td>
                         <td class="amount-col item-amount">£823.41</td>
@@ -277,7 +331,8 @@
                     <tr class="d-flex flex-row align-items-center justify-content-space-between">
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">PIP</td>
                         <td class="amount-col item-amount">£559.16</td>
@@ -291,7 +346,8 @@
                     <tr class="d-flex flex-row align-items-center justify-content-space-between">
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Advance 2026</td>
                         <td class="amount-col item-amount">-£14.17</td>
@@ -306,7 +362,8 @@
             </table>
         </section>
         <!-- Recurring Section -->
-        <section class="container tab-pane px-3" id="recurring" role="tabpanel" aria-labelledby="recurringTab" tabindex="0">
+        <section class="container tab-pane px-3" id="recurring" role="tabpanel" aria-labelledby="recurringTab"
+            tabindex="0">
             <h2 class="visually-hidden">Recurring</h2>
             <table class="table table-hover" id="recurringTable">
                 <thead>
@@ -336,7 +393,8 @@
                             <i class="fa-solid fa-sort hvr-grow"></i>
                         </th>
                         <th scope="col" class="col-end-width add-btn-col text-center">
-                            <button type="button" class="btn btn-sm btn-primary add-btn text-center text-nowrap py-0" id="addRecurringBtn" data-bs-toggle="modal" data-bs-target="#addRecurringModal">
+                            <button type="button" class="btn btn-sm btn-primary add-btn text-center text-nowrap py-0"
+                                id="addRecurringBtn" data-bs-toggle="modal" data-bs-target="#addRecurringModal">
                                 <i class="fa-solid fa-circle-plus"></i>
                             </button>
                         </th>
@@ -346,7 +404,8 @@
                     <tr>
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Rent</td>
                         <td class="amount-col item-amount">£1200</td>
@@ -354,46 +413,71 @@
                         <td class="d-none d-md-flex cat-col item-category">Overheads</td>
                         <td class="date-col item-date">
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-calendar-check"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-0">2026-01-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-1">2026-02-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-2">2026-03-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-3">2026-01-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-4">2026-02-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-5">2026-03-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-6">2026-01-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-7">2026-02-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-8">2026-03-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-9">2026-01-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-10">2026-02-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-11">2026-03-13</span>
-                                        <i class="d-none fa-solid fa-check ms-4"></i></li>
+                                        <i class="d-none fa-solid fa-check ms-4"></i>
+                                    </li>
                                 </ul>
                             </div>
                         </td>
@@ -405,7 +489,8 @@
                     <tr>
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Council Tax</td>
                         <td class="amount-col item-amount">£120</td>
@@ -413,55 +498,68 @@
                         <td class="d-none d-md-flex cat-col item-category">Overheads</td>
                         <td class="date-col item-date">
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-calendar-check"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-0">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-1">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-2">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-3">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-4">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-5">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-6">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-7">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-8">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-9">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-10">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-11">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
@@ -476,7 +574,8 @@
                     <tr>
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Groceries</td>
                         <td class="amount-col item-amount">£240</td>
@@ -484,55 +583,68 @@
                         <td class="d-none d-md-flex cat-col item-category">Essential</td>
                         <td class="date-col item-date">
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-calendar-check"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-0">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-1">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-2">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-3">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-4">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-5">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-6">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-7">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-8">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-9">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-10">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-11">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
@@ -574,7 +686,8 @@
                             <i class="fa-solid fa-sort hvr-grow"></i>
                         </th>
                         <th scope="col" class="col-end-width add-btn-col text-center">
-                            <button type="button" class="btn btn-sm btn-primary add-btn text-center text-nowrap py-0" id="addOneoffBtn" data-bs-toggle="modal" data-bs-target="#addOneoffModal">
+                            <button type="button" class="btn btn-sm btn-primary add-btn text-center text-nowrap py-0"
+                                id="addOneoffBtn" data-bs-toggle="modal" data-bs-target="#addOneoffModal">
                                 <i class="fa-solid fa-circle-plus"></i>
                             </button>
                         </th>
@@ -584,62 +697,76 @@
                     <tr>
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Debt repayment</td>
                         <td class="amount-col item-amount">£50</td>
                         <td class="d-none d-md-flex cat-col item-category">Lending and Borrowing</td>
                         <td class="d-flex date-col item-date">
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-calendar-check"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-0">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-1">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-2">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-3">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-4">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-5">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-6">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-7">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-8">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-9">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-10">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-11">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
@@ -654,62 +781,76 @@
                     <tr>
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Tattoo</td>
                         <td class="amount-col item-amount">£120</td>
                         <td class="d-none d-md-flex cat-col item-category">Discretionary</td>
                         <td class="d-flex date-col item-date">
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-calendar-check"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-0">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-1">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-2">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-3">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-4">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-5">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-6">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-7">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-8">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-9">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-10">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-11">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
@@ -724,62 +865,76 @@
                     <tr>
                         <th scope="row" class="item-visibility col-end-width text-center unchecked">
                             <i class="fa-regular fa-circle hvr-grow" onclick="toggleItemVisibility(this)"></i>
-                            <i class="fa-solid fa-circle-xmark hvr-grow d-none" onclick="toggleItemVisibility(this)"></i>
+                            <i class="fa-solid fa-circle-xmark hvr-grow d-none"
+                                onclick="toggleItemVisibility(this)"></i>
                         </th>
                         <td class="item-col item-name">Unpaid bill</td>
                         <td class="amount-col item-amount">£30</td>
                         <td class="d-none d-md-flex cat-col item-category">Overheads</td>
                         <td class="d-flex date-col item-date">
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle date-select-btn"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-calendar-check"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-0">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-1">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-2">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-3">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-4">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-5">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-6">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-7">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-8">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-9">2026-01-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-10">2026-02-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
-                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between" onclick="toggleDropdownDate(this)">
+                                    <li class="dropdown-item d-flex flex-row align-items-center justify-content-space-between"
+                                        onclick="toggleDropdownDate(this)">
                                         <span class="date-position-11">2026-03-13</span>
                                         <i class="d-none fa-solid fa-check ms-4"></i>
                                     </li>
@@ -799,20 +954,27 @@
     <!-- TASKS  
         [ ] Add descriptions for form elements
     -->
-    <div class="modal fade" id="budgetSettingsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="budgetSettingsModalLabel" aria-hidden="true">
+    <div class="modal fade" id="budgetSettingsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="budgetSettingsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="budgetSettingsModalLabel">Budget Settings</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body px-2">
                     <ul class="nav nav-tabs" id="budgetSettingsNavTabs">
                         <li class="nav-item">
-                            <a class="nav-link hvr-fade active" id="datesTab" data-bs-toggle="tab" data-bs-target="#dateSettings" aria-current="true" type="button" role="tab" aria-controls="dateSettings" aria-selected="true" href="#dateSettings">Dates</a>
+                            <a class="nav-link hvr-fade active" id="datesTab" data-bs-toggle="tab"
+                                data-bs-target="#dateSettings" aria-current="true" type="button" role="tab"
+                                aria-controls="dateSettings" aria-selected="true" href="#dateSettings">Dates</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link hvr-fade" id="categoriesTab" data-bs-toggle="tab" data-bs-target="#categorySettings" type="button" role="tab" aria-controls="categorySettings" aria-selected="false" href="#categorySettings">Categories</a>
+                            <a class="nav-link hvr-fade" id="categoriesTab" data-bs-toggle="tab"
+                                data-bs-target="#categorySettings" type="button" role="tab"
+                                aria-controls="categorySettings" aria-selected="false"
+                                href="#categorySettings">Categories</a>
                         </li>
                         <!--<li class="nav-item">
                             <a class="nav-link hvr-fade" id="recurringTab" data-bs-toggle="tab" data-bs-target="#recurring" type="button" role="tab" aria-controls="recurring" aria-selected="false" href="#recurring">Recurring</a>
@@ -821,14 +983,17 @@
                             <a class="nav-link hvr-fade" id="oneoffTab" data-bs-toggle="tab" data-bs-target="#oneoff" type="button" role="tab" aria-controls="oneoff" aria-selected="false" href="#oneoff">One-off</a>
                         </li>-->
                     </ul>
-                    <div class="tab-content"> 
-                        <section class="container tab-pane px-3 active" id="dateSettings" role="tabpanel" aria-labelledby="datesTab" tabindex="0">
+                    <div class="tab-content">
+                        <section class="container tab-pane px-3 active" id="dateSettings" role="tabpanel"
+                            aria-labelledby="datesTab" tabindex="0">
                             <h2 class="visually-hidden">Dates</h2>
                             <form class="container px-2 pt-4 pb-0 needs-validation" id="budgetDatesInputForm">
                                 <div class="input-group paydate-input-group mb-3">
                                     <span class="input-group-text" id="paydate1Label">1st</span>
-                                    <input type="date" class="form-control" id="firstPaydate" aria-label="First Paydate" aria-describedby="paydate1Label" required>
-                                    <select class="form-select frequency-select" id="frequencyChoiceD1" type="select" aria-label="Frequency Choice for Date 1" required>
+                                    <input type="date" class="form-control" id="firstPaydate" aria-label="First Paydate"
+                                        aria-describedby="paydate1Label" required>
+                                    <select class="form-select frequency-select" id="frequencyChoiceD1" type="select"
+                                        aria-label="Frequency Choice for Date 1" required>
                                         <option value="monthly" selected>Monthly</option>
                                         <option value="28d">28 days</option>
                                         <option value="weekly">Weekly</option>
@@ -836,8 +1001,10 @@
                                 </div>
                                 <div class="input-group paydate-input-group mb-3">
                                     <span class="input-group-text" id="paydate2Label">2nd</span>
-                                    <input type="date" class="form-control" id="secondPaydate" aria-label="Second Paydate" aria-describedby="paydate2Label">
-                                    <select class="form-select frequency-select" id="frequencyChoiceD2" type="select" aria-label="Frequency Choice for Date 2" required>
+                                    <input type="date" class="form-control" id="secondPaydate"
+                                        aria-label="Second Paydate" aria-describedby="paydate2Label">
+                                    <select class="form-select frequency-select" id="frequencyChoiceD2" type="select"
+                                        aria-label="Frequency Choice for Date 2" required>
                                         <option value="n/a">N/A</option>
                                         <option value="monthly">Monthly</option>
                                         <option value="28d" selected>28 days</option>
@@ -846,7 +1013,8 @@
                                 </div>
                                 <div class="d-flex justify-content-center input-group paydate-input-group mx-auto my-4">
                                     <span class="input-group-text" id="budgetDurationText">Budget Duration</span>
-                                    <select class="form-select" id="budgetDuration" type="select" aria-label="Budget Duration" aria-describedby="budgetDurationText" required>
+                                    <select class="form-select" id="budgetDuration" type="select"
+                                        aria-label="Budget Duration" aria-describedby="budgetDurationText" required>
                                         <option value="6">6 months</option>
                                         <option value="12" selected>12 months</option>
                                         <option value="18">18 months</option>
@@ -854,16 +1022,20 @@
                                     </select>
                                 </div>
                                 <div class="d-flex flex-row justify-content-center">
-                                    <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Cancel</button>
-                                    <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveBudgetDatesBtn" type="button" data-bs-dismiss="modal">Save</button>
+                                    <button class="btn btn-secondary form-btns-parallel" type="reset"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3"
+                                        id="saveBudgetDatesBtn" type="button" data-bs-dismiss="modal">Save</button>
                                 </div>
                             </form>
                         </section>
-                        <section class="container tab-pane px-0" id="categorySettings" role="tabpanel" aria-labelledby="categoriesTab" tabindex="0">
+                        <section class="container tab-pane px-0" id="categorySettings" role="tabpanel"
+                            aria-labelledby="categoriesTab" tabindex="0">
                             <h2 class="visually-hidden">Categories</h2>
                             <form class="container px-1 pt-4 pb-1 needs-validation" id="categoriesInputForm">
                                 <div class="input-group d-flex flex-row align-items-center mb-3">
-                                    <input type="text" class="form-control" id="newCategoryInput" aria-label="Master category text input">
+                                    <input type="text" class="form-control" id="newCategoryInput"
+                                        aria-label="Master category text input">
                                     <select class="form-select" id="addMasterCategorySelect">
                                         <option disabled selected>Parent</option>
                                         <option value="income">Income</option>
@@ -876,7 +1048,8 @@
                                     <i class="fa-solid fa-circle-plus hvr-grow" id="addCategoryBtn"></i>
                                 </div>
                                 <div class="scrollable-table pe-1">
-                                    <table class="table table-sm table-responsive table-borderless h-50" id="categoriesTable">
+                                    <table class="table table-sm table-responsive table-borderless h-50"
+                                        id="categoriesTable">
                                         <thead>
                                             <tr class="category-header-row">
                                                 <th scope="col" class="edit-cat-col"></th>
@@ -1085,50 +1258,59 @@
                                     </table>
                                 </div>
                                 <div class="d-flex flex-row justify-content-end me-3 mt-3">
-                                    <button class="btn btn-secondary form-btns-parallel" type="reset" data-bs-dismiss="modal">Close</button>
+                                    <button class="btn btn-secondary form-btns-parallel" type="reset"
+                                        data-bs-dismiss="modal">Close</button>
                                 </div>
                             </form>
                         </section>
-                    </div>               
+                    </div>
                 </div>
                 <div class="modal-footer" id="budgetDatesModalFooter">
-                    <div class="d-flex flex-row align-items-center justify-content-start visually-hidden" id="budgetDatesUpdatedInfo">
+                    <div class="d-flex flex-row align-items-center justify-content-start visually-hidden"
+                        id="budgetDatesUpdatedInfo">
                         <p class="text-body-secondary fw-medium text-body-secondary me-2 mb-0">Last Updated:</p>
                         <small class="text-body-secondary" id="budgetDatesUpdatedTime"></small>
                     </div>
-                    <div class="d-none flex-row align-items-center justify-content-start visually-hidden" id="budgetCategoriesUpdatedInfo">
+                    <div class="d-none flex-row align-items-center justify-content-start visually-hidden"
+                        id="budgetCategoriesUpdatedInfo">
                         <p class="text-body-secondary fw-medium text-body-secondary me-2 mb-0">Last Updated:</p>
                         <small class="text-body-secondary" id="budgetCategoriesUpdatedTime"></small>
-                    </div>       
+                    </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Add Income Modal -->
-    <div class="modal fade" id="addIncomeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addIncomeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addIncomeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="addIncomeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addIncomeModalLabel">Add Income</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column justify-content-end needs-validation" id="addIncomeForm">
                         <div class="input-group">
                             <span class="input-group-text" id="incomeNameLabel">Name/ Label</span>
-                            <input type="text" class="form-control" id="incomeNameInput" placeholder="e.g. Universal Credit" aria-label="Income Name" aria-describedby="incomeNameLabel" required>
+                            <input type="text" class="form-control" id="incomeNameInput"
+                                placeholder="e.g. Universal Credit" aria-label="Income Name"
+                                aria-describedby="incomeNameLabel" required>
                         </div>
                         <div class="form-text mb-3" id="incomeNameDescription">Who pays this? Or what is it for?</div>
 
                         <div class="input-group">
                             <span class="input-group-text" id="incomeAmountLabel">Amount (£)</span>
-                            <input type="text" class="form-control" id="incomeAmountInput" aria-label="Income Amount" placeholder="0.00" aria-describedby="incomeAmountLabel" required>
+                            <input type="text" class="form-control" id="incomeAmountInput" aria-label="Income Amount"
+                                placeholder="0.00" aria-describedby="incomeAmountLabel" required>
                             <select class="form-select paym-direction-select" aria-label="Payment Direction Select">
                                 <option value="+" selected>+</option>
                                 <option value="-">-</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="incomeAmountDescription">Is the amount positive or negative? (defaults to positive/ in)</div>
+                        <div class="form-text mb-3" id="incomeAmountDescription">Is the amount positive or negative?
+                            (defaults to positive/ in)</div>
 
                         <div class="input-group mb-4">
                             <select class="form-select" aria-label="Category Select" required>
@@ -1146,31 +1328,41 @@
                         </div>
 
                         <div class="input-group mb-4">
-                            <span class="input-group-text" id="incomeIncludeCheckboxText" aria-label="Include in Budget?">Include in Budget?</span>
+                            <span class="input-group-text" id="incomeIncludeCheckboxText"
+                                aria-label="Include in Budget?">Include in Budget?</span>
                             <div class="input-group-text checkbox-group-bg-color">
-                                <input class="form-check-input mt-0" type="checkbox" id="includeIncomeInBudgetCheck" aria-label="Include income in budget checkbox" aria-describedby="incomeIncludeCheckboxText" checked>
+                                <input class="form-check-input mt-0" type="checkbox" id="includeIncomeInBudgetCheck"
+                                    aria-label="Include income in budget checkbox"
+                                    aria-describedby="incomeIncludeCheckboxText" checked>
                             </div>
                         </div>
 
                         <div class="accordion mb-3" id="addIncomeAdditionalInfoAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addIncomeCollapse" aria-expanded="false" aria-controls="addIncomeCollapse">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#addIncomeCollapse" aria-expanded="false"
+                                        aria-controls="addIncomeCollapse">
                                         Additional info (optional)
                                     </button>
                                 </h2>
-                                <div id="addIncomeCollapse" class="accordion-collapse collapse" data-bs-parent="#addIincomeAdditionalInfoAccordion">
+                                <div id="addIncomeCollapse" class="accordion-collapse collapse"
+                                    data-bs-parent="#addIincomeAdditionalInfoAccordion">
                                     <div class="accordion-body">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="incomeStartDateLabel">Start Date</span>
-                                            <input type="date" class="form-control" aria-label="Income Start Date" aria-describedby="incomeStartDateLabel">
+                                            <input type="date" class="form-control" aria-label="Income Start Date"
+                                                aria-describedby="incomeStartDateLabel">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="incomeDurationLabel">Duration (months)</span>
-                                            <input type="number" class="form-control" placeholder="e.g. 12" aria-label="Income Duration" aria-describedby="incomeDurationLabel">
+                                            <span class="input-group-text" id="incomeDurationLabel">Duration
+                                                (months)</span>
+                                            <input type="number" class="form-control" placeholder="e.g. 12"
+                                                aria-label="Income Duration" aria-describedby="incomeDurationLabel">
                                         </div>
                                         <div class="input-group">
-                                            <select class="form-select" id="incomeRenewalDateSelect" aria-label="Renewal Date Select">
+                                            <select class="form-select" id="incomeRenewalDateSelect"
+                                                aria-label="Renewal Date Select">
                                                 <option value="null" disabled selected>Select Renewal Date</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -1202,9 +1394,11 @@
                                                 <option value="28">28</option>
                                             </select>
                                         </div>
-                                        <div class="form-text mb-3" id="incomeRenewalDateDescription">Select the billing/payment date (if applicable)</div>
+                                        <div class="form-text mb-3" id="incomeRenewalDateDescription">Select the
+                                            billing/payment date (if applicable)</div>
                                         <div class="input-group">
-                                            <select class="form-select" id="incomeRenewalMonthSelect" aria-label="Income Renewal Month Select">
+                                            <select class="form-select" id="incomeRenewalMonthSelect"
+                                                aria-label="Income Renewal Month Select">
                                                 <option value="null" disabled selected>Select Renewal Month</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -1220,20 +1414,27 @@
                                                 <option value="12">12</option>
                                             </select>
                                         </div>
-                                        <div class="form-text mb-3" id="incomeRenewalMonthDescription">Select the renewal month (if applicable)</div>
+                                        <div class="form-text mb-3" id="incomeRenewalMonthDescription">Select the
+                                            renewal month (if applicable)</div>
                                         <div class="input-group">
-                                            <span class="input-group-text" id="incomeReviewDateLabel">Next Review Date</span>
-                                            <input type="date" class="form-control" aria-label="Income Review Date" aria-describedby="incomeReviewDateLabel">
+                                            <span class="input-group-text" id="incomeReviewDateLabel">Next Review
+                                                Date</span>
+                                            <input type="date" class="form-control" aria-label="Income Review Date"
+                                                aria-describedby="incomeReviewDateLabel">
                                         </div>
-                                        <div class="form-text mb-3" id="incomeReviewDateDescription">Select the next review date (if applicable)</div>
+                                        <div class="form-text mb-3" id="incomeReviewDateDescription">Select the next
+                                            review date (if applicable)</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
-                            <button class="btn btn-secondary form-btns-parallel" type="reset" aria-label="Cancel Button" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewIncomeItemBtn" aria-label="Save Button" type="submit" onclick="unfocusActiveButtons()">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" type="reset" aria-label="Cancel Button"
+                                data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3"
+                                id="saveNewIncomeItemBtn" aria-label="Save Button" type="submit"
+                                onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -1242,55 +1443,68 @@
         </div>
     </div>
     <!-- Add Recurring Modal -->
-    <div class="modal fade" id="addRecurringModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addRecurringModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addRecurringModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="addRecurringModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addRecurringModalLabel">Add Recurring Payment</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column justify-content-end needs-validation" id="addRecurringForm">
                         <div class="input-group">
                             <span class="input-group-text" id="recurringNameLabel">Name/ Label</span>
-                            <input type="text" class="form-control" id="recurringNameInput" placeholder="e.g. Universal Credit" aria-label="Recurring Name" aria-describedby="recurringNameLabel" required>
+                            <input type="text" class="form-control" id="recurringNameInput"
+                                placeholder="e.g. Universal Credit" aria-label="Recurring Name"
+                                aria-describedby="recurringNameLabel" required>
                         </div>
-                        <div class="form-text mb-3" id="recurringNameDescription">Who pays this? Or what is it for?</div>
+                        <div class="form-text mb-3" id="recurringNameDescription">Who pays this? Or what is it for?
+                        </div>
 
                         <div class="input-group">
                             <span class="input-group-text" id="recurringAmountLabel">Amount (£)</span>
-                            <input type="text" class="form-control" id="incomeAmountInput" aria-label="Income Amount" placeholder="0.00" aria-describedby="recurringAmountLabel`" required>
+                            <input type="text" class="form-control" id="incomeAmountInput" aria-label="Income Amount"
+                                placeholder="0.00" aria-describedby="recurringAmountLabel`" required>
                             <select class="form-select paym-direction-select" aria-label="Payment Direction Select">
                                 <option value="-" selected>-</option>
                                 <option value="+">+</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="recurringAmountDescription">Is the amount positive or negative? (defaults to negative/ out)</div>
+                        <div class="form-text mb-3" id="recurringAmountDescription">Is the amount positive or negative?
+                            (defaults to negative/ out)</div>
 
                         <div class="input-group">
-                            <select class="form-select" id="recurringPaymentFreqSelect" aria-label="Recurring Payment Frequency Select" required>
+                            <select class="form-select" id="recurringPaymentFreqSelect"
+                                aria-label="Recurring Payment Frequency Select" required>
                                 <option value="null" disabled selected>Payment Freq.</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
                                 <option value="weekly">Weekly</option>
                             </select>
-                            <select class="form-select" id="recurringPaymentTypeSelect" aria-label="Recurring Payment Type Select" required>
+                            <select class="form-select" id="recurringPaymentTypeSelect"
+                                aria-label="Recurring Payment Type Select" required>
                                 <option value="null" disabled selected>Payment Type</option>
                                 <option value="contracted-payment">Contracted Payment</option>
                                 <option value="monthly-payment">Monthly Payment</option>
                                 <option value="pot-allocation">Pot Allocation</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="recurringPaymentFrequencyDescription" aria-label="Recurring Payment Frequency Description">How often is the payment made?</div>
+                        <div class="form-text mb-3" id="recurringPaymentFrequencyDescription"
+                            aria-label="Recurring Payment Frequency Description">How often is the payment made?</div>
 
                         <div class="input-group">
-                            <select class="form-select frequency-select" aria-label="Recurring Payment Frequency Select" required>
+                            <select class="form-select frequency-select" aria-label="Recurring Payment Frequency Select"
+                                required>
                                 <option value="" disabled selected>Deduct from</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="28-days">28 Days</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="recurringPaymentFreqSelectDescription" aria-label="Recurring Payment Frequency Select Description">Which paydate does the recurring payment align with?</div>
+                        <div class="form-text mb-3" id="recurringPaymentFreqSelectDescription"
+                            aria-label="Recurring Payment Frequency Select Description">Which paydate does the recurring
+                            payment align with?</div>
 
                         <div class="input-group">
                             <select class="form-select" id="categorySelect" aria-label="Category Select" required>
@@ -1310,36 +1524,46 @@
                                 <option value="social">Social</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="recurringCategoryDescription" aria-label="Recurring Category Description">What category does this payment fall under?</div>
+                        <div class="form-text mb-3" id="recurringCategoryDescription"
+                            aria-label="Recurring Category Description">What category does this payment fall under?
+                        </div>
 
                         <hr>
 
                         <div class="input-group">
                             <span class="input-group-text" id="renewalStartDateLabel">Start Date</span>
-                            <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Start Date" aria-describedby="renewalStartDateLabel">
+                            <input type="date" class="form-control" placeholder="2025-01-01" aria-label="Start Date"
+                                aria-describedby="renewalStartDateLabel">
                             <div class="input-group-text checkbox-group-bg-color">
-                                <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox to set default start date" checked>
+                                <input class="form-check-input mt-0" type="checkbox"
+                                    aria-label="Checkbox to set default start date" checked>
                             </div>
                         </div>
-                        <div class="form-text mb-3" id="recurringStartDateDescription" aria-label="Recurring Start Date Description">Tick box to set as beginning of budget</div>
+                        <div class="form-text mb-3" id="recurringStartDateDescription"
+                            aria-label="Recurring Start Date Description">Tick box to set as beginning of budget</div>
 
                         <div class="input-group">
                             <span class="input-group-text" id="renewalDurationLabel">Duration (months)</span>
-                            <input type="number" class="form-control" placeholder="e.g. 12" aria-label="Duration" aria-describedby="renewalDurationLabel">
+                            <input type="number" class="form-control" placeholder="e.g. 12" aria-label="Duration"
+                                aria-describedby="renewalDurationLabel">
                         </div>
-                        <div class="form-text mb-3" id="recurringBudgetDescription" aria-label="Recurring Budget Description">Defaults to 12 months</div>
+                        <div class="form-text mb-3" id="recurringBudgetDescription"
+                            aria-label="Recurring Budget Description">Defaults to 12 months</div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="recurringIncludeInBudgetText">Include in Budget?</span>
                             <div class="input-group-text checkbox-group-bg-color">
-                                <input class="form-check-input mt-0" type="checkbox" id="recurringIncludeInBudgetCheck" aria-label="Include in budget checkbox" aria-describedby="recurringIncludeInBudgetText" checked>
+                                <input class="form-check-input mt-0" type="checkbox" id="recurringIncludeInBudgetCheck"
+                                    aria-label="Include in budget checkbox"
+                                    aria-describedby="recurringIncludeInBudgetText" checked>
                             </div>
                         </div>
 
                         <hr>
 
                         <div class="input-group">
-                            <select class="form-select" id="recurringBillingDateSelect" aria-label="Billing Date Select">
+                            <select class="form-select" id="recurringBillingDateSelect"
+                                aria-label="Billing Date Select">
                                 <option value="null" disabled selected>Billing Date</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -1371,7 +1595,9 @@
                                 <option value="28">28</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="recurringBillingDateText" aria-label="Billing/Payment Date Description">Select the billing/payment date (if applicable)</div>
+                        <div class="form-text mb-3" id="recurringBillingDateText"
+                            aria-label="Billing/Payment Date Description">Select the billing/payment date (if
+                            applicable)</div>
 
                         <div class="input-group">
                             <select class="form-select" aria-label="recurringMonthSelect">
@@ -1390,13 +1616,18 @@
                                 <option value="12">12</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" aria-label="Renewal Month Description">Select the renewal month (if applicable)</div>
+                        <div class="form-text mb-3" aria-label="Renewal Month Description">Select the renewal month (if
+                            applicable)</div>
 
                         <hr class="mb-4">
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
-                            <button class="btn btn-secondary form-btns-parallel" id="cancelNewRecurringItemBtn" type="reset" aria-label="Cancel Button" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewRecurringItemBtn" type="submit" aria-label="SaveButton" onclick="unfocusActiveButtons()">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" id="cancelNewRecurringItemBtn"
+                                type="reset" aria-label="Cancel Button" data-bs-dismiss="modal"
+                                onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3"
+                                id="saveNewRecurringItemBtn" type="submit" aria-label="SaveButton"
+                                onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -1405,30 +1636,37 @@
         </div>
     </div>
     <!-- Add Oneoff Modal -->
-    <div class="modal fade" id="addOneoffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOneoffModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addOneoffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="addOneoffModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addOneoffModalLabel">Add Oneoff</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="unfocusActiveButtons()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="unfocusActiveButtons()"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column justify-content-end needs-validation" id="addOneoffForm">
                         <div class="input-group">
                             <span class="input-group-text" id="oneoffNameInputLabel">Name/ Label</span>
-                            <input type="text" class="form-control" id="oneoffNameInput" placeholder="e.g. Universal Credit" aria-label="One-off Name Input" aria-describedby="oneoffNameInputLabel" required>
+                            <input type="text" class="form-control" id="oneoffNameInput"
+                                placeholder="e.g. Universal Credit" aria-label="One-off Name Input"
+                                aria-describedby="oneoffNameInputLabel" required>
                         </div>
-                        <div class="form-text mb-3" id="oneoffNameInputDescription">Who pays this? Or what is it for?</div>
+                        <div class="form-text mb-3" id="oneoffNameInputDescription">Who pays this? Or what is it for?
+                        </div>
 
                         <div class="input-group">
                             <span class="input-group-text" id="oneoffAmountInputLabel">Amount (£)</span>
-                            <input type="text" class="form-control" id="oneoffAmountInput" aria-label="One-off Amount" placeholder="0.00" aria-describedby="oneoffAmountInputLabel" required>
+                            <input type="text" class="form-control" id="oneoffAmountInput" aria-label="One-off Amount"
+                                placeholder="0.00" aria-describedby="oneoffAmountInputLabel" required>
                             <select class="form-select paym-direction-select" aria-label="Payment Direction Select">
                                 <option value="-" selected>-</option>
                                 <option value="+">+</option>
                             </select>
                         </div>
-                        <div class="form-text mb-3" id="oneoffAmountInputDescription">Is the amount positive or negative? (defaults to negative/ out)</div>
+                        <div class="form-text mb-3" id="oneoffAmountInputDescription">Is the amount positive or
+                            negative? (defaults to negative/ out)</div>
 
                         <div class="input-group mb-3">
                             <select class="form-select" id="oneoffCategorySelect" aria-label="Category Select" required>
@@ -1448,19 +1686,25 @@
                         <div class="accordion mb-3" id="oneoffAdditionalInfoAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addOneoffCollapse" aria-expanded="false" aria-controls="addOneoffCollapse">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#addOneoffCollapse" aria-expanded="false"
+                                        aria-controls="addOneoffCollapse">
                                         Additional info (optional)
                                     </button>
                                 </h2>
-                                <div id="addOneoffCollapse" class="accordion-collapse collapse" data-bs-parent="#oneoffAdditionalInfoAccordion">
+                                <div id="addOneoffCollapse" class="accordion-collapse collapse"
+                                    data-bs-parent="#oneoffAdditionalInfoAccordion">
                                     <div class="accordion-body">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="oneoffDeadlineDateLabel">Deadline</span>
-                                            <input type="date" class="form-control" id="oneoffDeadlineDateInput" aria-label="Deadline" aria-describedby="oneoffDeadlineDateLabel">
+                                            <input type="date" class="form-control" id="oneoffDeadlineDateInput"
+                                                aria-label="Deadline" aria-describedby="oneoffDeadlineDateLabel">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <select class="form-select" id="oneoffDeadlineFlexibilitySelect" aria-label="Payment Flexibility Select">
-                                                <option value="" disabled selected>Is the deadline flexible? (y/n)</option>
+                                            <select class="form-select" id="oneoffDeadlineFlexibilitySelect"
+                                                aria-label="Payment Flexibility Select">
+                                                <option value="" disabled selected>Is the deadline flexible? (y/n)
+                                                </option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>
@@ -1473,13 +1717,18 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="oneoffIncludeCheckboxText">Include in Budget?</span>
                             <div class="input-group-text checkbox-group-bg-color">
-                                <input class="form-check-input mt-0" type="checkbox" id="oneoffIncludeInBudgetCheck" aria-label="Include in budget checkbox" checked>
+                                <input class="form-check-input mt-0" type="checkbox" id="oneoffIncludeInBudgetCheck"
+                                    aria-label="Include in budget checkbox" checked>
                             </div>
                         </div>
 
                         <div class="d-flex flex-row align-items-senter justify-content-end">
-                            <button class="btn btn-secondary form-btns-parallel" id="cancelNewOneoffItemBtn" type="reset" aria-label="Cancel" data-bs-dismiss="modal" onclick="unfocusActiveButtons()">Cancel</button>
-                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3" id="saveNewOneoffItemBtn" type="submit" aria-label="Save" onclick="unfocusActiveButtons()">Save</button>
+                            <button class="btn btn-secondary form-btns-parallel" id="cancelNewOneoffItemBtn"
+                                type="reset" aria-label="Cancel" data-bs-dismiss="modal"
+                                onclick="unfocusActiveButtons()">Cancel</button>
+                            <button class="btn btn-primary saveFormBtn form-btns-parallel ms-3"
+                                id="saveNewOneoffItemBtn" type="submit" aria-label="Save"
+                                onclick="unfocusActiveButtons()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -1505,10 +1754,13 @@
     </footer>
 
     <!-- Bootstrap JS and Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
     <script type="module" src="/javascripts/dates.js"></script>
     <script type="module" src="/javascripts/main.js"></script>
 </body>
+
 </html>

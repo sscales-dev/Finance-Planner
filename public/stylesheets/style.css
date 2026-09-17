@@ -1,31 +1,46 @@
 /* ------------------------------------------------------- COLOURS */
 
 :root {
-  --white-smoke: #f5f6f4; /* background */
-  --jet-black: #2d3142; /* font */
-  --alabaster-grey: #dee2e6; /* borders */
-  --platinum: #F3F4F6; /* light select colour */
+  --white-smoke: #f5f6f4;
+  /* background */
+  --jet-black: #2d3142;
+  /* font */
+  --alabaster-grey: #dee2e6;
+  /* borders */
+  --platinum: #F3F4F6;
+  /* light select colour */
 
-  --parchment: #edece8; /* unselected tabs */
-  --dark-teal: #154c51; /* buttons and nav links */
-  --velvet-orchid: #803181; /* active nav links */
+  --parchment: #edece8;
+  /* unselected tabs */
+  --dark-teal: #154c51;
+  /* buttons and nav links */
+  --velvet-orchid: #803181;
+  /* active nav links */
   --royal-orchid: #802392;
-  --dark-amethyst: #23022E; /* category column font */
+  --dark-amethyst: #23022E;
+  /* category column font */
 
-  --dusk-blue: #4e598c; /* 78, 89, 140 */
-  --glaucous: #7d82b8; /* tables - use rgba 125, 130, 184 */
-  --hot-rose: #ba2c73; /* hover text and icons? */
-  --neon-pink: #ff006e; /* hover text and icons? */
+  --dusk-blue: #4e598c;
+  /* 78, 89, 140 */
+  --glaucous: #7d82b8;
+  /* tables - use rgba 125, 130, 184 */
+  --hot-rose: #ba2c73;
+  /* hover text and icons? */
+  --neon-pink: #ff006e;
+  /* hover text and icons? */
   --bright-peony: #fb62f6;
   --magenta-bloom: #e83f6f;
   --verdigris1: #1ea896;
   --verdigris2: #00a896;
 
   /* Forms */
-  --crayola-blue: #3777ff; /* save buttons? */
+  --crayola-blue: #3777ff;
+  /* save buttons? */
   --pumpkin-spice: #ff8c42;
-  --charcoal: #525669; /* cancel button 82, 86, 105 */
-  --baltic-blue: #035e7b; /* 3, 94, 123 */
+  --charcoal: #525669;
+  /* cancel button 82, 86, 105 */
+  --baltic-blue: #035e7b;
+  /* 3, 94, 123 */
 
   /* plant colours */
   --faded-copper: #a07e63;
@@ -127,11 +142,9 @@
   --bs-font-monospace:
     SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
-  --bs-gradient: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0)
-  );
+  --bs-gradient: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -216,6 +229,7 @@
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
+
 .hvr-fade:hover,
 .hvr-fade:focus,
 .hvr-fade:active {
@@ -228,7 +242,8 @@ body {
   background-color: var(--white-smoke);
 }
 
-body, h1 {
+body,
+h1 {
   color: var(--jet-black);
   font-family: "IBM Plex Sans Condensed", sans-serif;
   font-weight: 400;
@@ -237,7 +252,7 @@ body, h1 {
 
 /* ------------------------------------------------------- NAVBAR */
 
-.navbar-brand > img {
+.navbar-brand>img {
   margin-bottom: 1rem;
   height: 35px;
 }
@@ -275,6 +290,7 @@ body, h1 {
   .nav-tabs {
     min-width: 90vw;
   }
+
   .nav-link {
     padding-left: 0.53rem;
     padding-right: 0.53rem;
@@ -282,10 +298,11 @@ body, h1 {
 }
 
 @media (min-width: 1200px) {
-  .navbar > div {
+  .navbar>div {
     padding-left: 2.75rem !important;
     padding-right: 2.75rem !important;
   }
+
   .nav-tabs {
     min-width: 337px;
   }
@@ -301,6 +318,7 @@ body, h1 {
 
 .scrollable-table {
   border-bottom: 1px solid var(--alabaster-grey);
+  /*border-top: 1px solid var(--alabaster-grey);*/
   height: 45vh;
   overflow-x: scroll;
   overflow-y: scroll;
@@ -308,7 +326,8 @@ body, h1 {
 }
 
 table {
-  --bsTable-hover-bg: rgba(237, 236, 232, 0.4) !important; /* parchment */
+  --bsTable-hover-bg: rgba(237, 236, 232, 0.4) !important;
+  /* parchment */
   border-left: 1px solid var(--alabaster-grey);
   border-right: 1px solid var(--alabaster-grey);
   table-layout: fixed;
@@ -328,7 +347,7 @@ td {
   width: 16vw;
 }
 
-.category-header-row > th {
+.category-header-row>th {
   color: var(--jet-black);
   background-color: var(--bs-gray-100);
   font-weight: 500;
@@ -342,13 +361,13 @@ tfoot {
   height: 3vh;
 }
 
-tfoot > tr > th.edit-cat-col,
-tfoot > tr > td.cat-name-col,
-tfoot > tr > td.parent-col {
+tfoot>tr>th.edit-cat-col,
+tfoot>tr>td.cat-name-col,
+tfoot>tr>td.parent-col {
   background-color: var(--bs-gray-100);
 }
 
-#categoriesTable > tfoot {
+#categoriesTable>tfoot {
   border-bottom: 1px solid var(--alabaster-grey) !important;
   border-top: 1px solid var(--alabaster-grey) !important;
 }
@@ -383,7 +402,7 @@ td.budget-col {
   font-size: 0.8rem;
 }
 
-tr#paydateRow > th {
+tr#paydateRow>th {
   height: 7.5vh;
 }
 
@@ -413,7 +432,7 @@ span.paydate-frequency {
   color: var(--charcoal);
   font-size: 0.75rem;
   font-weight: 300;
-/*  font-style: italic;*/
+  /*  font-style: italic;*/
 }
 
 .fa-square-plus:hover,
@@ -422,7 +441,7 @@ span.paydate-frequency {
 }
 
 @media (min-width: 1200px) {
-  tr#paydateRow > th {
+  tr#paydateRow>th {
     height: 6vh;
   }
 
@@ -447,8 +466,8 @@ span.paydate-frequency {
 
 /* ------------------------------------------------------- Itemised sections */
 
-section:not(#budget) > table > thead > tr,
-section:not(#budget) > table > tbody > tr {
+section:not(#budget)>table>thead>tr,
+section:not(#budget)>table>tbody>tr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -503,9 +522,9 @@ section:not(#budget) > table > tbody > tr {
   justify-content: space-between;
 }
 
-th > .fa-solid:not(.fa-sort),
-th > .fa-regular,
-td > .fa-regular {
+th>.fa-solid:not(.fa-sort),
+th>.fa-regular,
+td>.fa-regular {
   padding-bottom: 0.2rem;
 }
 
@@ -525,7 +544,7 @@ td > .fa-regular {
   color: var(--bs-gray-800);
 }
 
-th.edit-cat-col > .fa-pen-to-square {
+th.edit-cat-col>.fa-pen-to-square {
   color: var(--dark-amethyst);
 }
 
@@ -538,10 +557,10 @@ th.edit-cat-col > .fa-pen-to-square {
   color: var(--bs-orange);
 }
 
-#recurringTable > tbody > tr > th,
-#recurringTable > tbody > tr > td,
-#oneoffTable > tbody > tr > th,
-#oneoffTable > tbody > tr > td {
+#recurringTable>tbody>tr>th,
+#recurringTable>tbody>tr>td,
+#oneoffTable>tbody>tr>th,
+#oneoffTable>tbody>tr>td {
   height: 40px;
 }
 
@@ -550,7 +569,7 @@ th.edit-cat-col > .fa-pen-to-square {
     width: 5vw;
   }
 
-  th.item-col > span,
+  th.item-col>span,
   td.item-col {
     padding-right: 1.5rem !important;
     text-align: right;
@@ -575,15 +594,15 @@ th.edit-cat-col > .fa-pen-to-square {
     width: 19.75vw;
   }
 
-  #recurringTable > * > tr > th.date-col,
-  #recurringTable > * > tr > td.date-col {
+  #recurringTable>*>tr>th.date-col,
+  #recurringTable>*>tr>td.date-col {
     width: 9.75vw;
   }
 
-  #recurringTable > * > tr > th.freq-col,
-  #recurringTable > * > tr > td.freq-col,
-  #recurringTable > * > tr > th.cat-col,
-  #recurringTable > * > tr > td.cat-col {
+  #recurringTable>*>tr>th.freq-col,
+  #recurringTable>*>tr>td.freq-col,
+  #recurringTable>*>tr>th.cat-col,
+  #recurringTable>*>tr>td.cat-col {
     width: 12.5vw;
   }
 
@@ -594,7 +613,7 @@ th.edit-cat-col > .fa-pen-to-square {
 
 /* ------------------------------------------------------- Date Dropdown */
 
-table:not(#oneoff) > tbody > td.item-date {
+table:not(#oneoff)>tbody>td.item-date {
   padding-top: 0.4rem;
   padding-bottom: 0.35rem;
 }
@@ -634,7 +653,8 @@ table:not(#oneoff) > tbody > td.item-date {
 
 .dropdown-item:hover,
 .dropdown-item.active {
-  background-color: rgba(237, 236, 232, 0.5) !important; /* parchment */
+  background-color: rgba(237, 236, 232, 0.5) !important;
+  /* parchment */
   color: var(--jet-black);
 }
 
@@ -657,10 +677,12 @@ th.edit-cat-col {
   width: 2.5vw;
 }
 
-#categoriesTable > tbody > tr:not(.category-header-row) > th:not(.edit-cat-col),
-#categoriesTable > tbody > tr > td {
-  color: var(--jet-black)/*var(--bs-gray-700)*/;
-  
+#categoriesTable>tbody>tr:not(.category-header-row)>th:not(.edit-cat-col),
+#categoriesTable>tbody>tr>td {
+  color: var(--jet-black)
+    /*var(--bs-gray-700)*/
+  ;
+
 }
 
 .input-group-text,
@@ -682,8 +704,8 @@ th.edit-cat-col {
   max-width: 205px;
 }
 
-.category-row > th,
-.category-row > td {
+.category-row>th,
+.category-row>td {
   font-size: 0.95rem;
 }
 
@@ -722,7 +744,8 @@ th.edit-cat-col {
 
 .btn-secondary {
   background-color: var(--charcoal);
-  border: 1px solid rgba(82, 86, 105, 0.1); /* Charcoal */
+  border: 1px solid rgba(82, 86, 105, 0.1);
+  /* Charcoal */
 }
 
 .saveFormBtn:hover {
@@ -750,7 +773,7 @@ th.edit-cat-col {
   max-width: 97.5px;
 }
 
-#categorySelect > option {
+#categorySelect>option {
   font-size: 0.75rem;
 }
 

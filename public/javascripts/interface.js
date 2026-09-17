@@ -7,7 +7,7 @@
  * 
  * @param {Element} element
  * 
- */ 
+ */
 
 function toggleItemVisibility(element) {
   const clickedElement = element;
@@ -20,30 +20,30 @@ function toggleItemVisibility(element) {
   for (i = 0; i < classList.length; i++) {
     className = classList[i];
     if (className === "fa-circle-xmark") {
-        clickedElement.classList.add("d-none");
-        clickedElement.previousElementSibling.classList.remove("d-none");
+      clickedElement.classList.add("d-none");
+      clickedElement.previousElementSibling.classList.remove("d-none");
 
-        clickedElement.parentElement.classList.remove('unchecked');
-        clickedElement.parentElement.classList.add('checked');
+      clickedElement.parentElement.classList.remove('unchecked');
+      clickedElement.parentElement.classList.add('checked');
 
     } else if (className === "fa-circle") {
       clickedElement.classList.add("d-none");
       clickedElement.nextElementSibling.classList.remove("d-none");
- 
+
       clickedElement.parentElement.classList.remove('checked');
       clickedElement.parentElement.classList.add('unchecked');
 
     } else if (className === "fa-square-plus") {
       clickedElement.classList.add("d-none");
       clickedElement.nextElementSibling.classList.remove("d-none");
- 
+
       clickedElement.parentElement.classList.remove('closed');
       clickedElement.parentElement.classList.add('open');
 
     } else if (className === "fa-square-minus") {
       clickedElement.classList.add("d-none");
       clickedElement.previousElementSibling.classList.remove("d-none");
- 
+
       clickedElement.parentElement.classList.remove('open');
       clickedElement.parentElement.classList.add('closed');
 
@@ -62,14 +62,14 @@ function toggleItemVisibility(element) {
  * 
  * @param {Element} element
  * 
- */ 
+ */
 
 function toggleDropdownDate(element) {
-    const clickedElement = element;
-    const checkIcon = clickedElement.querySelector("i");
+  const clickedElement = element;
+  const checkIcon = clickedElement.querySelector("i");
 
-    clickedElement.classList.toggle("active");
-    checkIcon.classList.toggle("d-none");
+  clickedElement.classList.toggle("active");
+  checkIcon.classList.toggle("d-none");
 
-    return;
+  return;
 }

@@ -1,4 +1,4 @@
-import { calculatePaydays, buildPaydaysArray, getPaydaysArray } from './dates.js'
+import { getPaydaysArray } from './dates.js'
 
 //------------------------------------------------------------------------------ Buttons
 
@@ -10,10 +10,10 @@ import { calculatePaydays, buildPaydaysArray, getPaydaysArray } from './dates.js
  * 
  */
 function unfocusActiveButtons(btn) {
-    const activeButton = btn;
-    if (activeButton) {
-        activeButton.blur();
-    }
+  const activeButton = btn;
+  if (activeButton) {
+    return activeButton.blur();
+  }
 }
 
 //------------------------------------------------------------------------------ Toasts
@@ -23,7 +23,7 @@ function unfocusActiveButtons(btn) {
  * @param {String} message
  * 
 **/
-function displayToast (message) {
+function displayToast(message) {
   const toastLive = document.getElementById('liveToast');
   const toastTriggerTitle = document.getElementById('toastTriggerTitle');
   const toastTimeStamp = document.getElementById('toastTimeStamp');
@@ -60,7 +60,7 @@ function displayToast (message) {
  * 
  */
 
-function lastUpdatedTextUpdate (formName, lastUpdated) {
+function lastUpdatedTextUpdate(formName, lastUpdated) {
   const modalFooter = document.getElementById(`${formName}ModalFooter`);
   const updateInfoContainer = document.getElementById(`${formName}UpdatedInfo`);
   const updatedTimeEl = document.getElementById(`${formName}UpdatedTime`);
@@ -80,12 +80,12 @@ function lastUpdatedTextUpdate (formName, lastUpdated) {
  * @task ?Refactor lets to be constant with HTMl elements and then just = budgetOnject
  */
 
-function loadBudgetSettingsToFormDefaults () {
+function loadBudgetSettingsToFormDefaults() {
   const budgetString = localStorage.getItem("budget")
   const budgetObject = JSON.parse(budgetString)
 
   if (!budgetString) {
-    throw Error ("No budget settings in Local Storage");
+    throw Error("No budget settings in Local Storage");
 
   }
 
@@ -139,7 +139,7 @@ function loadBudgetSettingsToFormDefaults () {
  * 
  */
 
-async function addNewPaydateElements (paydaysArray) {
+async function addNewPaydateElements(paydaysArray) {
   // console.log(paydaysArray)
 
   const paydateRow = document.getElementById('paydateRow')
@@ -160,7 +160,7 @@ async function addNewPaydateElements (paydaysArray) {
   if (paydateTableHeaders.length < paydaysArray.length) {
     const difference = paydaysArray.length - (paydateTableHeaders.length - 1)
     const numberOfHeaders = paydateTableHeaders.length
-    
+
     //console.log(paydaysArray.length, paydateTableHeaders.length - 1)
     console.log(`Adding ${difference} columns to budget table`)
 
@@ -188,7 +188,7 @@ async function addNewPaydateElements (paydaysArray) {
       thEl = document.getElementById(`payDate${number}`)
 
       span1.classList.add('paydate')
-      span1.id= `date${number}`
+      span1.id = `date${number}`
 
       span2.classList.add('paydate-frequency')
 
@@ -239,12 +239,12 @@ async function addNewPaydateElements (paydaysArray) {
  * 
  */
 
-async function setBudgetDatesAndFrequencies () {
+async function setBudgetDatesAndFrequencies() {
   // Get budget settings and parse to create paydays array
   const budgetSettingsString = localStorage.getItem('budget')
   const budgetSettingsObject = JSON.parse(budgetSettingsString)
   const paydaysArray = budgetSettingsObject.dates_array
-  
+
   // get paydates and paydate frequency elements
   const paydateElements = document.getElementsByClassName('paydate')
   const frequencyElements = document.getElementsByClassName('paydate-frequency')
@@ -287,14 +287,14 @@ async function setBudgetDatesAndFrequencies () {
  * 
  */
 
-async function formElementValuesToArray (elementsArray) {
+async function formElementValuesToArray(elementsArray) {
   const array = []
 
   let i = 0;
 
   for (i = 0; i < elementsArray.length; i++) {
-      //console.log("Pushing details to array", elementsArray[i].id);
-      array.push({"id": elementsArray[i].id, "value": elementsArray[i].value, "defaultValue": elementsArray[i].defaultValue});
+    //console.log("Pushing details to array", elementsArray[i].id);
+    array.push({ "id": elementsArray[i].id, "value": elementsArray[i].value, "defaultValue": elementsArray[i].defaultValue });
   };
 
   if (array.length === elementsArray.length) {
@@ -309,26 +309,26 @@ async function formElementValuesToArray (elementsArray) {
  * 
  */
 
-async function getFormInputValuesObject (form) {
-    const inputs = form.getElementsByTagName("input");
-    const selects = form.getElementsByTagName("select");
-    const checkboxes = form.getElementsByTagName("checkboxes");
+async function getFormInputValuesObject(form) {
+  const inputs = form.getElementsByTagName("input");
+  const selects = form.getElementsByTagName("select");
+  const checkboxes = form.getElementsByTagName("checkboxes");
 
-    const object = {}
+  const object = {}
 
-    // console.log(inputs, selects, checkboxes);
+  // console.log(inputs, selects, checkboxes);
 
-    // Pulls form elements and element values object for each element in the given arrays
+  // Pulls form elements and element values object for each element in the given arrays
 
-    const inputValues = await formElementValuesToArray(inputs)
-    const selectValues = await formElementValuesToArray(selects)
-    const checkboxValues = await formElementValuesToArray(checkboxes)
+  const inputValues = await formElementValuesToArray(inputs)
+  const selectValues = await formElementValuesToArray(selects)
+  const checkboxValues = await formElementValuesToArray(checkboxes)
 
-    object.inputs = inputValues
-    object.selects = selectValues
-    object.checkboxes = checkboxValues
+  object.inputs = inputValues
+  object.selects = selectValues
+  object.checkboxes = checkboxValues
 
-    return object
+  return object
 }
 
 /** Process Form Values
@@ -346,107 +346,107 @@ async function getFormInputValuesObject (form) {
  */
 
 async function processFormValues(formId) {
-    console.log("Processing form...");
+  console.log("Processing form...");
 
-    const form = document.getElementById(formId);
+  const form = document.getElementById(formId);
 
-    const formValues = await getFormInputValuesObject(form)
+  const formValues = await getFormInputValuesObject(form)
 
-    switch (formId) {
-        case "budgetDatesInputForm":
-          // Arrays of objects containing id and value
-          let dateValuesArray = formValues.inputs;
-          let freqValuesArray = formValues.selects;
+  switch (formId) {
+    case "budgetDatesInputForm":
+      // Arrays of objects containing id and value
+      let dateValuesArray = formValues.inputs;
+      let freqValuesArray = formValues.selects;
 
-          let budget = {}
+      let budget = {}
 
-          let date = Date.now()
-          let utcDate = new Date(date).toUTCString()
-          let dateString = new Date(date).toDateString()
-          let timeString = new Date(date).toLocaleTimeString()
+      let date = Date.now()
+      let utcDate = new Date(date).toUTCString()
+      let dateString = new Date(date).toDateString()
+      let timeString = new Date(date).toLocaleTimeString()
 
-          let datesArray
+      let datesArray
 
-          const timeObject = {
-            utc: utcDate,
-            localDate: dateString,
-            localTime: timeString
-          }
+      const timeObject = {
+        utc: utcDate,
+        localDate: dateString,
+        localTime: timeString
+      }
 
-          // Add array values and date_created to budget object
+      // Add array values and date_created to budget object
 
-          budget.paydate1 = {
-            date: dateValuesArray[0].value,
-            frequency: freqValuesArray[0].value
-          };
+      budget.paydate1 = {
+        date: dateValuesArray[0].value,
+        frequency: freqValuesArray[0].value
+      };
 
-          budget.paydate2 = {
-            date: dateValuesArray[1].value,
-            frequency: freqValuesArray[1].value
-          };
+      budget.paydate2 = {
+        date: dateValuesArray[1].value,
+        frequency: freqValuesArray[1].value
+      };
 
-          budget.duration = freqValuesArray[2].value;
+      budget.duration = freqValuesArray[2].value;
 
-          budget.last_updated = timeObject;
+      budget.last_updated = timeObject;
 
-          budget.date_created = timeObject;
+      budget.date_created = timeObject;
 
-          try {
-            datesArray = await getPaydaysArray()
+      try {
+        datesArray = await getPaydaysArray()
 
-          } catch (err) {
-            console.error("Problen compiling dates array", err);
+      } catch (err) {
+        console.error("Problen compiling dates array", err);
 
-          }
-          
-          budget.dates_array = datesArray
+      }
 
-          if (dateValuesArray.length !== 2 || freqValuesArray.length !== 3) {
-            console.error("Error with pulling all values from settings form")
+      budget.dates_array = datesArray
 
-          }
+      if (dateValuesArray.length !== 2 || freqValuesArray.length !== 3) {
+        console.error("Error with pulling all values from settings form")
 
-          try {
-            // Store stringified budget object in local storage
-            localStorage.setItem("budget", JSON.stringify(budget));
+      }
 
-          } catch (err) {
-            console.error("Problem storaing local values...", err);
+      try {
+        // Store stringified budget object in local storage
+        localStorage.setItem("budget", JSON.stringify(budget));
 
-          };
+      } catch (err) {
+        console.error("Problem storaing local values...", err);
 
-          try {
-            // Update text on budget setting modal form with last_updated date and time
-            lastUpdatedTextUpdate("budgetDates", budget.last_updated);
+      };
 
-          } catch (err) {
-            console.error("Problem updating last updated text on budget settings modal...", err);
+      try {
+        // Update text on budget setting modal form with last_updated date and time
+        lastUpdatedTextUpdate("budgetDates", budget.last_updated);
 
-          }
+      } catch (err) {
+        console.error("Problem updating last updated text on budget settings modal...", err);
 
-          try {
-            // Load values into form elements' defaultValues attributes
-            loadBudgetSettingsToFormDefaults()
+      }
 
-          } catch (err) {
-            console.error("Problem loading values into form elements' defaultValues attributes...", err);
+      try {
+        // Load values into form elements' defaultValues attributes
+        loadBudgetSettingsToFormDefaults()
 
-          }
+      } catch (err) {
+        console.error("Problem loading values into form elements' defaultValues attributes...", err);
 
-          try {
-            // Update dates and frequencies on budget table
-            await setBudgetDatesAndFrequencies()
+      }
 
-          } catch (err) {
-            console.error();
+      try {
+        // Update dates and frequencies on budget table
+        await setBudgetDatesAndFrequencies()
 
-          }
+      } catch (err) {
+        console.error();
 
-          break;
-        // Add cases for other forms here.
-        default:
-            console.log("No processing function defined for this form.");
-    }
+      }
+
+      break;
+    // Add cases for other forms here.
+    default:
+      console.log("No processing function defined for this form.");
+  }
 }
 
 //------------------------------------------------------------------------------ Add Event Listeners
@@ -460,7 +460,7 @@ async function processFormValues(formId) {
  * 
  */
 
-function addEventListenersToModals () {
+function addEventListenersToModals() {
   // Get modal elements
   const budgetSettingsModal = document.getElementById("budgetSettingsModal");
   const addIncomeModal = document.getElementById("addIncomeModal");
@@ -468,7 +468,7 @@ function addEventListenersToModals () {
   const addOneoffModal = document.getElementById("addOneoffModal");
 
   // Add event listeners to each modal
-    // Always focus first input on shown and blur button on hidden
+  // Always focus first input on shown and blur button on hidden
 
   // shown.bs.modal: Focuses on the first input field when the modal is opened.
   // hidden.bs.modal: Removes was-validated and adds needs validation on close.
@@ -476,9 +476,9 @@ function addEventListenersToModals () {
   // Budget Settings Modal
   budgetSettingsModal.addEventListener("shown.bs.modal", () => {
     const budgetSettingsModalFirstInput = document.getElementById("firstPaydate");
-    
+
     budgetSettingsModalFirstInput.focus();
-    
+
   });
 
   budgetSettingsModal.addEventListener('hidden.bs.modal', async event => {
@@ -489,39 +489,39 @@ function addEventListenersToModals () {
 
     // If form is not valid, stop propagation and prevent default
     if (!form.checkValidity()) {
-        event.stopPropagation();
-        event.preventDefault();
-
-        return;
-
-      }
+      event.stopPropagation();
       event.preventDefault();
 
-      // Add validated styling and display loading button (not seen unless processing is slow)
-      form.classList.add('was-validated');
-      
-      saveBtn.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
+      return;
+
+    }
+    event.preventDefault();
+
+    // Add validated styling and display loading button (not seen unless processing is slow)
+    form.classList.add('was-validated');
+
+    saveBtn.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>`;
-      saveBtn.style = "background-color: var(--success-green); border-color: var(--success-green); color: #fff;";
-      
-      console.log("Form Validated. Processing form...");
+    saveBtn.style = "background-color: var(--success-green); border-color: var(--success-green); color: #fff;";
+
+    console.log("Form Validated. Processing form...");
 
 
-      try {
-        await processFormValues(form.id);
+    try {
+      await processFormValues(form.id);
 
-        form.classList.remove('was-validated')
-        form.classList.add('needs-validation')
+      form.classList.remove('was-validated')
+      form.classList.add('needs-validation')
 
-        unfocusActiveButtons(saveBtn)
+      unfocusActiveButtons(saveBtn)
 
-        return modal.hide()
+      return modal.hide()
 
-      } catch (err) {
-        console.error("Error processing form", form.id, err);
+    } catch (err) {
+      console.error("Error processing form", form.id, err);
 
-      }
+    }
   })
 
   // Add Income Modal
@@ -557,7 +557,7 @@ function addEventListenersToModals () {
   })
 
   // Add Oneoff Modal
-   addOneoffModal.addEventListener("shown.bs.modal", () => {
+  addOneoffModal.addEventListener("shown.bs.modal", () => {
     const addOneoffModalFirstInput = document.getElementById("oneoffNameInput");
 
     addOneoffModalFirstInput.focus();
@@ -595,7 +595,7 @@ function addEventListenersToModals () {
   // Temporarily clear localStorage for testing purposes. Remove this in production.
   // localStorage.clear();
 
-  
+
   try {
     // Load Budget Settings
 

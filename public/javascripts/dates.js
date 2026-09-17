@@ -10,11 +10,11 @@
  * 
  */
 
-async function ifDateWeekend (date) {
+async function ifDateWeekend(date) {
   // console.log("Check paydate triggered for: " + date)
 
   // create date, d from given value 
-    // [] review the formats etc
+  // [] review the formats etc
   let d = new Date(date)
 
   let newDate = new Date(date)
@@ -44,7 +44,7 @@ async function ifDateWeekend (date) {
     temp3 = temp2 + hour
 
     newDate = new Date(temp3)
-    
+
   }
 
   // if no new date, throw error, otherwise, return date to a string value
@@ -69,7 +69,7 @@ async function ifDateWeekend (date) {
  * @customfunction
 */
 
-export async function calculatePaydays (start_date, freq) {
+export async function calculatePaydays(start_date, freq) {
   if (!start_date || !freq) {
     throw `calculatePaydays: Missing parameters!`
 
@@ -78,12 +78,12 @@ export async function calculatePaydays (start_date, freq) {
   console.log(freq)
 
   // create date from given date
-    // [] check the given value's data types/ formats
+  // [] check the given value's data types/ formats
   const start = new Date(start_date)
-  
+
   let date
   let numPaym
-  
+
   let newArr = []
 
   // console.log(`Compiling Array of dates, ${freq} frequency, starting from: ${start_date}`)
@@ -105,10 +105,10 @@ export async function calculatePaydays (start_date, freq) {
       // loop through the number of payments outlined, adjust if necessary, calls ifDateWeekend(date) and adds it to the array
       let i = 0
 
-      for (i = 0; i < numPaym; i++) { 
+      for (i = 0; i < numPaym; i++) {
         if (i === 0) { // if its the start date
           date = await ifDateWeekend(start)
-          
+
         } else { // otherwise add a month to the date, check it falls on a weekday/ not
           let tempDate
 
@@ -152,10 +152,10 @@ export async function calculatePaydays (start_date, freq) {
       // specify lengths of time in milliseconds
       let oneDay = 86400000
       let onePayCycle = oneDay * 28
-      
+
       // number of dates to generate
       numPaym = 14
-      
+
       // loop through the numPaym, if its the first one, just make date = start, otherwise add one paycycle x j (number of iterations) to the date variable
       let j = 0
 
@@ -202,7 +202,7 @@ export async function calculatePaydays (start_date, freq) {
  * @param {Date} arr1
  * @param {Date} arr2
  */
-export async function buildPaydaysArray (arr1, arr2) {
+export async function buildPaydaysArray(arr1, arr2) {
   if (arr1.length < 12 || arr2.length < 14) {
     throw `buildPaydaysArray: Missing Parameters!`
 
@@ -237,7 +237,7 @@ export async function buildPaydaysArray (arr1, arr2) {
  * @returns ordered dates array (with a 2 item array per index)
  */
 
-export async function getPaydaysArray () { 
+export async function getPaydaysArray() {
   const budgetString = localStorage.getItem("budget")
   const budgetObject = JSON.parse(budgetString)
 
