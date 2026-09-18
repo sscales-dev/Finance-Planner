@@ -151,10 +151,13 @@ Titles are written so you can paste them straight in. Labels in brackets.
 2. **ADR: database choice (Mongo Atlas vs SQLite vs none yet)** `[type:spike, needs-decision, area:db]` `S` `P0`
    Done when `docs/decisions/002-database.md` exists with the tradeoffs you actually care about.
 
-3. **Move DB credentials to environment variables** `[type:chore, area:server]` `S` `P0`
+3. **Move DB credentials to environment variables** `[type:chore, area:server]` `S` `P1`
    Done when `modules/database.js` reads `process.env`, a `.env.example` is committed, `.env`
    is gitignored, and no credential exists in any tracked or untracked source file.
-   *Node 20.6+ can load it natively: `node --env-file=.env ./bin/www`.*
+   *Node 20.6+ can load it natively: `node --env-file=.env ./bin/www`.* Downgraded from P0:
+   `tasks.md`'s COMPLETED list shows credentials were already moved to a gitignored `cred`
+   folder and the DB password already rotated. `.env` is still worth doing for the standard
+   `process.env` pattern, but the exposure risk is already handled.
 
 4. **Fix invalid template literal in monthly payday calculation** `[type:bug, area:dates]` `XS` `P0`
    `public/javascripts/dates.js` builds `` new Date(`${year}-"${monthNum}-...`) `` with a stray
@@ -191,20 +194,26 @@ Titles are written so you can paste them straight in. Labels in brackets.
 ### E1 — Domain & data model
 
 11. **Define the category taxonomy, aligned to Monzo pots** `[type:feature, area:forms]` `M` `P0`
-    Confirmed 2026-09-17: five parents — Income, Overheads, Essential, Discretionary, Lending
-    and Borrowing (`~Unknown` dropped, a relic of when the sheet tracked raw Monzo transactions).
-    Children are NOT a straight port of the spreadsheet's ~35 — most go unused. Rebuild them
-    around actual Monzo pots (Transport and Subscriptions confirmed so far, full list pending)
-    plus a handful of catch-all categories for non-pot spending. Needs-decision blocked on the
-    pot list. Done when the mapping lives in one JS module and every `<select>` is generated
-    from it.
+    Confirmed: five parents — Income, Overheads, Essential, Discretionary, Loans & Debt
+    (`~Unknown` dropped, a relic of when the sheet tracked raw Monzo transactions). Children are
+    NOT a straight port of the spreadsheet's ~35 — most go unused. Rebuild them around actual
+    Monzo pots (Transport and Subscriptions confirmed so far, full list pending) plus a handful
+    of catch-all categories for non-pot spending. Needs-decision blocked on the pot list. Done
+    when the mapping lives in one JS module and every `<select>` is generated from it.
 
 12. **Define the canonical transaction shape** `[type:docs, area:db]` `S` `P0`
-    One shape with a `type` discriminator (`income` | `recurring` | `oneoff`) rather than three.
+    Already sketched in `modules/classes.js`: one `Transaction` class with `payment_direction`,
+    `payment_frequency`, `category`, and a polymorphic `date_info` (`RecurringDateInfo` or
+    `OnetimeDateInfo`) rather than three separate shapes with a flat `type` field. Recommend
+    adopting this directly — it's a sound design already done — plus adding a new `payment_type`
+    field (Allocation / Contracted / Monthly, from the 2026-09-18 glossary discussion).
 
 13. **Decide: are paydates derived or stored?** `[type:spike, needs-decision, area:dates]` `S` `P0`
-    They're fully derivable from (start date, frequency, duration). Storing them as a separate
-    collection, as `modules/classes.js` sketches, creates a sync problem you don't need.
+    Reopened 2026-09-18: `classes.js`'s `BudgetSpan`/`Paydate` design already exists and,
+    per Sam, maps to real documents already sitting in the live Atlas cluster (`database.js`'s
+    `getCurrentBudget()` queries exactly this shape). Whether real, worth-keeping data already
+    lives there changes this from "avoid an unneeded sync problem" to "adopt what's already
+    built" — needs Sam to confirm how much is actually in that collection before deciding.
 
 14. **Define skip-date semantics** `[type:docs, needs-decision]` `XS` `P1`
     Does "skip" mean *don't charge this instance* or *move it to the next payday*? The answer
@@ -244,10 +253,13 @@ Titles are written so you can paste them straight in. Labels in brackets.
 21. **Fix duplicate element IDs** `[type:bug, area:html]` `XS` `P1`
     `incomeAmountInput` appears in both the Add Income and Add Recurring modals.
 
-22. **Fix inline `onclick` handlers calling module-scoped functions** `[type:bug, area:js]` `S` `P0`
+22. **Fix inline `onclick` handler calling a module-scoped function** `[type:bug, area:js]` `S` `P0`
     `unfocusActiveButtons` is defined inside `main.js`, which loads as `type="module"`, so
-    every `onclick="unfocusActiveButtons()"` in the HTML throws a ReferenceError. Done when
-    handlers are attached with `addEventListener` and no inline `onclick` remains.
+    every `onclick="unfocusActiveButtons()"` in the HTML throws a ReferenceError. Per your own
+    earlier plan in `tasks.md`: move the function to `interface.js` instead (already a classic
+    script, already the home of the other working `onclick` handlers) and keep the `onclick`
+    attributes as-is — less churn than switching everything to `addEventListener`, and matches
+    the pattern already working elsewhere.
 
 23. **Fix the one-off category select** `[type:bug, area:forms]` `XS` `P1`
     Its options are dates (`2027-1-13`) rather than categories.
@@ -257,6 +269,10 @@ Titles are written so you can paste them straight in. Labels in brackets.
     labels carry actual meaning for screen readers.
 
 25. **Build the Categories settings tab content** `[type:feature, area:forms]` `M` `P2`
+
+25b. **Conditional required fields on the recurring form** `[type:feature, area:forms]` `S` `P2`
+    From `tasks.md`: when Category is Household Bills or Subscriptions, Renewal Date and
+    Renewal Month should become required fields.
 
 26. **First-run flow when localStorage is empty** `[type:feature, area:forms]` `S` `P1`
     Also fix `console.errer` in the onload catch block, which currently throws inside the
@@ -268,22 +284,26 @@ Titles are written so you can paste them straight in. Labels in brackets.
     Split by table. The sample rows (Universal Credit, PIP, Rent, Council Tax, Groceries,
     Tattoo…) are hardcoded in `index.html`.
 
-28. **Build per-position skip checkboxes from the real paydays array** `[type:refactor, area:table]` `M` `P1`
-    Confirmed 2026-09-17: not a date dropdown — one checkbox per payday *position* within the
-    item's stream (1..N, matching that stream's SUMIF-excludable columns in the spreadsheet).
-    Checked means excluded from that occurrence. Currently twelve hardcoded `<li>`s cycling the
-    same three dates; replace with N checkboxes, N = paydays in that stream across the budget
-    span, each tagged with its position rather than a specific date.
+28. **Build a skip-payday multi-select from the real paydays array** `[type:refactor, area:table]` `M` `P1`
+    Confirmed: not a per-position checkbox row (too wide for a web UI) — a multi-select of
+    upcoming paydays for that item's stream. Underlying data is unchanged: position-indexed
+    (1..N within the stream), selected = excluded from that occurrence's sum. Currently twelve
+    hardcoded `<li>`s cycling the same three dates; replace with a multi-select built from
+    N = paydays in that stream across the budget span.
 
-29. **Add / edit / archive / delete for each transaction type** `[type:feature, area:forms]` `L` `P1`
+29. **Add / edit / delete for each transaction type** `[type:feature, area:forms]` `L` `P1`
+    Archive already works (`tasks.md` COMPLETED) — this is the remaining three.
 
 30. **Make the row toggles accessible** `[type:refactor, area:a11y]` `M` `P1`
     The include/exclude and expand/collapse controls are `<i>` elements with `onclick` — not
     focusable, no accessible name, no keyboard operation. Done when they're `<button>`s with
     `aria-pressed` / `aria-expanded`.
 
-31. **Wire the toast to real events** `[type:feature, area:js]` `S` `P2`
+31. **Wire the toast to real events, and style/position it** `[type:feature, area:js]` `S` `P2`
     Also remove the `<img src="...">` placeholder, which fires a 404 on every page load.
+
+31b. **Add loading-state indicators for async actions** `[type:feature, area:js]` `S` `P2`
+    From `tasks.md` — a small polish item, not urgent.
 
 ### E5 — Budget computation (the actual product)
 
@@ -387,7 +407,9 @@ Titles are written so you can paste them straight in. Labels in brackets.
 
 54. **Client fetch layer with error handling** `[type:feature, area:js]` `M` `P1`
     localStorage becomes a cache with a `lastSynced` marker rather than the source of truth.
-    (This supersedes the `docs/tasks.md` note about moving to sessionStorage.)
+    (This supersedes the `docs/tasks.md` note about moving to sessionStorage.) When a save
+    succeeds, feed the Mongo-assigned `_id` back into the cached localStorage copy of that item
+    — from `tasks.md` — so later edits reference the right document.
 
 55. **Backup / export** `[type:feature, area:db]` `S` `P1`
     JSON or CSV download. For five years of personal finance data this matters more than most
@@ -396,7 +418,11 @@ Titles are written so you can paste them straight in. Labels in brackets.
 ### E8 — Auth & deployment
 
 56. **Login with Argon2** `[type:feature, area:server]` `L` `P2`
-    Only needed before anything is exposed beyond localhost. Until then it's ceremony.
+    Only needed before anything is exposed beyond localhost. Until then it's ceremony. Scope
+    note: Argon2 is for *login password hashing* only. `tasks.md` also lists "encryption for
+    credentials" under Database — that's a different concern (protecting the Mongo connection
+    string, which you need to read back out, not just verify), already covered by issue #3's
+    `.env` approach. Argon2 can't do that job; it's one-way.
 
 57. **Decide HTTPS / LAN serving approach** `[type:spike, needs-decision, area:server]` `S` `P2`
 
@@ -412,6 +438,9 @@ Titles are written so you can paste them straight in. Labels in brackets.
 62. Charts / trend view `[type:feature]` `M`
 63. Multi-budget comparison (what-if scenarios) `[type:feature]` `L`
 64. PWA / offline support `[type:feature]` `L`
+65. Mobile drag gesture on item rows for delete/archive `[type:feature]` `M` — from `tasks.md`
+66. Archive completed budgets as "relics" for historical data, rather than overwriting them —
+    the `BudgetSpan.status` field in `classes.js` already anticipates this
 
 ---
 

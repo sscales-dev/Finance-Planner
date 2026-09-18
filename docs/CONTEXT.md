@@ -3,19 +3,9 @@
 Drop this in the repo root or `docs/`. Its job is to let anyone (or any AI) understand the
 project in two minutes without guessing.
 
-I've pre-filled what I could infer from the code and marked my guesses with **[check]**.
-Lines marked **[you]** need you — I can't know the answer.
-
----
-
-## 1. What this is
-
-A personal finance planner for one user, replacing a Google Sheets workbook used for about
-five years. It shows, for each payday across a 6–24 month span, how much money will be
-available after planned income and expenditure.
-
 **[you]** One paragraph on what makes this different from every other budgeting app, in your
-own words. That paragraph is the thing that should settle future feature arguments.
+own words — still open, no rush. That paragraph is the thing that should settle future feature
+arguments.
 
 ---
 
@@ -23,49 +13,48 @@ own words. That paragraph is the thing that should settle future feature argumen
 
 ```bash
 npm install
-npm run dev          
-
+npm run dev
 # or: set DEBUG=finance-planner:* & npm start
-
 # then open http://localhost:3000
 ```
 
-**[fixed]** `GET /` is served by `express.static` from `public/index.html`, not by the Express
-router, because `app.use(express.static(...))` is registered before `app.use('/', indexRouter)`
-in `app.js`. That means `views/index.pug` is currently unreachable.
+`GET /` is served by `express.static` from `public/index.html`, not by the Express router,
+because `app.use(express.static(...))` is registered before `app.use('/', indexRouter)` in
+`app.js`. That means `views/index.pug` is currently unreachable.
+
+**[claude — needs your confirmation]** You tagged this `[fixed]` rather than `[checked]`. Two
+readings: (a) you're confirming my read is accurate, or (b) you've actually deleted the Pug
+views / dead routes already, acting on the static-HTML direction. Which is it? It decides
+whether issue #1 (the ADR) is still open or already done.
 
 ---
 
 ## 3. Status legend
-
-Every file below is tagged. Please correct anything I've got wrong — this table is the single
-most useful thing in this document, because from the outside I cannot tell a working feature
-from a convincing placeholder.
 
 - **REAL** — working, intended to stay
 - **PARTIAL** — works but incomplete or known-buggy
 - **PLACEHOLDER** — looks like a feature, is actually hardcoded sample data
 - **DEAD** — not loaded, not called, or would crash if it were
 
-| File | Status **[checked]** | Note |
+| File | Status | Note |
 |---|---|---|
-| `app.js` | REAL | Working | Response: Fixed
+| `app.js` | REAL | Working |
 | `bin/www` | REAL | Standard generator output |
-| `routes/users.js` | DEAD |Sample data/ placeholder |
+| `routes/users.js` | DEAD | Generator stub — safe to delete |
+| `views/error.pug` | REAL | Still used by the error handler |
+| `routes/index.js`, `views/layout.pug`, `views/index.pug` | **[claude — see question above]** | Unreachable given static-first routing — deleted already, or still pending the Pug decision? |
 | `public/index.html` | PARTIAL | The actual app. Contains placeholder data — see below |
 | `public/stylesheets/style.css` | PARTIAL | Includes a verbatim copy of Bootstrap's default variables |
 | `public/javascripts/main.js` | PARTIAL | Budget-settings form works; other forms have no processing |
 | `public/javascripts/dates.js` | PARTIAL | 28-day branch works; monthly branch has a syntax bug |
 | `public/javascripts/interface.js` | REAL | Loaded as a classic script, so its functions are global |
-| `public/javascripts/fetch.js` | PARTIAL | Never loaded; wrong URL scheme; Sample data/ placeholder - due to be turned into a module |
-| `modules/database.js` | PARTIAL | Not imported by any route; credentials blank; sample data/ placeholder - due to be a module |
-| `modules/exampleMongoClient.js` | DEAD | Would throw on import; Sample data/ placeholder; Will be intergrated into database and the file deleted |
-| `modules/classes.js` | PARTIAL | Sample data/ placeholder - maps of data in existing MongoDB Atlas cluster | 
-| `docs/tasks.md` | REAL | To be superseded by GitHub Issues | Please can you review this, claude, and reflect on what can be added to the roadmap as tasks or future features?
+| `public/javascripts/fetch.js` | PARTIAL | Never loaded yet; wrong URL scheme. Destined to become the real fetch layer (roadmap #54), not deleted |
+| `modules/database.js` | PARTIAL | Not imported by any route yet; credentials blank. Destined to become the real DB module (roadmap #53) |
+| `modules/exampleMongoClient.js` | DEAD | Would throw on import. To be merged into `database.js`, then this file deleted |
+| `modules/classes.js` | PARTIAL | **Not just a sketch** — its shape maps to real documents already in the live Atlas cluster (`BudgetSpan`, `Paydate`, `Transaction`). See §5 and §6 — this changes the "derived vs stored" question |
+| `docs/tasks.md` | REAL | To be superseded by GitHub Issues. Reviewed 2026-09-18 — new items folded into `ROADMAP.md` (see chat) |
 
-### Placeholder data inside `public/index.html` **[checked]**
-None of the following is real; all of it should eventually be rendered from data. ✅
-
+### Placeholder data inside `public/index.html` — confirmed accurate ✅
 - The 12 paydate `<th>` columns (`mmm-dd` / `monthly`)
 - All 72 budget cells (`£0.00` in six category rows × twelve columns)
 - The income rows: Universal Credit, PIP, Advance 2026
@@ -77,106 +66,162 @@ None of the following is real; all of it should eventually be rendered from data
 
 ---
 
-## 4. Glossary **[claude to review]**
-
-Fill this in. Several of these terms are opaque from outside your spreadsheet, and getting
-them wrong would make any help I give you subtly incorrect.
+## 4. Glossary
 
 ### General Terms
 | Term | Means | Notes |
 |---|---|---|
-| Payday / paydate | Both are referring to the dates that income arrives in the account | Need to decide which one to use and if there is a difference. Claude's input welcomed |
-| Budget(s)/ Budget span | The collection of budgets configured in budget settings (The 6/12/18/24-month window) | Need to consider this wording and review as I would like to improve functionality around the display of transactions on the historical budgets and potentially save them as relics for data collection purposes (not currently easy to manage in the spreadsheet) |
-| Skip date(s) | A dropdown/ select to choose one or multiple paydays to miss a payment | Replaces Skip 1-6, 7-12 Confirmed 2026-09-17: a checkbox per payday *position* (1-12) within an item's stream. Checked = excluded from that occurrence's SUMIF. Position number is hidden in day-to-day view, underneath the frequency label |
-| "Deduct from" / "Display on Budget" | Which paydate stream (monthly or 28d) the item is charged against | "Deduct from" is the current app's wording because it's more compact; "Display on Budget" is the real spreadsheet's field name for the same thing. |
-| Display on ~now/ 'Add to now/ current' | A separate flag on recurring/one-off items: whether the item also surfaces in the real-time "Now" tracker | Now tracker is out of scope for the current 2-week goal |
-| Renewal date / month | date is the payment date and month is normally the month of the contract renewal (so not included for monthly payments) | Needs straightening out and possibly further delineation |
-| Next review date | This is primarily for income thats from the DWP as assessments are carried out intermittently and are subject to change at those points so it's good to keep an eye on when my next review is scheduled | |
-| 28d / four-weekly | | Want to use 28d as its more compact |
+| Payday / paydate | Both refer to the date income/an occurrence lands | **[claude]** Recommend splitting by audience rather than picking one: keep `paydate` in code/schema (matches existing `calculatePaydays`, `paydays` array — no churn), use "payday" in UI copy and conversation, since that's the more natural word for a person reading the screen |
+| Budget(s) / Budget span | The collection of budgets configured in settings (the 6/12/18/24-month window) | Wanting to keep old budgets as "relics" for historical data rather than overwriting them — **[claude]** added to roadmap as a Future item (E9); the `BudgetSpan.status` field already in `classes.js` (`"active"` vs presumably something else) was clearly built with exactly this in mind, so adopting that schema gets you most of the way there for free |
+| Skip date(s) | A control to choose one or more paydays to miss a payment | UI preference: a multi-select of upcoming paydays rather than a row of individual checkboxes. Underlying data stays the same — position-indexed (1..N within the item's stream), selected = excluded from that occurrence's sum. **[claude]** updated roadmap #28 to build the multi-select instead of inline checkboxes |
+| "Deduct from" / "Display on Budget" | Which paydate stream (monthly or 28d) the item is charged against | "Deduct from" — current app's shorter wording. "Display on Budget" — the spreadsheet's field name for the same thing |
+| Display on ~now / "Add to now/current" | A separate flag on recurring/one-off items: whether it also surfaces in the real-time "Now" tracker | Now tracker stays out of scope for the current goal |
+| Renewal date / month | Date = the day-of-month payment is taken. Month = which calendar month a longer, non-monthly contract renews in (not applicable to monthly items) | Resolved |
+| Next review date | For DWP income specifically — assessments happen intermittently and can change the amount, worth tracking when the next one's due | Resolved |
+| 28d / four-weekly | Same thing — "28d" is the term to standardise on, more compact | Resolved |
 
 ### Parent Categories
+**Five, final:** Income, Overheads, Essential, Discretionary, Loans & Debt.
 
 | Term | Means | Notes |
 |---|---|---|
-| Available balance | Surplus for that one payday's window only. No carry-forward — confirmed 2026-09-17. | Each column stands alone: income minus outgoings due before the next payday of the same stream |
-| Overheads | Things that have to go out that are committed/ fixed bills or you need irrelevant of income | vs Essential — dividing line is personal/visual sorting, not yet fixed; taxonomy will be user-editable later |
-| Essential | These are more flexible spends often with variable spend but still critical/ essential | Real spreadsheet uses singular "Essential", not "Essentials" - does it matter which one we use? |
-| Discretionary | Flexible spend that is ad-hoc and often has to be put aside if funds are limited - not essential | Some of the categories should be in essential but are stil frequently below my available funds |
-| Loans & Debt | Confirmed as the 5th parent category, replacing "Lending and Borrowing" | Children include "debt repayments" and "returned loans" |
-| ~Unknown | Dropped — confirmed 2026-09-17 as a relic from when the sheet also tracked raw Monzo transactions directly | Final parent set: Income, Overheads, Essential, Discretionary, Loans & Debt |
+| Available balance | Surplus for that one payday's window only. No carry-forward. | Each column stands alone: income minus outgoings due before the next payday of the same stream |
+| Overheads | Committed/fixed bills you owe regardless of income that period | vs Essential — dividing line below |
+| Essential | Flexible-*amount* spend that's still critical (varies week to week, but not optional) | **[claude]** "Essential" vs "Essentials" — doesn't matter functionally, it's just a label. The spreadsheet uses singular, so I'd keep that for consistency, but either works |
+| Discretionary | Ad-hoc, non-essential — the first thing put aside when funds are limited | Some categories conceptually feel Essential but get treated as Discretionary in practice, since they're what actually gets cut when money's tight — noted as a deliberate practical choice, not a modelling problem |
+| Loans & Debt | Confirmed final label (not "Lending and Borrowing") | Children: "debt repayments", "returned loans" (renamed from "lent in (+)") |
+| ~Unknown | Dropped — relic from when the sheet also tracked raw Monzo transactions directly | |
 
-### Payment Types
+### Payment Types — emerging, separate from Category
+**[claude]** This reads as a genuinely distinct dimension from Category, not a replacement for
+it: Category answers *what the spend is for* (for the budget roll-up); Payment Type answers
+*what your actual obligation is* (useful for exactly the "what can I cut if money's tight"
+question raised above). Proposed: a `payment_type` field on the Transaction shape in
+`classes.js`, alongside the existing `payment_direction` and `payment_frequency` fields.
+Values captured so far:
 
 | Term | Means | Notes |
 |---|---|---|
-| Pot allocation | A named Monzo pot (sub-account) money is deliberately moved into on payday — e.g. Transport, Subscriptions — confirmed 2026-09-17 | Child categories are being rebuilt around actual pots rather than the sheet's ~35 mostly-unused ones; full pot list still needed. Needs renaming to Allocation and should be a payment type - i think |
-| Contracted payment | Contracted payment is usually a DD, but more importantly is a contracted payment (obligation) until a fixed date, meaning the payments are due and can't be fully skipped - merely postponed | vs "Monthly payment" — what distinguishes them? |
-| Monthly payment | Usually a card payment but can be DD, not contractual and therefore can be completely skipped and won't be owed retrospectively unless the service is used | Can be cancelled at any time |
-| Advance repayment | An interest free loan from the DWP via Universal Credit. Deducted at source | Income category with a negative amount — a deduction at source? |
+| Allocation (was "Pot allocation") | Money moved into a named Monzo pot on payday | Renamed per your note. This is also effectively the Category-roll-up-equals-pot-transfer mechanism discussed earlier — may end up overlapping with Category rather than needing to be fully separate. Worth a closer look once the pot list is finalised |
+| Contracted payment | A DD-style obligation tied to a contract with a fixed end date. Can be postponed but not skipped without it still being owed | |
+| Monthly payment | Usually card, sometimes DD. No contract — can be cancelled any time, and skipping genuinely skips it (nothing owed retrospectively) | |
+| Advance repayment | An interest-free DWP loan via Universal Credit, deducted at source | This is income-side (a deduction from an income item), not an outgoing payment type in the same sense as the three above — worth deciding later whether it's the same field or a separate one. Not urgent |
 
 ---
 
-## 5. Data model **[you]** (see also `docs/DATA-MODEL.md`)
+## 5. Data model
 
-Paste one real example of each. Invented examples are fine; realistic ones are better.
+Drafted below from `modules/classes.js`, since that's real code you've already written — not
+guessed from scratch. Figures are invented; check the shapes, not the numbers.
 
 ```json
-// Budget settings as currently stored under localStorage key "budget"
-{ }
+// BudgetSpan — a stored budget instance
+{
+  "status": "active",
+  "label": "current",
+  "start": { "$date": "2026-06-30" },
+  "duration": { "$numberDecimal": "12" },
+  "last_updated": { "$date": "2026-09-17T10:00:00Z" },
+  "date_created": { "$date": "2026-06-01T10:00:00Z" }
+}
 
-// A recurring transaction
-{ }
+// Paydate — one occurrence, linked to a BudgetSpan
+{
+  "parent": "<BudgetSpan uuid>",
+  "position": 4,
+  "value": { "$date": "2026-09-22" },
+  "frequency": { "value": "28d", "day_count": 28 },
+  "date_updated": { "$date": "2026-09-17T10:00:00Z" },
+  "date_created": { "$date": "2026-06-01T10:00:00Z" }
+}
 
-// A one-off transaction
-{ }
+// Transaction — recurring example
+{
+  "label": "Council Tax",
+  "url": "",
+  "amount": { "$numberDecimal": "-27.00" },
+  "payment_direction": "out",
+  "payment_frequency": "monthly",
+  "payment_type": "contracted",
+  "category": "household-bills",
+  "date_info": {
+    "start_date": "2026-01-13",
+    "duration": null,
+    "renewal_date": 18,
+    "renewal_month": null,
+    "next_review": null
+  },
+  "include": true,
+  "last_updated": { "$date": "2026-09-17T10:00:00Z" },
+  "date_created": { "$date": "2026-01-01T10:00:00Z" }
+}
 
-// An income item
-{ }
+// Transaction — one-off example
+{
+  "label": "Dentist",
+  "url": "",
+  "amount": { "$numberDecimal": "-90.00" },
+  "payment_direction": "out",
+  "payment_frequency": "one-off",
+  "category": "healthcare",
+  "date_info": {
+    "planned_date": null,
+    "deadline": "2026-11-01",
+    "deadline_required": false
+  },
+  "include": true,
+  "last_updated": { "$date": "2026-09-17T10:00:00Z" },
+  "date_created": { "$date": "2026-09-17T10:00:00Z" }
+}
 ```
 
-### Category taxonomy — decision (2026-09-17)
-**Five parents, confirmed final:** Income, Overheads, Essential, Discretionary, Lending and
-Borrowing. `~Unknown` is dropped — a relic from when the sheet also tracked raw Monzo
-transactions, no longer relevant.
+`tasks.md` separately notes wanting "position (dates) and item sort (transactions)" as stored
+fields — the `Paydate.position` field above already covers the first, and the same idea
+applied to transactions (a `sort_order` field) would cover manual drag-sort later (roadmap #61).
 
-**Children are being rebuilt, not ported verbatim.** The sheet's ~35 child categories are more
-than Sam actually uses. The better structure: children aligned to actual Monzo pots (confirmed
-so far: Transport, Subscriptions — full list still needed), so that a category's roll-up total
-*is* the pot transfer amount. Today this is done by hand every payday — selecting cells in
-`_out_repeat` and reading Google Sheets' built-in selection-sum. Once categories map 1:1 to
-pots, the roll-up already planned for item 33 in the roadmap produces this number automatically
-— it's not new scope, just a reason to get the category list right before building it.
+### Category taxonomy — decision (2026-09-17, labels corrected 2026-09-18)
+**Five parents, final:** Income, Overheads, Essential, Discretionary, Loans & Debt. `~Unknown`
+dropped — a Monzo-import relic.
 
-**[you]: still needed** — full list of current Monzo pots, and whether non-pot spending
-(bought straight from main balance) should keep a handful of catch-all categories or be folded
-into the pot list too.
+**Children are being rebuilt around actual Monzo pots**, not ported verbatim from the sheet's
+~35 mostly-unused ones — full pot list still needed (Transport and Subscriptions confirmed so
+far). Once categories map 1:1 to pots, the roll-up already planned (roadmap #33) produces the
+payday transfer amounts automatically.
 
 Model as data (`{ id, label, parent, order, archived }`), not hardcoded `<select>` options,
 since user-editable categories are a planned later feature if this goes public.
 
-### Three separate tools (confirmed 2026-09-17)
+### Three separate tools
 Not one table with filters — three genuinely different things, matching three spreadsheet tabs:
 1. **Recurring** (`_out_repeat`) — ongoing payments, per-item stream assignment ("Display on
-   Budget": monthly or 28d), a skip mechanism **[open — see Glossary]**, first/last payment
-   dates, billing day/month, notes.
+   Budget": monthly or 28d), position-indexed skip, first/last payment dates, billing day/month,
+   notes.
 2. **One-off** (`_out_once`) — single payments, grouped under free-text section headers
    ("Debt", "NEXT") separate from Category, each assigned a specific date in one stream.
-3. **Now** — a real-time account-balance + "can I afford this today" tracker. This is the
-   README's noted future feature and is explicitly **out of scope** for the current budget-maths
-   goal.
+3. **Now** — a real-time account-balance + "can I afford this today" tracker. Out of scope for
+   the current budget-maths goal.
 
 ---
 
 ## 6. Open decisions
 
-Keep as one-paragraph ADRs in `docs/decisions/`. Currently open:
+Keep as one-paragraph ADRs in `docs/decisions/`.
 
-1. Static HTML + JSON API, or server-rendered Pug?
-2. Mongo Atlas, SQLite, or no database yet?
-3. Are paydates derived from settings, or stored as records?
-4. Does "skip" mean cancel or defer?
-5. Desktop strategy for the 26-column table: scroll all, or window with prev/next?
-6. **[you]** Will this ever be used on a second device, or from outside your home network?
+**Still open:**
+1. Static HTML + JSON API, or server-rendered Pug? — pending your answer above
+2. **Are paydates derived or stored?** Reopened 2026-09-18 — `classes.js`'s `BudgetSpan`/
+   `Paydate` design already exists and, per your note, maps to real documents already sitting
+   in the live Atlas cluster. **[claude — need to know]**: is that real, meaningful data worth
+   keeping, or just early test/scratch data that's fine to wipe and rebuild clean? That answer
+   decides whether this is "adopt what's already there" or "still a genuinely open choice."
+3. Desktop strategy for the 26-column table: scroll all, or window with prev/next? — not urgent,
+   this is CSS-refactor-stage work (E6)
+4. **[you]** Will this ever be used on a second device, or from outside your home network? — not
+   urgent, affects auth/deployment (E8) much later
+
+**Resolved:**
+- Database: staying with Mongo Atlas
+- Skip semantics: excludes that specific occurrence entirely, not a defer/reschedule
 
 ---
 
@@ -187,7 +232,7 @@ Keep as one-paragraph ADRs in `docs/decisions/`. Currently open:
 - The Categories tab in Budget Settings does nothing (`#categories` vs `id="categorySettings"`)
 - `console.errer` typo inside the onload error handler
 - `getElementsByTagName("checkboxes")` always returns empty (no such element)
-- Choosing `N/A` for the second paydate frequency throws
+- Choosing `N/A` (or `weekly`) for a paydate frequency throws
 - Table row hover colour never applies (`--bsTable-hover-bg` should be `--bs-table-hover-bg`)
 - Every `justify-content-space-between` class is a no-op (should be `justify-content-between`)
 - Duplicate element id `incomeAmountInput` across two modals
@@ -195,12 +240,12 @@ Keep as one-paragraph ADRs in `docs/decisions/`. Currently open:
 
 ---
 
-## 8. Conventions **[you]**
+## 8. Conventions
 
 - IDs: `camelCase`
 - Classes: `kebab-case`
-- Files: `[you]`
-- Commits: `[you]` — Conventional Commits (`fix:`, `feat:`, `refactor:`) works well with
+- Files: **[you]**
+- Commits: **[you]** — Conventional Commits (`fix:`, `feat:`, `refactor:`) works well with
   GitHub Projects automation
 - Branches: `<issue-number>-short-description`
 - Indentation, quotes, semicolons: let Prettier decide and stop thinking about it
