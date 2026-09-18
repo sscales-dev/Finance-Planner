@@ -30,7 +30,7 @@ npm run dev
 # then open http://localhost:3000
 ```
 
-**[check]** `GET /` is served by `express.static` from `public/index.html`, not by the Express
+**[fixed]** `GET /` is served by `express.static` from `public/index.html`, not by the Express
 router, because `app.use(express.static(...))` is registered before `app.use('/', indexRouter)`
 in `app.js`. That means `views/index.pug` is currently unreachable.
 
@@ -47,27 +47,24 @@ from a convincing placeholder.
 - **PLACEHOLDER** — looks like a feature, is actually hardcoded sample data
 - **DEAD** — not loaded, not called, or would crash if it were
 
-| File | Status **[check]** | Note |
+| File | Status **[checked]** | Note |
 |---|---|---|
-| `app.js` | REAL | Static middleware precedes the router — see §2 |
+| `app.js` | REAL | Working | Response: Fixed
 | `bin/www` | REAL | Standard generator output |
-| `routes/index.js` | DEAD | Renders Pug that is never reached |
-| `routes/users.js` | DEAD | Generator stub |
-| `views/layout.pug`, `views/index.pug` | DEAD | See above |
-| `views/error.pug` | REAL | Still used by the error handler |
+| `routes/users.js` | DEAD |Sample data/ placeholder |
 | `public/index.html` | PARTIAL | The actual app. Contains placeholder data — see below |
 | `public/stylesheets/style.css` | PARTIAL | Includes a verbatim copy of Bootstrap's default variables |
 | `public/javascripts/main.js` | PARTIAL | Budget-settings form works; other forms have no processing |
 | `public/javascripts/dates.js` | PARTIAL | 28-day branch works; monthly branch has a syntax bug |
 | `public/javascripts/interface.js` | REAL | Loaded as a classic script, so its functions are global |
-| `public/javascripts/fetch.js` | DEAD | Never loaded; wrong URL scheme |
-| `modules/database.js` | DEAD | Not imported by any route; credentials blank |
-| `modules/exampleMongoClient.js` | DEAD | Would throw on import |
-| `modules/classes.js` | DEAD | Exports commented out; not imported |
-| `docs/tasks.md` | REAL | To be superseded by GitHub Issues |
+| `public/javascripts/fetch.js` | PARTIAL | Never loaded; wrong URL scheme; Sample data/ placeholder - due to be turned into a module |
+| `modules/database.js` | PARTIAL | Not imported by any route; credentials blank; sample data/ placeholder - due to be a module |
+| `modules/exampleMongoClient.js` | DEAD | Would throw on import; Sample data/ placeholder; Will be intergrated into database and the file deleted |
+| `modules/classes.js` | PARTIAL | Sample data/ placeholder - maps of data in existing MongoDB Atlas cluster | 
+| `docs/tasks.md` | REAL | To be superseded by GitHub Issues | Please can you review this, claude, and reflect on what can be added to the roadmap as tasks or future features?
 
-### Placeholder data inside `public/index.html` **[check]**
-None of the following is real; all of it should eventually be rendered from data.
+### Placeholder data inside `public/index.html` **[checked]**
+None of the following is real; all of it should eventually be rendered from data. ✅
 
 - The 12 paydate `<th>` columns (`mmm-dd` / `monthly`)
 - All 72 budget cells (`£0.00` in six category rows × twelve columns)
@@ -80,31 +77,42 @@ None of the following is real; all of it should eventually be rendered from data
 
 ---
 
-## 4. Glossary **[you]**
+## 4. Glossary **[claude to review]**
 
 Fill this in. Several of these terms are opaque from outside your spreadsheet, and getting
 them wrong would make any help I give you subtly incorrect.
 
+### General Terms
 | Term | Means | Notes |
 |---|---|---|
-| Payday / paydate | | Are these the same thing in your head? |
-| Budget span | | The 6/12/18/24-month window? |
+| Payday / paydate | Both are referring to the dates that income arrives in the account | Need to decide which one to use and if there is a difference. Claude's input welcomed |
+| Budget(s)/ Budget span | The collection of budgets configured in budget settings (The 6/12/18/24-month window) | Need to consider this wording and review as I would like to improve functionality around the display of transactions on the historical budgets and potentially save them as relics for data collection purposes (not currently easy to manage in the spreadsheet) |
+| Skip date(s) | A dropdown/ select to choose one or multiple paydays to miss a payment | Replaces Skip 1-6, 7-12 Confirmed 2026-09-17: a checkbox per payday *position* (1-12) within an item's stream. Checked = excluded from that occurrence's SUMIF. Position number is hidden in day-to-day view, underneath the frequency label |
+| "Deduct from" / "Display on Budget" | Which paydate stream (monthly or 28d) the item is charged against | "Deduct from" is the current app's wording because it's more compact; "Display on Budget" is the real spreadsheet's field name for the same thing. |
+| Display on ~now/ 'Add to now/ current' | A separate flag on recurring/one-off items: whether the item also surfaces in the real-time "Now" tracker | Now tracker is out of scope for the current 2-week goal |
+| Renewal date / month | date is the payment date and month is normally the month of the contract renewal (so not included for monthly payments) | Needs straightening out and possibly further delineation |
+| Next review date | This is primarily for income thats from the DWP as assessments are carried out intermittently and are subject to change at those points so it's good to keep an eye on when my next review is scheduled | |
+| 28d / four-weekly | | Want to use 28d as its more compact |
+
+### Parent Categories
+
+| Term | Means | Notes |
+|---|---|---|
 | Available balance | Surplus for that one payday's window only. No carry-forward — confirmed 2026-09-17. | Each column stands alone: income minus outgoings due before the next payday of the same stream |
-| Overheads | | vs Essential — dividing line is personal/visual sorting, not yet fixed; taxonomy will be user-editable later |
-| Essential | | Real spreadsheet uses singular "Essential", not "Essentials" |
-| Discretionary | | |
-| Lending and Borrowing | Confirmed as the 5th parent category, replacing "Loans & Debt" | Children include "debt repayments" and "lent in (+)" (positive-direction: money owed back to Sam) |
-| ~Unknown | Dropped — confirmed 2026-09-17 as a relic from when the sheet also tracked raw Monzo transactions directly | Final parent set: Income, Overheads, Essential, Discretionary, Lending and Borrowing |
-| Pot allocation | A named Monzo pot (sub-account) money is deliberately moved into on payday — e.g. Transport, Subscriptions — confirmed 2026-09-17 | Child categories are being rebuilt around actual pots rather than the sheet's ~35 mostly-unused ones; full pot list still needed |
-| Contracted payment | | vs "Monthly payment" — what distinguishes them? |
-| Monthly payment | | |
-| Advance repayment | | Income category with a negative amount — a deduction at source? |
-| Skip date / Skip 1-6, 7-12 | Confirmed 2026-09-17: a checkbox per payday *position* (1-12) within an item's stream. Checked = excluded from that occurrence's SUMIF. Position number is hidden in day-to-day view, underneath the frequency label | Not a date at all — position-based, not calendar-based |
-| "Deduct from" / "Display on Budget" | Which paydate stream (monthly or 28d) the item is charged against | "Deduct from" is the current app's wording; "Display on Budget" is the real spreadsheet's field name for the same thing |
-| Display on ~now | A separate flag on recurring/one-off items: whether the item also surfaces in the real-time "Now" tracker | Now tracker is out of scope for the current 2-week goal |
-| Renewal date / month | | Billing anniversary vs contract renewal? |
-| Next review date | | |
-| 28d / four-weekly | | Same thing, two names in the code |
+| Overheads | Things that have to go out that are committed/ fixed bills or you need irrelevant of income | vs Essential — dividing line is personal/visual sorting, not yet fixed; taxonomy will be user-editable later |
+| Essential | These are more flexible spends often with variable spend but still critical/ essential | Real spreadsheet uses singular "Essential", not "Essentials" - does it matter which one we use? |
+| Discretionary | Flexible spend that is ad-hoc and often has to be put aside if funds are limited - not essential | Some of the categories should be in essential but are stil frequently below my available funds |
+| Loans & Debt | Confirmed as the 5th parent category, replacing "Lending and Borrowing" | Children include "debt repayments" and "returned loans" |
+| ~Unknown | Dropped — confirmed 2026-09-17 as a relic from when the sheet also tracked raw Monzo transactions directly | Final parent set: Income, Overheads, Essential, Discretionary, Loans & Debt |
+
+### Payment Types
+
+| Term | Means | Notes |
+|---|---|---|
+| Pot allocation | A named Monzo pot (sub-account) money is deliberately moved into on payday — e.g. Transport, Subscriptions — confirmed 2026-09-17 | Child categories are being rebuilt around actual pots rather than the sheet's ~35 mostly-unused ones; full pot list still needed. Needs renaming to Allocation and should be a payment type - i think |
+| Contracted payment | Contracted payment is usually a DD, but more importantly is a contracted payment (obligation) until a fixed date, meaning the payments are due and can't be fully skipped - merely postponed | vs "Monthly payment" — what distinguishes them? |
+| Monthly payment | Usually a card payment but can be DD, not contractual and therefore can be completely skipped and won't be owed retrospectively unless the service is used | Can be cancelled at any time |
+| Advance repayment | An interest free loan from the DWP via Universal Credit. Deducted at source | Income category with a negative amount — a deduction at source? |
 
 ---
 
