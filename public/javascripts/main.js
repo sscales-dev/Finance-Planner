@@ -125,9 +125,9 @@ function loadBudgetSettingsToFormDefaults() {
 
 async function addNewPaydateElements(paydaysArray) {
   if (!paydaysArray) {
-    throw Error ("Add New Paydate Elements: no paydays array passed");
+    throw Error("Add New Paydate Elements: no paydays array passed");
 
-  } 
+  }
   //console.log(paydaysArray)
 
   const paydateRow = document.getElementById('paydateRow')
@@ -241,7 +241,7 @@ async function setBudgetDatesAndFrequencies() {
   let freq
 
   if (!paydaysArray) {
-    throw Error ("Set Budget Dates and Frequencies function: no paydays array in budget settings object!")
+    throw Error("Set Budget Dates and Frequencies function: no paydays array in budget settings object!")
   }
 
   try {
