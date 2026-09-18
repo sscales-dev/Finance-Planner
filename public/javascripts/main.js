@@ -124,14 +124,18 @@ function loadBudgetSettingsToFormDefaults() {
  */
 
 async function addNewPaydateElements(paydaysArray) {
-  // console.log(paydaysArray)
+  if (!paydaysArray) {
+    throw Error ("Add New Paydate Elements: no paydays array passed");
+
+  } 
+  //console.log(paydaysArray)
 
   const paydateRow = document.getElementById('paydateRow')
   const paydateTableHeaders = paydateRow.children
 
   const rowNames = ['availableBalance', 'income', 'overheads', 'essentials', 'discretionary', 'loansAndDebt']
 
-  // console.log(paydateTableHeaders.length - 1)
+  //console.log(paydateTableHeaders.length - 1)
 
   const paydateSpans = document.getElementsByClassName('paydate')
   const frequencySpans = document.getElementsByClassName('paydate-frequency')
@@ -235,6 +239,10 @@ async function setBudgetDatesAndFrequencies() {
 
   let date
   let freq
+
+  if (!paydaysArray) {
+    throw Error ("Set Budget Dates and Frequencies function: no paydays array in budget settings object!")
+  }
 
   try {
     await addNewPaydateElements(paydaysArray);
@@ -378,14 +386,14 @@ async function processFormValues(formId) {
       try {
         datesArray = await getPaydaysArray()
 
+        budget.dates_array = datesArray
+
       } catch (err) {
         console.error("Problen compiling dates array", err);
 
       }
 
-      budget.dates_array = datesArray
-
-      if (dateValuesArray.length !== 2 || freqValuesArray.length !== 3) {
+      if (dateValuesArray.length !== 2 || freqValuesArray.length !== 3 || !datesArray) {
         console.error("Error with pulling all values from settings form")
 
       }
@@ -498,8 +506,6 @@ function addEventListenersToModals() {
       form.classList.remove('was-validated')
       form.classList.add('needs-validation')
 
-      unfocusActiveButtons(saveBtn)
-
       return modal.hide()
 
     } catch (err) {
@@ -590,7 +596,7 @@ function addEventListenersToModals() {
     setBudgetDatesAndFrequencies()
 
   } catch (err) {
-    console.errer(err); // throw modal to prompt user to enter budget settings
+    console.error(err); // throw modal to prompt user to enter budget settings
 
   }
 })()
