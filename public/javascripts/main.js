@@ -299,12 +299,15 @@ async function formElementValuesToArray(elementsArray) {
  * Pulls input, select and checkbox elements from provided form and passes them to formElementValuesToArray
  * Returns Object containing inputs, selects and checkboxes arrays (provided by formElementValuesToArray)
  * 
+ * 
+ * @task Need to build in separation of different input types (checkboxes vs text)
+ * @task add error checking
  */
 
 async function getFormInputValuesObject(form) {
   const inputs = form.getElementsByTagName("input");
   const selects = form.getElementsByTagName("select");
-  const checkboxes = form.getElementsByTagName("checkboxes");
+  //const checkboxes = form.getElementsByTagName("checkboxes");
 
   const object = {}
 
@@ -314,11 +317,11 @@ async function getFormInputValuesObject(form) {
 
   const inputValues = await formElementValuesToArray(inputs)
   const selectValues = await formElementValuesToArray(selects)
-  const checkboxValues = await formElementValuesToArray(checkboxes)
+  //const checkboxValues = await formElementValuesToArray(checkboxes)
 
   object.inputs = inputValues
   object.selects = selectValues
-  object.checkboxes = checkboxValues
+  //object.checkboxes = checkboxValues
 
   return object
 }
@@ -564,6 +567,18 @@ function addEventListenersToModals() {
 
   return;
 
+}
+
+
+/** Add Event Listeners to Buttons
+ * 
+ * Finds all Save Form Btns and adds functionality to process forms
+ * 
+ * @task move functionality from addEventListenersToModals
+ * 
+ */
+function addEventListenersToButtons() {
+  const saveButtons = document.getElementsByClassName('saveFormBtn')
 }
 
 //------------------------------------------------------------------------------ Onload Function
