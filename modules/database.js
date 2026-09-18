@@ -4,10 +4,11 @@ const { MongoClient } = require('mongodb');
 
 // ---------------------------------------------------------------------------- LOGIN DETAILS
 
-const username = '';
-const password = '';
+const uri = process.env.MONGODB_URI;
 
-const uri = `mongodb+srv://${username}:${password}@financial-planner-app.vvbstzd.mongodb.net/?appName=financial-planner-app`;
+if (!uri) {
+  throw new Error('MONGODB_URI is not set — check your .env file');
+}
 
 // ---------------------------------------------------------------------------- COLLECTIONS
 
