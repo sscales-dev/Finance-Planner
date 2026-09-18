@@ -18,6 +18,7 @@
     > if category === subscriptions
         > renewal date +/ month should be required
 - [ ] Add functionailty to factor in budget duration in calculate paydays etc
+- [ ] Add onclick on navtabs to switch between last updated times depending on tab in budget settings
 - [ ] Add login option/ modal etc
 
 ---

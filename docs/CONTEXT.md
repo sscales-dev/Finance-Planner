@@ -23,7 +23,10 @@ own words. That paragraph is the thing that should settle future feature argumen
 
 ```bash
 npm install
-npm run dev          # or: set DEBUG=finance-planner:* & npm start
+npm run dev          
+
+# or: set DEBUG=finance-planner:* & npm start
+
 # then open http://localhost:3000
 ```
 
