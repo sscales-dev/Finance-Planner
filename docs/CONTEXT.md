@@ -18,14 +18,9 @@ npm run dev
 # then open http://localhost:3000
 ```
 
-`GET /` is served by `express.static` from `public/index.html`, not by the Express router,
-because `app.use(express.static(...))` is registered before `app.use('/', indexRouter)` in
-`app.js`. That means `views/index.pug` is currently unreachable.
-
-**[claude — needs your confirmation]** You tagged this `[fixed]` rather than `[checked]`. Two
-readings: (a) you're confirming my read is accurate, or (b) you've actually deleted the Pug
-views / dead routes already, acting on the static-HTML direction. Which is it? It decides
-whether issue #1 (the ADR) is still open or already done.
+`GET /` is served by `express.static` from `public/index.html`. Per `001-templating.md`,
+static HTML + JSON API is the decided direction — `views/*.pug` and `routes/index.js` are
+deleted, and `pug` is uninstalled from `package.json`. Fully closed.
 
 ---
 
@@ -42,15 +37,15 @@ whether issue #1 (the ADR) is still open or already done.
 | `bin/www` | REAL | Standard generator output |
 | `routes/users.js` | DEAD | Generator stub — safe to delete |
 | `views/error.pug` | REAL | Still used by the error handler |
-| `routes/index.js`, `views/layout.pug`, `views/index.pug` | **[claude — see question above]** | Unreachable given static-first routing — deleted already, or still pending the Pug decision? |
+| `routes/index.js`, `views/layout.pug`, `views/index.pug` | DELETED | Removed per `001-templating.md`; `pug` uninstalled |
 | `public/index.html` | PARTIAL | The actual app. Contains placeholder data — see below |
 | `public/stylesheets/style.css` | PARTIAL | Includes a verbatim copy of Bootstrap's default variables |
 | `public/javascripts/main.js` | PARTIAL | Budget-settings form works; other forms have no processing |
 | `public/javascripts/dates.js` | PARTIAL | 28-day branch works; monthly branch has a syntax bug |
 | `public/javascripts/interface.js` | REAL | Loaded as a classic script, so its functions are global |
 | `public/javascripts/fetch.js` | PARTIAL | Never loaded yet; wrong URL scheme. Destined to become the real fetch layer (roadmap #54), not deleted |
-| `modules/database.js` | PARTIAL | Not imported by any route yet; credentials blank. Destined to become the real DB module (roadmap #53) |
-| `modules/exampleMongoClient.js` | DEAD | Would throw on import. To be merged into `database.js`, then this file deleted |
+| `modules/database.js` | PARTIAL | Reads `process.env.MONGODB_URI` with a startup guard — credentials work is done. Not yet imported by any route (roadmap #53) |
+| `modules/exampleMongoClient.js` | PARTIAL | Also updated to read `process.env.MONGODB_URI`. Still due to be merged into `database.js`, then deleted |
 | `modules/classes.js` | PARTIAL | **Not just a sketch** — its shape maps to real documents already in the live Atlas cluster (`BudgetSpan`, `Paydate`, `Transaction`). See §5 and §6 — this changes the "derived vs stored" question |
 | `docs/tasks.md` | REAL | To be superseded by GitHub Issues. Reviewed 2026-09-18 — new items folded into `ROADMAP.md` (see chat) |
 
@@ -208,19 +203,17 @@ Not one table with filters — three genuinely different things, matching three 
 Keep as one-paragraph ADRs in `docs/decisions/`.
 
 **Still open:**
-1. Static HTML + JSON API, or server-rendered Pug? — pending your answer above
-2. **Are paydates derived or stored?** Reopened 2026-09-18 — `classes.js`'s `BudgetSpan`/
-   `Paydate` design already exists and, per your note, maps to real documents already sitting
-   in the live Atlas cluster. **[claude — need to know]**: is that real, meaningful data worth
-   keeping, or just early test/scratch data that's fine to wipe and rebuild clean? That answer
-   decides whether this is "adopt what's already there" or "still a genuinely open choice."
-3. Desktop strategy for the 26-column table: scroll all, or window with prev/next? — not urgent,
+1. Desktop strategy for the 26-column table: scroll all, or window with prev/next? — not urgent,
    this is CSS-refactor-stage work (E6)
-4. **[you]** Will this ever be used on a second device, or from outside your home network? — not
+2. **[you]** Will this ever be used on a second device, or from outside your home network? — not
    urgent, affects auth/deployment (E8) much later
 
 **Resolved:**
-- Database: staying with Mongo Atlas
+- Templating: static HTML + JSON API (`001-templating.md`, 2026-09-18)
+- Database: staying with Mongo Atlas (`002-database.md`, 2026-09-17)
+- Credentials: moved to `cred/.env`, read via `process.env` (2026-09-18)
+- Paydates: derived from settings for the active budget; stored only as a frozen snapshot when
+  a budget is archived (2026-09-18)
 - Skip semantics: excludes that specific occurrence entirely, not a defer/reschedule
 
 ---

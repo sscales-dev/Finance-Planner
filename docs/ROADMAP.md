@@ -143,21 +143,20 @@ Titles are written so you can paste them straight in. Labels in brackets.
 
 ### Sprint 1 — clear the ground
 
-1. **ADR: static HTML + JSON API, or server-rendered Pug?** `[type:spike, needs-decision, area:html]` `S` `P0`
-   Done when `docs/decisions/001-templating.md` exists and the losing option's files are deleted.
-   *Context: `express.static` is registered before the router, so `GET /` already serves
-   `public/index.html` and `views/index.pug` is unreachable. Right now Pug is dead code.*
+1. ~~**ADR: static HTML + JSON API, or server-rendered Pug?**~~ **DONE 2026-09-18** — decided
+   static HTML + JSON API. `001-templating.md` gives good reasoning: avoids learning a new
+   templating engine, practices vanilla JS/async, and matches Mongo's JSON-native shape.
+   `views/*.pug` and `routes/index.js` deleted, `pug` uninstalled. Fully closed.
 
-2. **ADR: database choice (Mongo Atlas vs SQLite vs none yet)** `[type:spike, needs-decision, area:db]` `S` `P0`
-   Done when `docs/decisions/002-database.md` exists with the tradeoffs you actually care about.
+2. ~~**ADR: database choice (Mongo Atlas vs SQLite vs none yet)**~~ **DONE 2026-09-17** — Mongo
+   Atlas confirmed, `002-database.md` written.
 
-3. **Move DB credentials to environment variables** `[type:chore, area:server]` `S` `P1`
-   Done when `modules/database.js` reads `process.env`, a `.env.example` is committed, `.env`
-   is gitignored, and no credential exists in any tracked or untracked source file.
-   *Node 20.6+ can load it natively: `node --env-file=.env ./bin/www`.* Downgraded from P0:
-   `tasks.md`'s COMPLETED list shows credentials were already moved to a gitignored `cred`
-   folder and the DB password already rotated. `.env` is still worth doing for the standard
-   `process.env` pattern, but the exposure risk is already handled.
+3. ~~**Move DB credentials to environment variables**~~ **DONE 2026-09-18** — `database.js` and
+   `exampleMongoClient.js` both read `process.env.MONGODB_URI` with a startup guard if it's
+   missing, `.env` lives at `cred/.env` and is gitignored. Exactly the pattern planned. Two
+   small leftovers, no urgency: the unused hardcoded `docs` array inside
+   `insertMultipleDocuments` (still item #10), and merging `exampleMongoClient.js` into
+   `database.js` before deleting it (also #10).
 
 4. **Fix invalid template literal in monthly payday calculation** `[type:bug, area:dates]` `XS` `P0`
    `public/javascripts/dates.js` builds `` new Date(`${year}-"${monthNum}-...`) `` with a stray
@@ -209,11 +208,12 @@ Titles are written so you can paste them straight in. Labels in brackets.
     field (Allocation / Contracted / Monthly, from the 2026-09-18 glossary discussion).
 
 13. **Decide: are paydates derived or stored?** `[type:spike, needs-decision, area:dates]` `S` `P0`
-    Reopened 2026-09-18: `classes.js`'s `BudgetSpan`/`Paydate` design already exists and,
-    per Sam, maps to real documents already sitting in the live Atlas cluster (`database.js`'s
-    `getCurrentBudget()` queries exactly this shape). Whether real, worth-keeping data already
-    lives there changes this from "avoid an unneeded sync problem" to "adopt what's already
-    built" — needs Sam to confirm how much is actually in that collection before deciding.
+    **RESOLVED 2026-09-18:** derive the active budget's paydates from settings via
+    `calculatePaydays` (no sync problem, matches `dates.js` as built). Store a frozen snapshot
+    only when a budget span is archived as a "relic" (E9, #66) — that's the one point where
+    preserving exactly what was true at the time (including that payday's skips) genuinely
+    needs storage rather than a live recalculation. `classes.js`'s `Paydate` class becomes the
+    shape for that snapshot, not a live-synced parallel structure.
 
 14. **Define skip-date semantics** `[type:docs, needs-decision]` `XS` `P1`
     Does "skip" mean *don't charge this instance* or *move it to the next payday*? The answer
@@ -255,11 +255,12 @@ Titles are written so you can paste them straight in. Labels in brackets.
 
 22. **Fix inline `onclick` handler calling a module-scoped function** `[type:bug, area:js]` `S` `P0`
     `unfocusActiveButtons` is defined inside `main.js`, which loads as `type="module"`, so
-    every `onclick="unfocusActiveButtons()"` in the HTML throws a ReferenceError. Per your own
-    earlier plan in `tasks.md`: move the function to `interface.js` instead (already a classic
-    script, already the home of the other working `onclick` handlers) and keep the `onclick`
-    attributes as-is — less churn than switching everything to `addEventListener`, and matches
-    the pattern already working elsewhere.
+    every `onclick="unfocusActiveButtons()"` in the HTML throws a ReferenceError. **Final call,
+    2026-09-18:** consolidate into `main.js`, remove inline `onclick` from the HTML entirely,
+    and build an `addEventListeners` function that wires everything up programmatically.
+    `interface.js`'s functionality moves into `main.js` too — no separate home for it; other
+    pieces may get split into their own modules later, decided as it becomes obvious rather
+    than upfront.
 
 23. **Fix the one-off category select** `[type:bug, area:forms]` `XS` `P1`
     Its options are dates (`2027-1-13`) rather than categories.
@@ -397,7 +398,13 @@ Titles are written so you can paste them straight in. Labels in brackets.
 
 51. **Define the API surface** `[type:docs, area:server]` `S` `P1`
     e.g. `GET/PUT /api/settings`, `GET/POST /api/transactions`,
-    `PATCH/DELETE /api/transactions/:id`. Write it down before coding it.
+    `PATCH/DELETE /api/transactions/:id`. Write it down before coding it. This is also where
+    budget settings and the category list move from localStorage/a config file into Mongo —
+    `budgets` collection already exists in design (`BudgetSpan`), add a `categories`
+    collection alongside it. **Future-proofing tip, low cost now:** give every document in
+    every collection a `userId` field from day one, even hardcoded to one value while you're
+    the only user. That single field is what actually saves a painful migration if this ever
+    goes multi-user — far more valuable than getting the collection layout perfect upfront.
 
 52. **Server-side validation of every payload** `[type:feature, area:server]` `M` `P1`
     Client-side `required` attributes are UX, not security.
