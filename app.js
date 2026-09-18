@@ -1,49 +1,39 @@
-var createError = require('http-errors');
-var express = require('express');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const apiRouter = require('./routes/api');
 
-var logger = require('morgan');
+const app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-app.set('title', 'Financial Planner')
-
-//If you don't want to use layouts you can disable them globally: http://expressjs.com/guide.html#view-rendering
-/*app.set('view options', {
-  layout: false
-});*/
-
+// 1. Logging – first, so every request is logged (static files included)
 app.use(logger('dev'));
+
+// 2. Parsing – before any route that reads req.body or req.cookies
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// 3. Static front end – serves public/index.html, CSS, JS, images
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// 4. JSON API – everything data-related lives under /api
+app.use('/api', apiRouter);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
+// 5. 404 – only reached if nothing above responded
+app.use((req, res, next) => {
   next(createError(404));
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// 6. Error handler – must be last, and must have 4 arguments
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const isDev = req.app.get('env') === 'development';
+  res.status(status).json({
+    error: err.message,
+    ...(isDev && { stack: err.stack })
+  });
 });
 
 module.exports = app;
