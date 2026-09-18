@@ -113,7 +113,7 @@ export async function calculatePaydays(start_date, freq) {
           let tempDate
 
           // Set the date to the last date + 1 month
-          tempDate = new Date(`${year}-"${monthNum}-${start.getDate()}`)
+          tempDate = new Date(`${year}-${monthNum}-${start.getDate()}`)
 
           let temp = await ifDateWeekend(tempDate)
 
