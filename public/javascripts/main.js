@@ -1,21 +1,5 @@
 import { getPaydaysArray } from './dates.js'
 
-//------------------------------------------------------------------------------ Buttons
-
-/** Unfocus Active Buttons
- * 
- * Blurs the active button to prevent it from being focused when the modal is closed.
- * 
- * @param {Element} btn
- * 
- */
-function unfocusActiveButtons(btn) {
-  const activeButton = btn;
-  if (activeButton) {
-    return activeButton.blur();
-  }
-}
-
 //------------------------------------------------------------------------------ Toasts
 
 /** Display Toast with message
