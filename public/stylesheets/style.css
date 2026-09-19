@@ -326,7 +326,7 @@ h1 {
 }
 
 table {
-  --bsTable-hover-bg: rgba(237, 236, 232, 0.4) !important;
+  --bs-table-hover-bg: rgba(237, 236, 232, 0.4) !important;
   /* parchment */
   border-left: 1px solid var(--alabaster-grey);
   border-right: 1px solid var(--alabaster-grey);
