@@ -1,11 +1,6 @@
-# CONTEXT.md
+# CONTEXT.md 
 
-Drop this in the repo root or `docs/`. Its job is to let anyone (or any AI) understand the
-project in two minutes without guessing.
-
-**[you]** One paragraph on what makes this different from every other budgeting app, in your
-own words — still open, no rush. That paragraph is the thing that should settle future feature
-arguments.
+Unlike other budgeting apps (i believe), this budgeting tool enables the user to create more than one budget at a time and to plan into the future (with a degree of forecasting). There is also more focus on entering planned expenses that are both recurring (bills) and one-time/ ad-hoc, meaning it is more representative of real spending.
 
 ---
 
@@ -100,7 +95,7 @@ Values captured so far:
 | Allocation (was "Pot allocation") | Money moved into a named Monzo pot on payday | Renamed per your note. This is also effectively the Category-roll-up-equals-pot-transfer mechanism discussed earlier — may end up overlapping with Category rather than needing to be fully separate. Worth a closer look once the pot list is finalised |
 | Contracted payment | A DD-style obligation tied to a contract with a fixed end date. Can be postponed but not skipped without it still being owed | |
 | Monthly payment | Usually card, sometimes DD. No contract — can be cancelled any time, and skipping genuinely skips it (nothing owed retrospectively) | |
-| Advance repayment | An interest-free DWP loan via Universal Credit, deducted at source | This is income-side (a deduction from an income item), not an outgoing payment type in the same sense as the three above — worth deciding later whether it's the same field or a separate one. Not urgent |
+| Advance repayment | An interest-free DWP loan via Universal Credit, deducted at source | This is income-side (a deduction from an income item), not an outgoing payment type in the same sense as the three above — worth deciding later whether it's the same field or a separate one. Going to remove as it's deducted at source. I only tracked it so I knew the renewal date so if it goes anywhere it goes under transactions without being displayed on the budget |
 
 ---
 
@@ -220,15 +215,15 @@ Keep as one-paragraph ADRs in `docs/decisions/`.
 
 ## 7. Known broken (as of this document)
 
-- Monthly payday generation throws — invalid template literal in `dates.js`
-- Every inline `onclick="unfocusActiveButtons()"` throws, because the function is module-scoped
-- The Categories tab in Budget Settings does nothing (`#categories` vs `id="categorySettings"`)
-- `console.errer` typo inside the onload error handler
-- `getElementsByTagName("checkboxes")` always returns empty (no such element)
-- Choosing `N/A` (or `weekly`) for a paydate frequency throws
-- Table row hover colour never applies (`--bsTable-hover-bg` should be `--bs-table-hover-bg`)
-- Every `justify-content-space-between` class is a no-op (should be `justify-content-between`)
-- Duplicate element id `incomeAmountInput` across two modals
+- Monthly payday generation throws — invalid template literal in `dates.js` **[fixed]**
+- Every inline `onclick="unfocusActiveButtons()"` throws, because the function is module-scoped **[fixed]**
+- The Categories tab in Budget Settings does nothing (`#categories` vs `id="categorySettings"`) **[fixed]**
+- `console.errer` typo inside the onload error handler **[fixed]**
+- `getElementsByTagName("checkboxes")` always returns empty (no such element) **[tempfix]**
+- Choosing `N/A` (or `weekly`) for a paydate frequency throws **[fixed]**
+- Table row hover colour never applies (`--bsTable-hover-bg` should be `--bs-table-hover-bg`) **[fixed]**
+- Every `justify-content-space-between` class is a no-op (should be `justify-content-between`) **[fixed]**
+- Duplicate element id `incomeAmountInput` across two modals **[fixed]** 
 - No favicon links in `<head>`; `site.webmanifest` has empty `name` fields
 
 ---
